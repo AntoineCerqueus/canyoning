@@ -60,6 +60,11 @@ class Canyon
     private $location;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $meetingPoint;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $gps;
@@ -200,6 +205,18 @@ class Canyon
     public function setLocation(string $location): self
     {
         $this->location = $location;
+
+        return $this;
+    }
+
+    public function getMeetingPoint(): ?string
+    {
+        return $this->meetingPoint;
+    }
+
+    public function setMeetingPoint(string $meetingPoint): self
+    {
+        $this->meetingPoint = $meetingPoint;
 
         return $this;
     }

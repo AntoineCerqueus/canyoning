@@ -1,3 +1,7 @@
 body {
-    background-color: pink;
+    background: no-repeat linear-gradient(#01A0F4 50%, #0159AF 80%, #000000);
+    color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    
 }

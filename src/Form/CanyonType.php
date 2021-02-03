@@ -20,6 +20,7 @@ class CanyonType extends AbstractType
             ->add('halfDay')
             ->add('fullDay')
             ->add('location')
+            ->add('meetingPoint')
             ->add('gps')
             ->add('abseiling')
             ->add('knowledge')
