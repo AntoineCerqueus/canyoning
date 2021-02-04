@@ -80,7 +80,7 @@ class Canyon
     private $knowledge;
 
     /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon")
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist", "remove"})
      */
     private $pictures;
 
@@ -265,12 +265,24 @@ class Canyon
         return $this->pictures;
     }
 
-    public function addPicture(Picture $picture): self
+    // public function addPicture(Picture $picture): self
+    // {
+    //     if (!$this->pictures->contains($picture)) {
+    //         $this->pictures[] = $picture;
+    //         $picture->setCanyon($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    public function setPictures(Picture $picture): self
     {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
+        // set the owning side of the relation if necessary
+        if ($picture->getCanyon() !== $this) {
             $picture->setCanyon($this);
         }
+
+        $this->picture = $picture;
 
         return $this;
     }
@@ -375,5 +387,11 @@ class Canyon
         }
 
         return $this;
+    }
+
+    // A affecter sur la première ligne 
+    public function __toString()
+    {
+        return $this->name;
     }
 }

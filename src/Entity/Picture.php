@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTimeImmutable;
 use App\Repository\PictureRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -22,15 +23,17 @@ class Picture
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $path;
-
      /**
-     * @Vich\UploadableField(mapping="path", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="picture_path", fileNameProperty="path")
+     * @var File|null
      */
     private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var File|null
+     */
+    private $path;
 
     /**
      * @ORM\Column(type="datetime")
@@ -55,6 +58,18 @@ class Picture
     public function setPath(string $path): self
     {
         $this->path = $path;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

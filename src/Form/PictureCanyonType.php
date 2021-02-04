@@ -8,14 +8,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class PictureType extends AbstractType
+class PictureCanyonType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('path')
-            ->add('updatedAt')
-            ->add('canyon')
             ->add('imageFile',VichImageType::class, [
                 'required' => false,
                 'download_uri' => true,

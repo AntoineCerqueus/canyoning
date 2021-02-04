@@ -33,8 +33,16 @@ class CanyonController extends AbstractController
         $canyon = new Canyon();
         $form = $this->createForm(CanyonType::class, $canyon);
         $form->handleRequest($request);
+       
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $canyonPictures = $canyon->getPictures();
+            // $key corresponds à l'index du tableau
+            foreach ($canyonPictures as $key => $canyonPicture) {
+                $canyonPicture->setCanyon($canyon);
+                $canyonPictures->set($key, $canyonPicture);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($canyon);
             $entityManager->flush();
@@ -83,7 +91,7 @@ class CanyonController extends AbstractController
      */
     public function delete(Request $request, Canyon $canyon): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$canyon->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $canyon->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($canyon);
             $entityManager->flush();

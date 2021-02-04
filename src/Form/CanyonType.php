@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use App\Entity\Canyon;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,6 +25,12 @@ class CanyonType extends AbstractType
             ->add('gps')
             ->add('abseiling')
             ->add('knowledge')
+            ->add('pictures', CollectionType::class, [
+                'entry_type' => PictureCanyonType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true
+            ])
         ;
     }
 
