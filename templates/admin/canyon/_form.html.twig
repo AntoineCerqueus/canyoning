@@ -1,3 +1,5 @@
+<!-- integration du bouton -->
+{% form_theme form 'admin/canyon/_form_theme.html.twig' %} 
 {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
