@@ -3,7 +3,7 @@
 {% block title %}Event{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
+    <h1>Evenements</h1>
 
     <table class="table">
         <tbody>
@@ -12,23 +12,19 @@
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>StartAt</th>
+                <th>Début</th>
                 <td>{{ event.startAt ? event.startAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>EndAt</th>
+                <th>Fin</th>
                 <td>{{ event.endAt ? event.endAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>SpecificGuide</th>
-                <td>{{ event.specificGuide ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('admin_event_index') }}">back to list</a>
+    <a href="{{ path('admin_event_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('admin_event_edit', {'id': event.id}) }}">edit</a>
+    <a href="{{ path('admin_event_edit', {'id': event.id}) }}">Modifier</a>
 
     {{ include('admin/event/_delete_form.html.twig') }}
 {% endblock %}

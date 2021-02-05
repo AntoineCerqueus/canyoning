@@ -75,9 +75,21 @@ class CanyonController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $canyonPictures = $canyon->getPictures();
+            // $key corresponds à l'index du tableau
+            foreach ($canyonPictures as $key => $canyonPicture) {
+                $canyonPicture->setCanyon($canyon);
+                $canyonPictures->set($key, $canyonPicture);
+            }
+            // $this->getDoctrine()->getManager()->flush();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($canyon);
+            $entityManager->flush();
 
-            return $this->redirectToRoute('admin_canyon_index');
+            // return $this->redirectToRoute('admin_canyon_index');
+            return $this->redirectToRoute('admin_canyon_index', [
+                'id' => $canyon->getId(),
+            ]);
         }
 
         return $this->render('admin/canyon/edit.html.twig', [

@@ -88,6 +88,11 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $guide;
+
     // Ceéé lors de la realtion ManyToOne
     public function __construct()
     {
@@ -316,6 +321,24 @@ class User implements UserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    // A affecter sur la première ligne pour convertir les attribut en chaine de caractères
+    public function __toString()
+    {
+        return $this->email;
+    }
+
+    public function getGuide(): ?bool
+    {
+        return $this->guide;
+    }
+
+    public function setGuide(bool $guide): self
+    {
+        $this->guide = $guide;
 
         return $this;
     }
