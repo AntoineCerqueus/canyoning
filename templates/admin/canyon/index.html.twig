@@ -39,13 +39,15 @@
                 <td>{{ canyon.abseiling }}</td>
                 <td>{{ canyon.knowledge }}</td>
                 <td>
+                    {# le path mappe la fonction grace au name renté #}
                     <a href="{{ path('admin_canyon_show', {'id': canyon.id}) }}">show</a>
                     <a href="{{ path('admin_canyon_edit', {'id': canyon.id}) }}">edit</a>
+                    <a href="{{ path('admin_canyon_show_events', {'id': canyon.id}) }}">events</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="13">no records found</td>
+                <td colspan="13">Aucune entrée</td>
             </tr>
         {% endfor %}
         </tbody>

@@ -19,6 +19,7 @@ class EventType extends AbstractType
         $builder
             ->add('startAt')
             ->add('endAt')
+            // Ajoute un champ sélecteur pour choisir le guide associé au canyon
             ->add('guide', EntityType::class, [
                 'class' => User::class,
                 'query_builder' => function (UserRepository $userRepository) {
@@ -29,10 +30,10 @@ class EventType extends AbstractType
                 'label' => 'Guide',
                 'choice_label' => 'firstName'
             ])
-            ->add('canyon', EntityType::class, [ // Travail sur un objet de l'entité Canyon
-                'class' => Canyon::class, // Spécifie que l'entité est celle de Canyon
-                'choice_label' => 'name' // Affiche les attributs nom dans un sélecteur
-            ])
+            // ->add('canyon', EntityType::class, [ // Travail sur un objet de l'entité Canyon
+            //     'class' => Canyon::class, // Spécifie que l'entité est celle de Canyon
+            //     'choice_label' => 'name' // Affiche les attributs nom dans un sélecteur
+            // ])
             // ->add('guide')
         ;
     }

@@ -81,12 +81,10 @@ class CanyonController extends AbstractController
                 $canyonPicture->setCanyon($canyon);
                 $canyonPictures->set($key, $canyonPicture);
             }
-            // $this->getDoctrine()->getManager()->flush();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($canyon);
             $entityManager->flush();
 
-            // return $this->redirectToRoute('admin_canyon_index');
             return $this->redirectToRoute('admin_canyon_index', [
                 'id' => $canyon->getId(),
             ]);
@@ -110,5 +108,18 @@ class CanyonController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_canyon_index');
+    }
+
+    /**
+     * @Route("/{id}/events", name="show_events", methods={"GET"})
+     */
+    public function showEvents(Canyon $canyon): Response
+    {
+        // recupère les évènements par canyon
+        $events = $canyon->getEvents();
+        return $this->render('admin/canyon/show_events.html.twig', [
+            'canyon' => $canyon,
+            'events' => $events
+        ]);
     }
 }

@@ -3,9 +3,10 @@
 {% block title %}Nouvel évènement{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouvel évènement</h1>
+<h1>Créer un nouvel évènement</h1>
 
-    {{ include('admin/event/_form.html.twig') }}
+{{ include('admin/event/_form.html.twig') }}
 
-    <a href="{{ path('admin_event_index') }}">Retour à la liste</a>
+{# <a href="{{ path ('admin_event_new', {'id':canyon.id})}}">Retour à la liste</a> #}
+{# <a href="{{ path('admin_event_index') }}">Retour à la liste</a> #}
 {% endblock %}

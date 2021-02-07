@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Canyon index{% endblock %}
+
+{% block body %}
+<h1>Liste des événements du canyon {{ canyon.name }}</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ canyon.name }}</td>
+            {% for event in events %}
+            <div>Début</div>
+            <div> {{ event.startAt|date('d-m-Y H:i')}}</div>
+            {% endfor %}
+
+            {% for event in events %}
+            <div>Fin</div>
+            <div> {{ event.endAt|date('d-m-Y H:i')}}</div>
+            {% endfor %}
+
+    </tbody>
+</table>
+
+<a href="{{ path ('admin_event_new', {'id':canyon.id})}}">Ajouter</a>
+<a href="{{ path('admin_canyon_index') }}">Retour à la liste</a>
+{% endblock %}
