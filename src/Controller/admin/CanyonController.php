@@ -15,6 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CanyonController extends AbstractController
 {
+    // INJECTION DE DEPENDANCE (merci le service container)
+    // Cette fonction dépends de la fonction findAll de  canyonRepository.
+    // Donc au lien d'instancier nous même un repo avec $canyonRepository = $this->getDoctrine()->getRepository(Canyon::class);
+    // on le lui injecte en paramètre en précisant qu'il fonctionnera avec une instance de la classe CanyonRepository
+    // (Ne pas oublier le use pour que php comprenne ce que nous voulons utiliser)
     /**
      * @Route("/", name="index", methods={"GET"})
      */
@@ -30,11 +35,15 @@ class CanyonController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        // Instanciation d'un nouveau canyon
         $canyon = new Canyon();
+        // Création du formulaire basé sur la classe CanyonType que l'on bind au canyon 
         $form = $this->createForm(CanyonType::class, $canyon);
+        // Traite la requête reçue en paramètre 
         $form->handleRequest($request);
+        // dump($canyon);exit;
        
-
+        // Vérification que le formulaire à été bien soumis et bien rempli
         if ($form->isSubmitted() && $form->isValid()) {
             $canyonPictures = $canyon->getPictures();
             // $key corresponds à l'index du tableau
@@ -55,7 +64,10 @@ class CanyonController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    // INJECTION DE DEPENDANCE (merci le service container)
+    // Ici grâce à l'id passé en paramètre de ma route, plus besoin de faire appel au repo. Symfony comprends avec l'id 
+    // et la variable Canyon de classe Canyon passée en paramètre de la fonction que nous voulons récupérer l'article en question
+    // Plus besoin d'instancier des classes nous même => fonction plus propre => Merci Symfony!
     /**
      * @Route("/{id}", name="show", methods={"GET"})
      */

@@ -47,8 +47,12 @@ class EventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Instancie un manager et on lui demande de "discuter" avec Doctrine
             $entityManager = $this->getDoctrine()->getManager();
+            // Dis à mon manager de faire persister mon nouvel event dans le temps
+            // Prépare ma modification à intégrer dans la bdd
             $entityManager->persist($event);
+            // Flush lance la requête sql qui permet d'inscrire ces nouvelles modifications dans la bdd
             $entityManager->flush();
 
             // Ajouter dans generation de path admin event new l'id du canyon en parameter {{ path ('admin_event_new', {'id':canyon.id})}}
@@ -86,7 +90,7 @@ class EventController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
 
             // return $this->redirectToRoute('admin_event_index');
-             // Redirige vers le listing des évènements par canyon avec le canyon modifié grâce à l'id donné
+            // Redirige vers le listing des évènements par canyon avec le canyon modifié grâce à l'id donné
              return $this->redirectToRoute('admin_canyon_show_events', [
                 'id' => $event->getCanyon()->getId()
             ]);

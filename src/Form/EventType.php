@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class EventType extends AbstractType
 {
@@ -25,7 +26,7 @@ class EventType extends AbstractType
                 'class' => User::class,
                 'query_builder' => function (UserRepository $userRepository) {
                     return $userRepository->createQueryBuilder('u')
-                    ->where('u.guide = true');
+                        ->where('u.guide = true');
                     // ->orderBy('u.firstName, ASC');
                 },
                 'label' => 'Guide',
