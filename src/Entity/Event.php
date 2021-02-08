@@ -30,11 +30,6 @@ class Event
     private $endAt;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $specificGuide;
-
-    /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="event")
      */
     private $users;

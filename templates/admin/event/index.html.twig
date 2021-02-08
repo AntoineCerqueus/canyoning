@@ -1,39 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event index{% endblock %}
+{% block title %}Liste des évènements{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
+<h1>Liste des évènements</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartAt</th>
-                <th>EndAt</th>
-                <th>SpecificGuide</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table">
+    <thead>
+        <tr>
+            {# <th>Id</th> #}
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Guide</th>
+            <th>Canyon</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.startAt ? event.startAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.endAt ? event.endAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.specificGuide ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('admin_event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('admin_event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <tr>
+            {# <td>{{ event.id }}</td> #}
+            <td>{{ event.startAt ? event.startAt|date('d-m-Y H:i') : '' }}</td>
+            <td>{{ event.endAt ? event.endAt|date('d-m-Y H:i') : '' }}</td>
+            <td>{{ event.guide.firstName }}</td>
+            <td>{{ event.canyon }}</td>
+            <td>
+                <a href="{{ path('admin_event_show', {'id': event.id}) }}">Voir</a>
+                <a href="{{ path('admin_event_edit', {'id': event.id}) }}">Modifier</a>
+                {{ include('admin/event/_delete_form.html.twig') }}
 
-    <a href="{{ path('admin_event_new') }}">Create new</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">Aucune entrée trouvée</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+<a href="{{ path('admin_event_new') }}">Ajouter</a>
 {% endblock %}

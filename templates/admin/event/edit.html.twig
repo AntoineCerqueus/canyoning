@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Event{% endblock %}
+{% block title %}Modifier cet évènement{% endblock %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-    <h1>Edit Event</h1>
+<h1>Modifier cet évènement</h1>
 
-    {{ include('admin/event/_form.html.twig', {'button_label': 'Update'}) }}
+{{ include('admin/event/_form.html.twig', {'button_label': 'Valider'}) }}
 
-    <a href="{{ path('admin_event_index') }}">back to list</a>
-
-    {{ include('admin/event/_delete_form.html.twig') }}
+{{ include('admin/event/_delete_form.html.twig') }}
 {% endblock %}
