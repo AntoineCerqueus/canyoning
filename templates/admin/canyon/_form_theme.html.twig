@@ -4,8 +4,8 @@
     <ul id="canyon-pictures-fields-list"
         data-prototype="{{ form_widget(prototype)|e }}"
         data-widget-tags="{{ '<li></li>'|e }}"
-        data-widget-counter="{{ value|length }}"
-    >
+        data-widget-counter="{{ value|length }}">
+        
         {% for key,canyonPictureForm in form.children %}
             {{ form_widget(canyonPictureForm) }}
 
