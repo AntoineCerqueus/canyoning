@@ -13,11 +13,11 @@
             </tr>
             <tr>
                 <th>Début</th>
-                <td>{{ event.startAt ? event.startAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.startAt ? event.startAt|date('Y-m-d H:i') : '' }}</td>
             </tr>
             <tr>
                 <th>Fin</th>
-                <td>{{ event.endAt ? event.endAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.endAt ? event.endAt|date('Y-m-d H:i') : '' }}</td>
             </tr>
         </tbody>
     </table>

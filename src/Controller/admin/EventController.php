@@ -52,7 +52,7 @@ class EventController extends AbstractController
             $entityManager->flush();
 
             // Ajouter dans generation de path admin event new l'id du canyon en parameter {{ path ('admin_event_new', {'id':canyon.id})}}
-            // Redirige vers le listing des évènements pat canyon
+            // Redirige vers le listing des évènements pat canyon avec le canyon ajouté grâce à l'id donné
             return $this->redirectToRoute('admin_canyon_show_events', [
                 'id' => $event->getCanyon()->getId()
             ]);
@@ -85,7 +85,11 @@ class EventController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_event_index');
+            // return $this->redirectToRoute('admin_event_index');
+             // Redirige vers le listing des évènements par canyon avec le canyon modifié grâce à l'id donné
+             return $this->redirectToRoute('admin_canyon_show_events', [
+                'id' => $event->getCanyon()->getId()
+            ]);
         }
 
         return $this->render('admin/event/edit.html.twig', [
@@ -105,6 +109,9 @@ class EventController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin_event_index');
+        // Redirige vers le listing des évènements par canyon avec le canyon supprimé grâce à l'id donné
+        return $this->redirectToRoute('admin_canyon_show_events', [
+            'id' => $event->getCanyon()->getId()
+        ]);
     }
 }
