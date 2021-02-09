@@ -1,57 +1,119 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
-{% block title %}Canyon index{% endblock %}
+{% block title %}Index des canyons{% endblock %}
 
-{% block body %}
-    <h1>Canyon index</h1>
+{% block content %}
+<h1 class="title">Index des Canyons</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>NumberOfPlaces</th>
-                <th>Level</th>
-                <th>AgeNeeded</th>
-                <th>HalfDay</th>
-                <th>FullDay</th>
-                <th>Location</th>
-                <th>Gps</th>
-                <th>Abseiling</th>
-                <th>Knowledge</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for canyon in canyons %}
-            <tr>
-                <td>{{ canyon.id }}</td>
-                <td>{{ canyon.name }}</td>
-                <td>{{ canyon.description }}</td>
-                <td>{{ canyon.numberOfPlaces }}</td>
-                <td>{{ canyon.level }}</td>
-                <td>{{ canyon.ageNeeded }}</td>
-                <td>{{ canyon.halfDay ? 'Yes' : 'No' }}</td>
-                <td>{{ canyon.fullDay ? 'Yes' : 'No' }}</td>
-                <td>{{ canyon.location }}</td>
-                <td>{{ canyon.gps }}</td>
-                <td>{{ canyon.abseiling }}</td>
-                <td>{{ canyon.knowledge }}</td>
-                <td>
-                    {# le path mappe la fonction grace au name renté #}
-                    <a href="{{ path('admin_canyon_show', {'id': canyon.id}) }}">show</a>
-                    <a href="{{ path('admin_canyon_edit', {'id': canyon.id}) }}">edit</a>
-                    <a href="{{ path('admin_canyon_show_events', {'id': canyon.id}) }}">events</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="13">Aucune entrée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+{% for canyon in canyons %}
+<table class="table">
+    <tbody>
+        <h3>{{ canyon.name }}</h3>
+        <tr>
+            <th>Description</th>
+            <td>{{ canyon.description }}</td>
+        </tr>
+        <tr>
+            <th>Places disponibles </th>
+            <td>{{ canyon.numberOfPlaces }}</td>
+        </tr>
+        <tr>
+            <th>Niveau</th>
+            <td>{{ canyon.level }}</td>
+        </tr>
+        <tr>
+            <th>Age requis</th>
+            <td>{{ canyon.ageNeeded }}</td>
+        </tr>
+        <tr>
+            <th>Demi-journée</th>
+            <td>{{ canyon.halfDay ? 'Yes' : 'No' }}</td>
+        </tr>
+        <tr>
+            <th>Journée</th>
+            <td>{{ canyon.fullDay ? 'Yes' : 'No' }}</td>
+        </tr>
+        <tr>
+            <th>Lieu</th>
+            <td>{{ canyon.location }}</td>
+        </tr>
+        <tr>
+            <th>Départ</th>
+            <td>{{ canyon.meetingPoint }}</td>
+        </tr>
+        <tr>
+            <th>Localisation</th>
+            <td>{{ canyon.gps }}</td>
+        </tr>
+        <tr>
+            <th>Rappel</th>
+            <td>{{ canyon.abseiling }}</td>
+        </tr>
+        <tr>
+            <th>Pré-requis</th>
+            <td>{{ canyon.knowledge }}</td>
+        </tr>
+    </tbody>
+</table>
 
-    <a href="{{ path('admin_canyon_new') }}">Create new</a>
+{# <h3>{{ canyon.name }}</h3>
+
+<div>
+    <h5>Description</h5>
+    <p>{{ canyon.description }}</p>
+</div>
+<div class="infos">
+    <div class="column">
+        <h5>Nombre de places</h5>
+        <p>{{ canyon.numberOfPlaces }}</p>
+    </div>
+    <div class="column">
+        <h5>Niveau</h5>
+        <p>{{ canyon.level }}</p>
+    </div>
+    <div class="column">
+        <h5>Age requis</h5>
+        <p>{{ canyon.ageNeeded }}</p>
+    </div>
+    <div class="column">
+        <h5>Demi-journée</h5>
+        <p>{{ canyon.halfDay ? 'Oui' : 'Non' }}</p>
+    </div>
+    <div class="column">
+        <h5>Journée</h5>
+        <p>{{ canyon.fullDay ? 'Oui' : 'Non' }}</p>
+    </div>
+    <div class="column">
+        <h5>Lieu</h5>
+        <p>{{ canyon.location }}</p>
+    </div>
+    <div class="column">
+        <h5>GPS</h5>
+        <p>{{ canyon.gps }}</p>
+    </div>
+    <div class="column">
+        <h5>Rappel</h5>
+        <p>{{ canyon.abseiling }}</p>
+    </div>
+    <div class="column">
+        <h5>Pré-requis</h5>
+        <p>{{ canyon.knowledge }}</p>
+    </div class="column">
+</div> #}
+<h5 class="center bottom">Actions</h5>
+<div class="actions">
+    {# le path mappe la fonction grace au name renté #}
+    {# <a href="{{ path('admin_canyon_show', {'id': canyon.id}) }}">Voir</a> #}
+    <a href="{{ path('admin_canyon_edit', {'id': canyon.id}) }}"><button type="button"
+            class="btn btn-warning">Modifier</button></a>
+    <a href="{{ path('admin_canyon_show_events', {'id': canyon.id}) }}"><button type="button"
+            class="btn btn-success">Gestion des évènements</button></a>
+    <div>{{ include('admin/canyon/_delete_form.html.twig') }}</div>
+</div>
+
+
+{% else %}
+<div> colspan="13">Aucune entrée trouvée </div>
+{% endfor %}
+
 {% endblock %}

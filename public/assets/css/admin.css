@@ -1,0 +1,44 @@
+body {
+    background-color: #01A0F4;
+    color: #ffffff;
+}
+
+.infos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2vw;
+}
+
+H1, H3, .center{
+    text-align: center;
+}
+
+H3{
+    margin: 6vh 0;
+}
+
+H1{
+   margin-top: 6vh;
+}
+
+p{
+    margin-bottom: 4vh;
+}
+
+.btn{
+    margin-right: 2vw;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom{
+    margin-bottom: 6vh;
+}
