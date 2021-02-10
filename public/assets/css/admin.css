@@ -47,10 +47,6 @@ p{
     margin: 4vh 0;
 }
 
-.content{
-    display: flex;
-}
-
 .fixed{
     position: fixed;
 }
@@ -58,3 +54,8 @@ p{
 .blue{
     color: #007bff;
 }
+
+/* .content{
+    display: flex;
+    justify-content: space-around;
+} */

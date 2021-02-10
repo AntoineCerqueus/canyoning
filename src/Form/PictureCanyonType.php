@@ -18,15 +18,6 @@ class PictureCanyonType extends AbstractType
                 'download_uri' => true,
                 'image_uri' => true
             ]);
-        ;
-        // $builder
-        //     ->add('imageFile',VichImageType::class, [
-        //         'required' => false,
-        //         'download_uri' => true,
-        //         'image_uri' => true
-        //     ]);
-        // ;
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
