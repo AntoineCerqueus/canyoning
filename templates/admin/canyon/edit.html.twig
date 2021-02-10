@@ -1,13 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}Modification du Canyon {{ canyon.name }}{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1> Modification du Canyon {{ canyon.name }}</h1>
 
-    {{ include('admin/canyon/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/canyon/_form.html.twig', {'button_label': 'Actualiser'}) }}
 
-    <a href="{{ path('admin_canyon_index') }}">Retour à liste</a>
+    {# <a href="{{ path('admin_canyon_index') }}">Retour à liste</a> #}
 
-    {{ include('admin/canyon/_delete_form.html.twig') }}
 {% endblock %}
