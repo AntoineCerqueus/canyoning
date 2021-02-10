@@ -54,3 +54,7 @@ p{
 .fixed{
     position: fixed;
 }
+
+.blue{
+    color: #007bff;
+}
