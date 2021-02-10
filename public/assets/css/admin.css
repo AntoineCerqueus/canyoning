@@ -14,15 +14,15 @@ body {
     margin-right: 2vw;
 }
 
-H1, H3, .center{
+h1, h2, .center{
     text-align: center;
 }
 
-H3{
+h2{
     margin: 6vh 0;
 }
 
-H1{
+h1{
    margin-top: 6vh;
 }
 
@@ -41,4 +41,16 @@ p{
 
 .bottom{
     margin-bottom: 6vh;
+}
+
+.space{
+    margin: 4vh 0;
+}
+
+.content{
+    display: flex;
+}
+
+.fixed{
+    position: fixed;
 }

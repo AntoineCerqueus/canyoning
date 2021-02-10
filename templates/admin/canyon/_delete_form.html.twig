@@ -2,6 +2,6 @@
 <form method="post" action="{{ path('admin_canyon_delete', {'id': canyon.id}) }}" onsubmit="return confirm('Faut-il vraument supprimer ce canyon?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ canyon.id) }}">
-    <button class="btn btn-danger">Supprimer</button>
+    <button class="btn btn-danger text-body">Supprimer</button>
 </form>
 

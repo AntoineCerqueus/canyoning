@@ -4,6 +4,6 @@
 {% form_theme form 'admin/canyon/_form_theme.html.twig' %} 
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Créer') }}</button>
+    <button class="btn btn-success text-body bottom">{{ button_label|default('Créer') }}</button>
 {{ form_end(form) }}
 {% endblock %}
