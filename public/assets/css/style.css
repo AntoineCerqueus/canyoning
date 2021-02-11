@@ -40,3 +40,30 @@ h2, h3{
 footer{
     margin-top: 60px;
 }
+
+.d-block{
+    box-shadow: -1px 2px 5px #000000;
+}
+
+.carousel, .d-block {
+    width: 90%;
+    height: 50%;
+    margin: auto;
+  }
+
+.fas{
+    font-size: 3em;
+    text-shadow: -1px 2px 5px #000000;
+}
+  
+.fa-angle-double-left{
+    padding-left: 30px;
+}
+
+.fa-angle-double-right{
+    padding-right: 30px;
+}
+
+.carousel-indicators li{
+    box-shadow: -1px 2px 5px #000000;
+}
