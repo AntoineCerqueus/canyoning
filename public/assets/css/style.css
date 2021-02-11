@@ -4,11 +4,19 @@
 
 
 body {
-    background: -moz-linear-gradient(#01A0F4 50%, #0159AF 80%, #000000);/* FF3.6+*/ 
-    background: -webkit-linear-gradient(#01A0F4 50%, #0159AF 80%, #000000);/* Chrome10+,Safari5.1+*/ 
-    background: -o-linear-gradient(#01A0F4 50%, #0159AF 80%, #000000);/* Opera11.10+*/ 
-    background: linear-gradient(#01A0F4 50%, #0159AF 80%, #000000);
+    background: -moz-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);/* FF3.6+*/ 
+    background: -webkit-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);/* Chrome10+,Safari5.1+*/ 
+    background: -o-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);/* Opera11.10+*/ 
+    background: linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
     background-repeat: no-repeat;
     /* background-attachment: fixed;  */
     color: #ffffff;
+}
+
+a{
+    color: #ffffff;
+}
+
+.space {
+    margin: 6vh 0;
 }
