@@ -7,11 +7,12 @@
 {% for canyon in canyons %}
 
 
-<div>{{canyon.name}}</div>
+<h2>{{ canyon.name }}</h2> 
+<img src="{{ vich_uploader_asset(canyon, 'file') }}" class="" alt="{{ canyon.name }}" />
 <div>blablabla</div>
 
 <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" class="btn btn-primary">En savoir plus</a>
 
-
+<div>{{canyon.description}}</div>
 {% endfor %} 
 {% endblock %}

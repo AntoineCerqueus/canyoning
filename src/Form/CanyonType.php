@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Canyon;
+use DateTime;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -10,6 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CanyonType extends AbstractType
 {
@@ -37,17 +39,18 @@ class CanyonType extends AbstractType
                 'label' => 'Journée',
                 'required' => false,
             ])
-            ->add(
-                'pictures',
-                CollectionType::class,
-                [
-                    'entry_type' => PictureCanyonType::class,
-                    'allow_add' => true,
-                    'allow_delete' => true,
-                    'prototype' => true,
-                    'label' => 'Images'
-                ],
-            );
+            ->add('file', VichImageType::class)
+            ->add('updatedAt');
+            // ->add(
+            //     'pictures',
+            //     CollectionType::class,
+            //     [
+            //         'entry_type' => PictureCanyonType::class,
+            //         'allow_add' => true,
+            //         'allow_delete' => true,
+            //         'prototype' => true,
+            //         'label' => 'Images'
+            //     ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

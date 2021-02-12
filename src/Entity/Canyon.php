@@ -6,9 +6,12 @@ use App\Repository\CanyonRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CanyonRepository::class)
+ * @Vich\Uploadable
  */
 class Canyon
 {
@@ -104,10 +107,20 @@ class Canyon
      */
     private $cover;
 
+     /**
+     * @Vich\UploadableField(mapping="canyon_cover", fileNameProperty="cover") 
+     */
+    private $file;
+
     /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $shortDescription;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     // Créé lors de la relation ManyToOne pour avoir accès à ces tables depuis canyon
     public function __construct()
@@ -417,6 +430,17 @@ class Canyon
         return $this;
     }
 
+    public function getfile(): ?File
+    {
+        return $this->file;
+    }
+
+    public function setFile(?File $file = null): self
+    {
+        $this->file = $file;
+        return $this;
+    }
+
     public function getShortDescription(): ?string
     {
         return $this->shortDescription;
@@ -425,6 +449,18 @@ class Canyon
     public function setShortDescription(?string $shortDescription): self
     {
         $this->shortDescription = $shortDescription;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
