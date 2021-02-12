@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CanyonController!{% endblock %}
+
+{% block content %}
+{% for canyon in canyons %}
+    <div>{{ canyon.id }}</div>
+    <div>{{ canyon.name }}</div>
+    <div>{{ canyon.description }}</div>
+   
+   
+
+{% else %}
+
+<p>Une erreur est survenu lors du chargement des canyons</p>
+
+{% endfor %}
+{% endblock %}
