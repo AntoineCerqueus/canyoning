@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CanyonController!{% endblock %}
+{% block title %}Liste des canyons{% endblock %}
 
 {% block content %}
+<h1>les canyons</h1>
 {% for canyon in canyons %}
-    <div>{{ canyon.id }}</div>
-    <div>{{ canyon.name }}</div>
-    <div>{{ canyon.description }}</div>
-   
-   
 
-{% else %}
 
-<p>Une erreur est survenu lors du chargement des canyons</p>
+<div>{{canyon.name}}</div>
+<div>blablabla</div>
 
-{% endfor %}
+<a href="{{ path('canyons_single', {'id' : canyon.id} )}}" class="btn btn-primary">En savoir plus</a>
+
+
+{% endfor %} 
 {% endblock %}
