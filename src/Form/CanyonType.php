@@ -36,18 +36,18 @@ class CanyonType extends AbstractType
             ->add('fullDay', CheckboxType::class, [
                 'label' => 'Journée',
                 'required' => false,
-            ]);
-            // ->add(
-            //     'pictures',
-            //     CollectionType::class,
-            //     [
-            //         'entry_type' => PictureCanyonType::class,
-            //         'allow_add' => true,
-            //         'allow_delete' => true,
-            //         'prototype' => true,
-            //         'label' => 'Images'
-            //     ],
-            // );
+            ])
+            ->add(
+                'pictures',
+                CollectionType::class,
+                [
+                    'entry_type' => PictureCanyonType::class,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'label' => 'Images'
+                ],
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver)

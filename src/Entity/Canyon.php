@@ -99,6 +99,16 @@ class Canyon
      */
     private $events;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cover;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $shortDescription;
+
     // Créé lors de la relation ManyToOne pour avoir accès à ces tables depuis canyon
     public function __construct()
     {
@@ -393,5 +403,29 @@ class Canyon
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(?string $cover): self
+    {
+        $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    public function setShortDescription(?string $shortDescription): self
+    {
+        $this->shortDescription = $shortDescription;
+
+        return $this;
     }
 }
