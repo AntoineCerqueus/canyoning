@@ -31,16 +31,19 @@
             <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_02.jpg') }}" alt="Quatrième image">
         </div>
         <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_05_resize.jpg') }}" alt="Cinquième image">
+            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_05_resize.jpg') }}"
+                alt="Cinquième image">
         </div>
         <div class="carousel-item">
             <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_01.jpg') }}" alt="Sixième image">
         </div>
         <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_04_resize.jpg') }}" alt="Septième image">
+            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_04_resize.jpg') }}"
+                alt="Septième image">
         </div>
         <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_08_resize.jpg') }}" alt="Huitième image">
+            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_08_resize.jpg') }}"
+                alt="Huitième image">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -53,12 +56,31 @@
     </a>
 </div>
 
-    <p class="top">{{ canyon.description }}</p>
+<p class="top">{{ canyon.description }}</p>
 
 <h2>Informations</h2>
-<div class="content">
-    Durée : {{ canyon.duration }}
+<div>
+    <p>Durée : {{ canyon.duration }}</p>
+    <p>Niveau : {{ canyon.level }}</p>
+    <p>Age requis : {{ canyon.ageNeeded }}</p>
+    <p>Pré-requis : {{ canyon.knowledge }}</p>
+    <p>Descente en rappel : {{ canyon.abseiling }}</p>
+    <p>Lieu : {{ canyon.location }}</p>
+    <p>Départ : {{ canyon.meetingPoint }}</p>
 </div>
 
+<h2>Prix</h2>
+
+<h2>Disponibilités</h2>
+
+<a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
+    <div class="nav bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
+</a>
+<div class="center">
+<p>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></p>
+<a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
+    <div class="nav bottom"><i class="fas fa-sign-in-alt"></i> connexion</div>
+</a>
+</div>
 
 {% endblock %}
