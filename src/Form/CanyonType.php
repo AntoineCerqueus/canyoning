@@ -32,14 +32,15 @@ class CanyonType extends AbstractType
             ])
             ->add('abseiling', TextType::class, ['label' => 'Rappel'])
             ->add('knowledge', TextType::class, ['label' => 'Pré-requis'])
-            ->add('halfDay', CheckboxType::class, [
-                'label' => 'Demi-journée',
-                'required' => false,
-            ])
-            ->add('fullDay', CheckboxType::class, [
-                'label' => 'Journée',
-                'required' => false,
-            ])
+            // ->add('halfDay', CheckboxType::class, [
+            //     'label' => 'Demi-journée',
+            //     'required' => false,
+            // ])
+            // ->add('fullDay', CheckboxType::class, [
+            //     'label' => 'Journée',
+            //     'required' => false,
+            // ])
+            ->add('duration', TextType::class, ['label' => 'Durée'])
             ->add('file', VichImageType::class)
             ->add('updatedAt');
             // ->add(

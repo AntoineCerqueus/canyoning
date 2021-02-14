@@ -26,9 +26,9 @@
     <div class="actions">
         {# le path mappe la fonction grace au name renté #}
         {# <a href="{{ path('admin_canyon_show', {'id': canyon.id}) }}">Voir</a> #}
-        <a href="{{ path('admin_canyon_edit', {'id': canyon.id}) }}"><button type="button"
+        <a href="{{ path('admin_event_edit', {'id': event.id}) }}"><button type="button"
                 class="btn btn-warning">Modifier</button></a>
-        <div>{{ include('admin/canyon/_delete_form.html.twig') }}</div>
+        <div>{{ include('admin/event/_delete_form.html.twig') }}</div>
     </div>
 </div>
 {% endfor %}

@@ -2,12 +2,15 @@
 
 {% block title %}Modifier cet évènement{% endblock %}
 
-{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 
 {% block body %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 <h1>Modifier cet évènement</h1>
 
-{{ include('admin/event/_form.html.twig', {'button_label': 'Valider'}) }}
+{{ include('admin/event/_form.html.twig', {'button_label': 'Actualiser'}) }}
 
 {{ include('admin/event/_delete_form.html.twig') }}
 {% endblock %}

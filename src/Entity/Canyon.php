@@ -122,6 +122,11 @@ class Canyon
      */
     private $updatedAt;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $duration;
+
     // Créé lors de la relation ManyToOne pour avoir accès à ces tables depuis canyon
     public function __construct()
     {
@@ -461,6 +466,18 @@ class Canyon
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): self
+    {
+        $this->duration = $duration;
 
         return $this;
     }
