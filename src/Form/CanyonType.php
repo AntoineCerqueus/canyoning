@@ -20,6 +20,7 @@ class CanyonType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('description', TextareaType::class, ['label' => 'Description'])
+            ->add('shortDescription', TextareaType::class, ['label' => 'Résumé'])
             ->add('numberOfPlaces', TextType::class, ['label' => 'Nombre de places'])
             ->add('level', TextType::class, ['label' => 'Niveau'])
             ->add('ageNeeded', TextType::class, ['label' => 'Age requis'])
