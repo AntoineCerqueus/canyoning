@@ -44,7 +44,7 @@ class CanyonType extends AbstractType
             // ])
             ->add('duration', TextType::class, ['label' => 'Durée'])
             // ->add('file', VichImageType::class)
-            ->add('images', FileType::class, [
+            ->add('pictures', FileType::class, [
                 // // Pas de label
                 // 'label' => false,
                 // Champ multiple car plusieurs images

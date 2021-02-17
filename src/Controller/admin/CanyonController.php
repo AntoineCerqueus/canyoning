@@ -68,7 +68,7 @@ class CanyonController extends AbstractController
                     $fileName
                 );
 
-                // Stockage du nom de l'image dnas la bdd
+                // Stockage du nom de l'image dans la bdd
                 $picture = new Picture();
                 $picture->setPath($fileName);
                 $canyon->addPicture($picture);
@@ -116,14 +116,14 @@ class CanyonController extends AbstractController
             //     $canyonPictures->set($key, $canyonPicture);
             // }
             // Récupération des images transmises
-            $images = $form->get('images')->getData();
+            $pictures = $form->get('pictures')->getData();
             // Boucle sur un tableau $images car nous récupérons plusieurs images
-            foreach ($images as $image) {
+            foreach ($pictures as $picture) {
                 // Génération d'un nom de fichier unique
                 // md5() génére une chaine de caractère aléatoire et uniqud() aussi mais basé sur le temps (timestamp) => méthode php
-                $fileName = md5(uniqid()) . '.' . $image->guessExtension(); // guessExtension() => Trouve l'extension du fichier
+                $fileName = md5(uniqid()) . '.' . $picture->guessExtension(); // guessExtension() => Trouve l'extension du fichier
                 // Copie du fichier dans le dossier uploads
-                $image->move(
+                $picture->move(
                     $this->getParameter('images_directory'), // accède au paramètre rentré dans le fichier services.yaml (répertoire de destination)
                     $fileName
                 );
@@ -164,7 +164,7 @@ class CanyonController extends AbstractController
     }
 
     /**
-     * @Route("/delete/picture/{id}", name="delete/picture", methods={"DELETE"})
+     * @Route("/delete/picture/{id}", name="delete_picture", methods={"DELETE"})
      */
     public function deletePicture(Request $request, Picture $picture): Response
     {
