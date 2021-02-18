@@ -56,14 +56,14 @@ class CanyonController extends AbstractController
             // }
 
             // Récupération des images transmises
-            $images = $form->get('images')->getData();
+            $pictures = $form->get('images')->getData();
             // Boucle sur un tableau $images car nous récupérons plusieurs images
-            foreach ($images as $image) {
+            foreach ($pictures as $picture) {
                 // Génération d'un nom de fichier unique
                 // md5() génére une chaine de caractère aléatoire et uniqud() aussi mais basé sur le temps (timestamp) => méthode php
-                $fileName = md5(uniqid()) . '.' . $image->guessExtension(); // guessExtension() => Trouve l'extension du fichier
+                $fileName = md5(uniqid()) . '.' . $picture->guessExtension(); // guessExtension() => Trouve l'extension du fichier
                 // Copie du fichier dans le dossier uploads
-                $image->move(
+                $picture->move(
                     $this->getParameter('images_directory'), // accède au paramètre rentré dans le fichier services.yaml (répertoire de destination)
                     $fileName
                 );

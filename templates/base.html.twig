@@ -9,7 +9,7 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-        <link rel="stylesheet" href="{{ asset('assets/css/normalize.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/menu.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
     {% endblock %}
@@ -29,12 +29,12 @@
                     <li>
                         <a href="{{ path('home') }}">Accueil</a>
                     </li>
+                    <li>
+                        <a href="{{ path('canyons_index') }}">Canyons</a>
+                    </li>
                     {# <li>
-                    <a href="#skills">Canyons</a>
-                </li>
-                <li>
-                    <a href="#about">Guide</a>
-                </li> #}
+                        <a href="#about">Guide</a>
+                    </li> #}
                     <li>
                         <a href="{{ path('app_login') }}">Connexion</a>
                     </li>
@@ -59,13 +59,13 @@
         <div class="container text-center">
             <div>
                 <a href="{{ path('home') }}">
-                <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid space">
-            </a>
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid space">
+                </a>
             </div>
         </div>
-    
-            {% block content %} {% endblock %}
-    
+
+        {% block content %} {% endblock %}
+
         {% endblock %}
     </main>
     <footer>
@@ -76,7 +76,8 @@
             <div class="row justify-content-center">
                 <p class="uppercase">
                     copyright h2o canyon <br />
-                    <a href="{{ path('cgv') }}">conditions générales de ventes</a> | <a href="{{ path('legal_mentions') }}">mentions légales</a>
+                    <a href="{{ path('cgv') }}">conditions générales de ventes</a> | <a
+                        href="{{ path('legal_mentions') }}">mentions légales</a>
                 </p>
 
             </div>
