@@ -70,7 +70,11 @@
     {% endblock %}
 
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+
+    <script type="text/javascript" src="{{ asset('assets/js/pictures.js') }}"></script>
+    
+    {% endblock %}
 </body>
 
 </html>

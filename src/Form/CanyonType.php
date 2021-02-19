@@ -6,8 +6,10 @@ use App\Entity\Canyon;
 use DateTime;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +25,7 @@ class CanyonType extends AbstractType
             ->add('shortDescription', TextareaType::class, ['label' => 'Résumé'])
             ->add('numberOfPlaces', TextType::class, ['label' => 'Nombre de places'])
             ->add('level', TextType::class, ['label' => 'Niveau'])
-            ->add('ageNeeded', TextType::class, ['label' => 'Age requis'])
+            ->add('ageNeeded', IntegerType::class, ['label' => 'Age requis'])
             ->add('location', TextType::class, ['label' => 'Lieu'])
             ->add('meetingPoint', TextType::class, ['label' => 'Point de rendez-vous'])
             ->add('gps', TextType::class, [
@@ -41,7 +43,15 @@ class CanyonType extends AbstractType
             //     'required' => false,
             // ])
             ->add('duration', TextType::class, ['label' => 'Durée'])
-            ->add('file', VichImageType::class)
+            // ->add('file', VichImageType::class)
+            ->add('pictures', FileType::class, [
+                // // Pas de label
+                // 'label' => false,
+                // Champ multiple car plusieurs images
+                'multiple' => true,
+                // Non relié à la bdd
+                'mapped' => false
+                ])
             ->add('updatedAt');
             // ->add(
             //     'pictures',

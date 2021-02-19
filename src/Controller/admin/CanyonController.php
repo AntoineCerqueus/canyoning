@@ -3,9 +3,11 @@
 namespace App\Controller\admin;
 
 use App\Entity\Canyon;
+use App\Entity\Picture;
 use App\Form\CanyonType;
 use App\Repository\CanyonRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,14 +44,34 @@ class CanyonController extends AbstractController
         // Traite la requête reçue en paramètre 
         $form->handleRequest($request);
         // dump($canyon);exit;
-       
-        // Vérification que le formulaire à été bien soumis et bien rempli
+
+        // Traitement du formulaire => Vérification que le formulaire à été bien soumis et bien rempli
         if ($form->isSubmitted() && $form->isValid()) {
-            $canyonPictures = $canyon->getPictures();
-            // $key corresponds à l'index du tableau
-            foreach ($canyonPictures as $key => $canyonPicture) {
-                $canyonPicture->setCanyon($canyon);
-                $canyonPictures->set($key, $canyonPicture);
+            // // On récupère les images transmises
+            // $canyonPictures = $canyon->getPictures();
+            // // $key corresponds à l'index du tableau
+            // foreach ($canyonPictures as $key => $canyonPicture) {
+            //     $canyonPicture->setCanyon($canyon);
+            //     $canyonPictures->set($key, $canyonPicture);
+            // }
+
+            // Récupération des images transmises
+            $pictures = $form->get('images')->getData();
+            // Boucle sur un tableau $images car nous récupérons plusieurs images
+            foreach ($pictures as $picture) {
+                // Génération d'un nom de fichier unique
+                // md5() génére une chaine de caractère aléatoire et uniqud() aussi mais basé sur le temps (timestamp) => méthode php
+                $fileName = md5(uniqid()) . '.' . $picture->guessExtension(); // guessExtension() => Trouve l'extension du fichier
+                // Copie du fichier dans le dossier uploads
+                $picture->move(
+                    $this->getParameter('images_directory'), // accède au paramètre rentré dans le fichier services.yaml (répertoire de destination)
+                    $fileName
+                );
+
+                // Stockage du nom de l'image dans la bdd
+                $picture = new Picture();
+                $picture->setPath($fileName);
+                $canyon->addPicture($picture);
             }
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -87,12 +109,31 @@ class CanyonController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $canyonPictures = $canyon->getPictures();
-            // $key corresponds à l'index du tableau
-            foreach ($canyonPictures as $key => $canyonPicture) {
-                $canyonPicture->setCanyon($canyon);
-                $canyonPictures->set($key, $canyonPicture);
+            // $canyonPictures = $canyon->getPictures();
+            // // $key corresponds à l'index du tableau
+            // foreach ($canyonPictures as $key => $canyonPicture) {
+            //     $canyonPicture->setCanyon($canyon);
+            //     $canyonPictures->set($key, $canyonPicture);
+            // }
+            // Récupération des images transmises
+            $pictures = $form->get('pictures')->getData();
+            // Boucle sur un tableau $images car nous récupérons plusieurs images
+            foreach ($pictures as $picture) {
+                // Génération d'un nom de fichier unique
+                // md5() génére une chaine de caractère aléatoire et uniqud() aussi mais basé sur le temps (timestamp) => méthode php
+                $fileName = md5(uniqid()) . '.' . $picture->guessExtension(); // guessExtension() => Trouve l'extension du fichier
+                // Copie du fichier dans le dossier uploads
+                $picture->move(
+                    $this->getParameter('images_directory'), // accède au paramètre rentré dans le fichier services.yaml (répertoire de destination)
+                    $fileName
+                );
+
+                // Stockage du nom de l'image dnas la bdd
+                $picture = new Picture();
+                $picture->setPath($fileName);
+                $canyon->addPicture($picture);
             }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($canyon);
             $entityManager->flush();
@@ -121,6 +162,33 @@ class CanyonController extends AbstractController
 
         return $this->redirectToRoute('admin_canyon_index');
     }
+
+    /**
+     * @Route("/delete/picture/{id}", name="delete_picture", methods={"DELETE"})
+     */
+    public function deletePicture(Request $request, Picture $picture): Response
+    {
+        // Décodage du contenu de la requête ajax en json
+        $data = json_decode($request->getContent(), true); // true => affiche le nom des colonnes du tableau associatif
+        // Vérification du bon token reçu
+        // 'delete' et $picture->getId() => nom du token concaténé à l'id de l'image et $data['_token'] => token reçu
+        if ($this->isCsrfTokenValid('delete' . $picture->getId(), $data['_token'])) {
+            // Récupération du nom de l'image
+            $name = $picture->getPath();
+            // Suppression du fichier
+            unlink($this->getParameter('images_directory') . '/' . $name);
+
+            // Suppression de l'entrée de la base
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($picture);
+            $entityManager->flush();
+
+            // Réponse en Json
+            return new JsonResponse(['success' => 1]);
+        } else {
+            return new JsonResponse(['error' => 'Le token est invalide', 400]); // Affiche l'erreur avec une erreur 400
+        }
+    } // https://www.youtube.com/watch?v=apWjiEuDS0k
 
     /**
      * @Route("/{id}/events", name="show_events", methods={"GET"})

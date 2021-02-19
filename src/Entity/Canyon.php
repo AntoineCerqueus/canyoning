@@ -48,12 +48,12 @@ class Canyon
     private $ageNeeded;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $halfDay;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $fullDay;
 
@@ -82,8 +82,8 @@ class Canyon
      */
     private $knowledge;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist", "remove"})
+    /**      // cascade={"persist"} Au moment de la création d'un canyon, création du nom des images liées à ce canyon
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist", "remove"}) 
      */
     private $pictures;
 
@@ -293,15 +293,15 @@ class Canyon
         return $this->pictures;
     }
 
-    // public function addPicture(Picture $picture): self
-    // {
-    //     if (!$this->pictures->contains($picture)) {
-    //         $this->pictures[] = $picture;
-    //         $picture->setCanyon($this);
-    //     }
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setCanyon($this);
+        }
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     public function setPictures(Picture $picture): self
     {

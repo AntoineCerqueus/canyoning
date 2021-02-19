@@ -8,9 +8,9 @@
 
 {% for canyon in canyons %}
 
-<img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
 <h2>{{ canyon.name }}</h2>
-<div class="content">{{ canyon.shortDescription }}</div>
+<img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
+<div class="content top">{{ canyon.shortDescription }}</div>
 <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
     <div class="nav bottom"><i class="far fa-eye"></i>En savoir plus</div>
 </a>
