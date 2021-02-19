@@ -3,91 +3,82 @@
 {% block title %}H20 Canyon | {{ canyon.name }}{% endblock %}
 
 {% block content %}
+<section>
+    <h1>{{ canyon.name }}</h1>
 
-<h1>{{ canyon.name }}</h1>
-
-<div id="carouselExampleIndicators" class="carousel">
-    <ol class="carousel-indicators">
-        {% for picture in canyon.pictures %}
-        <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index-1 }}" class="{{ loop.first ? 'active': '' }} "></li>
-        {% endfor  %}
-        {# <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="7"></li> #}
-    </ol>
-    <div class="carousel-inner">
-        {% for picture in canyon.pictures %}
-        <div class="carousel-item {{ loop.first ? 'active': '' }} ">
-            <img class="d-block img-fluid" src="{{ asset('assets/uploads/' ~ picture.path)  }}" alt="Image du {{ canyon.name }}">
+    <div id="carouselExampleIndicators" class="carousel">
+        <ol class="carousel-indicators">
+            {% for picture in canyon.pictures %}
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index-1 }}"
+                class="{{ loop.first ? 'active': '' }} "></li>
+            {% endfor  %}
+        </ol>
+        <div class="carousel-inner">
+            {% for picture in canyon.pictures %}
+            <div class="carousel-item {{ loop.first ? 'active': '' }} ">
+                <img class="d-block img-fluid" src="{{ asset('assets/uploads/' ~ picture.path)  }}"
+                    alt="Image du {{ canyon.name }}">
+            </div>
+            {% endfor  %}
         </div>
-        {% endfor  %}
-
-
-        {# <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images/coiserette/coiserette_07.jpg') }}" alt="Deuxième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_03.jpg') }}" alt="Troisième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_02.jpg') }}" alt="Quatrième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_05_resize.jpg') }}"
-                alt="Cinquième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_01.jpg') }}" alt="Sixième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_04_resize.jpg') }}"
-                alt="Septième image">
-        </div>
-        <div class="carousel-item">
-            <img class="d-block" src="{{ asset('assets/images//coiserette/coiserette_08_resize.jpg') }}"
-                alt="Huitième image">
-        </div>#}
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span><i class="fas fa-angle-double-left" aria-hidden="true"></i></span>
+            <span class="sr-only">Précedente</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span><i class="fas fa-angle-double-right" aria-hidden="true"></i></span>
+            <span class="sr-only">Suivante</span>
+        </a>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span><i class="fas fa-angle-double-left" aria-hidden="true"></i></span>
-        <span class="sr-only">Précedente</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span><i class="fas fa-angle-double-right" aria-hidden="true"></i></span>
-        <span class="sr-only">Suivante</span>
-    </a>
-</div>
-
-<p class="top">{{ canyon.description }}</p>
-
-<h2>Informations</h2>
-<div>
-    <p>Durée : {{ canyon.duration }}</p>
-    <p>Niveau : {{ canyon.level }}</p>
-    <p>Age requis : {{ canyon.ageNeeded }}</p>
-    <p>Pré-requis : {{ canyon.knowledge }}</p>
-    <p>Descente en rappel : {{ canyon.abseiling }}</p>
-    <p>Lieu : {{ canyon.location }}</p>
-    <p>Départ : {{ canyon.meetingPoint }}</p>
-</div>
-
+    <p class="top">{{ canyon.description }}</p>
+</section>
+<section>
+    <h2>Informations</h2>
+    <div>
+        <p>Durée : {{ canyon.duration }}</p>
+        <p>Niveau : {{ canyon.level }}</p>
+        <p>Age requis : {{ canyon.ageNeeded }}</p>
+        <p>Pré-requis : {{ canyon.knowledge }}</p>
+        <p>Descente en rappel : {{ canyon.abseiling }}</p>
+        <p>Lieu : {{ canyon.location }}</p>
+        <p>Départ : {{ canyon.meetingPoint }}</p>
+    </div>
+</section>
 <h2>Prix</h2>
+<section>
+    <h2>Disponibilités</h2>
+    <div id="calendar">
 
-<h2>Disponibilités</h2>
-
-<a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-    <div class="nav bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
-</a>
-<div class="center">
-    <p>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></p>
+    </div>
     <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-        <div class="nav bottom"><i class="fas fa-sign-in-alt"></i> connexion</div>
+        <div class="nav bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
     </a>
-</div>
+    <div class="center">
+        <p>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></p>
+        <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
+            <div class="nav bottom"><i class="fas fa-sign-in-alt"></i> connexion</div>
+        </a>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let calendarElt = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+            initialView: 'dayGridMonth',
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+                left: 'dayGridMonth,timeGridWeek',
+                center: 'title',
+                right: 'prev,next today'
+            }
+        });
+        calendar.render();
+    });
+</script>
 
 {% endblock %}
