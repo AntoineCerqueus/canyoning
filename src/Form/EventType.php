@@ -10,17 +10,27 @@ use DateTime;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('startAt')
-            ->add('endAt')
+            ->add('title')
+            ->add('backgroundColor', ColorType::class)
+            ->add('borderColor', ColorType::class)
+            ->add('textColor', ColorType::class)
+            ->add('startAt', DateTimeType::class, [
+                'date_widget' => 'single_text'
+            ])
+            ->add('endAt', DateTimeType::class, [
+                'date_widget' => 'single_text'
+            ])
             // Précise de travailler avec l'attibut guide de la classe User
             ->add('guide', EntityType::class, [ // Travaille sur l'attribut 'guide' d'une entité
                 'class' => User::class, // Spécifie quelle entité
@@ -39,7 +49,7 @@ class EventType extends AbstractType
             //     'class' => Canyon::class, // Spécifie que l'entité est celle de Canyon
             //     'choice_label' => 'name' // Affiche les attributs nom dans un sélecteur
             // ])
-            // ->add('guide')
+
         ;
     }
 

@@ -68,6 +68,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         let calendarElt = document.getElementById('calendar');
         let calendar = new FullCalendar.Calendar(calendarElt, {
+            // Affiche le calendrier en jour par mois
             initialView: 'dayGridMonth',
             locale: 'fr',
             timeZone: 'Europe/Paris',
@@ -77,6 +78,7 @@
                 right: 'prev,next today'
             }
         });
+        // Rends la vue 
         calendar.render();
     });
 </script>

@@ -1,14 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
-{% block title %}Modifier cet évènement{% endblock %}
+{% block title %}Modification de l'évènement {{ event.canyon.name }}{% endblock %}
 
-
-
-{% block body %}
+{% block content %}
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-<h1>Modifier cet évènement</h1>
+<h1>Modification de l'évènement {{ event.id }} de {{ event.canyon.name}}</h1>
 
 {{ include('admin/event/_form.html.twig', {'button_label': 'Actualiser'}) }}
 

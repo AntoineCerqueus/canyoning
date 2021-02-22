@@ -45,6 +45,26 @@ class Event
      */
     private $guide;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $backgroundColor;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $borderColor;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $textColor;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -141,4 +161,53 @@ class Event
 
         return $this;
     }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getBackgroundColor(): ?string
+    {
+        return $this->backgroundColor;
+    }
+
+    public function setBackgroundColor(string $backgroundColor): self
+    {
+        $this->backgroundColor = $backgroundColor;
+
+        return $this;
+    }
+
+    public function getBorderColor(): ?string
+    {
+        return $this->borderColor;
+    }
+
+    public function setBorderColor(string $borderColor): self
+    {
+        $this->borderColor = $borderColor;
+
+        return $this;
+    }
+
+    public function getTextColor(): ?string
+    {
+        return $this->textColor;
+    }
+
+    public function setTextColor(string $textColor): self
+    {
+        $this->textColor = $textColor;
+
+        return $this;
+    }
+
 }
