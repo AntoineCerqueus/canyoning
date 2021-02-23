@@ -35,7 +35,7 @@ window.onload = () => {
                     else
                         alert(data.error)
                 }).catch(e => alert(e)) // Si jamais la promesse n'est pas tenue (serveur down, 404...)
-            }
+            } // TO-DO fonction remove() ou rechargement de page dans le then
         })
     }
 

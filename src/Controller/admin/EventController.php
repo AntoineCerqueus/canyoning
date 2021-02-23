@@ -55,8 +55,8 @@ class EventController extends AbstractController
             // Flush lance la requête sql qui permet d'inscrire ces nouvelles modifications dans la bdd
             $entityManager->flush();
 
-            // Ajouter dans generation de path admin event new l'id du canyon en parameter {{ path ('admin_event_new', {'id':canyon.id})}}
-            // Redirige vers le listing des évènements pat canyon avec le canyon ajouté grâce à l'id donné
+            // Ajouter dans generation de path admin event new l'id du canyon en parameter {{ path ('admin_event_new', {'id':canyon.id})}} (show_events)
+            // Redirige vers le listing des évènements par canyon avec le canyon ajouté grâce à l'id donné
             return $this->redirectToRoute('admin_canyon_show_events', [
                 'id' => $event->getCanyon()->getId()
             ]);
@@ -64,7 +64,7 @@ class EventController extends AbstractController
 
         return $this->render('admin/event/new.html.twig', [
             'event' => $event,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 

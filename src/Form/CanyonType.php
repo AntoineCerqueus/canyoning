@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CanyonType extends AbstractType
@@ -52,7 +53,9 @@ class CanyonType extends AbstractType
                 // Non relié à la bdd
                 'mapped' => false
                 ])
-            ->add('updatedAt');
+            ->add('updatedAt', DateTimeType::class, [
+                'date_widget' => 'single_text'
+            ]);
             // ->add(
             //     'pictures',
             //     CollectionType::class,

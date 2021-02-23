@@ -3,6 +3,7 @@
 {% block title %}H20 Canyon | {{ canyon.name }}{% endblock %}
 
 {% block content %}
+
 <section>
     <h1>{{ canyon.name }}</h1>
 
@@ -48,7 +49,7 @@
 <section>
     <h2>Disponibilités</h2>
     <div id="calendar">
-
+        {{ dump(data) }}
     </div>
     <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
         <div class="nav bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
@@ -65,9 +66,10 @@
 {% block javascripts %}
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+   window.onload = () => {
         let calendarElt = document.getElementById('calendar');
         let calendar = new FullCalendar.Calendar(calendarElt, {
+            themeSystem: 'bootstrap',
             // Affiche le calendrier en jour par mois
             initialView: 'dayGridMonth',
             locale: 'fr',
@@ -76,11 +78,19 @@
                 left: 'dayGridMonth,timeGridWeek',
                 center: 'title',
                 right: 'prev,next today'
-            }
-        });
+            },
+            buttonText: {
+                today: 'Aujourd\'hui',
+                month: 'Mois',
+                week: 'Semaine',
+                day: 'Jour'
+            },
+            events: {{ data|raw }}
+
+        })
         // Rends la vue 
         calendar.render();
-    });
+    };
 </script>
 
 {% endblock %}
