@@ -99,6 +99,7 @@ class Canyon
 
     /**
      * @ORM\OneToMany(targetEntity=Event::class, mappedBy="canyon")
+     * @ORM\OrderBy({"startAt" = "ASC"}) // Trie la listes des évènements par Canyons
      */
     private $events;
 

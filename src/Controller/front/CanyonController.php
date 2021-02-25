@@ -29,9 +29,27 @@ class CanyonController extends AbstractController
      */
     public function single(Canyon $canyon):Response
     {
-        // Permets d'afficher le canyon dans son intégralité en récuprant son id grâce à le boucle du 'findAll'
+        $events = $canyon->getEvents();
+        $rdvs = [];
+        foreach ($events as $event){
+            // array push
+            $rdvs[] = [
+                'id' => $event->getId(),
+                'title' => $event->getTitle(),
+                'start' => $event->getStartAt()->format('Y-m-d H:i'), // convertit l'objet datetime en string
+                'end' => $event->getEndAt()->format('Y-m-d H:i'),
+                'textColor' => $event->getTextColor(),
+                'backgroundColor' => $event->getBackgroundColor(),
+                'borderColor' => $event->getBorderColor(),
+            ];
+        }
+        // encode les données du tableau en tebleau d'objets json pour pouvoir les intégrer dans le calendrier
+        $data = json_encode($rdvs);
+
+        // Permets d'afficher le canyon dans son intégralité en récupérant son id grâce à le boucle du 'findAll'
         return $this->render('front/canyon/single.html.twig',[
-            'canyon' => $canyon
+            'canyon' => $canyon,
+            'data' => $data
         ]);
     }
 }

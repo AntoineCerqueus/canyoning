@@ -135,7 +135,9 @@ footer {
 .column {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
 }
 
 .center {
@@ -174,3 +176,16 @@ iframe{
 .top{
     margin-top: 60px;
 }
+
+/* =======================================
+                 CALENDAR
+======================================= */
+
+#calendar{
+    width: 80%;
+    margin: auto;
+}
+
+/* .fc .fc-toolbar-title{
+    font-size: 1.5rem;
+} */

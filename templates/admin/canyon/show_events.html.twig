@@ -3,28 +3,33 @@
 {% block title %}Canyon index{% endblock %}
 
 {% block content %}
-    {# Même si l'attribut est encapsulé en privé, twig arrive a le récupérer grâce au getter de name du canyon #}
-    <h1 class="bottom">Liste des événements du canyon {{ canyon.name }} </h1>
-    <div>
-        <a href="{{ path('admin_event_new', {'id':canyon.id})}}"><button
-                class="btn btn-success fixed text-body">Ajouter</button></a>
-    </div>
+{# Même si l'attribut est encapsulé en privé, twig arrive a le récupérer grâce au getter de name du canyon #}
+<h1 class="bottom">Liste des événements de {{ canyon.name }} </h1>
+<div>
+    <a href="{{ path('admin_event_new', {'id':canyon.id})}}">
+        <button class="btn btn-success fixed text-body">Ajouter</button>
+    </a>
+</div>
 {% for event in events %}
 <div class="row justify-content-around">
     <div>
+        {# <div>
+            <h5>Nom</h5>
+            <p> {{ event.title }}</p>
+        </div>  #}
         <h5>Début</h5>
         {# twig interpole facilement les variables de type primitif mais pour les variable de types complexes on utilise 
                         des filtres qui formattent une variable avant de l'afficher #}
         <!-- Ici le filtre date formate le type "datetime" en string avec le format donné en paramètre -->
-        <p> {{ event.startAt|date('d-m-Y H:i')}}</p>
+        <p> {{ event.startAt|date('d-m-Y H:i') }}</p>
     </div>
     <div>
         <h5>Fin</h5>
-        <p> {{ event.endAt|date('d-m-Y H:i')}}</p>
+        <p> {{ event.endAt|date('d-m-Y H:i') }}</p>
     </div>
 
     <div class="actions">
-        {# le path mappe la fonction grace au name renté #}
+        {# le path mappe la fonction grace au nom du path donné dnas la fonction du controller #}
         {# <a href="{{ path('admin_canyon_show', {'id': canyon.id}) }}">Voir</a> #}
         <a href="{{ path('admin_event_edit', {'id': event.id}) }}"><button type="button"
                 class="btn btn-warning">Modifier</button></a>

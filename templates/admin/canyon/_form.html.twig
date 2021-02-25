@@ -9,7 +9,7 @@
                 <h2>Images</h2>
                 {% for picture in canyon.pictures %}
                     <div>
-                        {# lPointe vers l'image à supprimer #}
+                        {# Pointe vers l'image à supprimer #}
                         <img src="{{ asset('assets/uploads/' ~ picture.path) }}" alt="Image" width="150">
                         {# Lien du bouton pour supprimer l'image à l'aide de javascript #}
                         <a href="{{ path('admin_canyon_delete_picture', {'id': picture.id}) }}"

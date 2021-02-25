@@ -3,18 +3,20 @@
 {% block title %}H2O Canyon | Liste des canyons{% endblock %}
 
 {% block content %}
-
 <h1>les canyons</h1>
+<div class="row justify-around">
+        {% for canyon in canyons %}
+        
+    <div class="column">
 
-{% for canyon in canyons %}
-
-<h2>{{ canyon.name }}</h2>
-<img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
-<div class="content top">{{ canyon.shortDescription }}</div>
-<a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-    <div class="nav bottom"><i class="far fa-eye"></i>En savoir plus</div>
-</a>
-
+        <h2>{{ canyon.name }}</h2>
+        <img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
+        <div class="content top">{{ canyon.shortDescription }}</div>
+        <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
+            <div class="nav bottom"><i class="far fa-eye"></i>En savoir plus</div>
+        </a>
+    </div>
 {% endfor %}
 
+</div>
 {% endblock %}
