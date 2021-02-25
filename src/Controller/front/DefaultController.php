@@ -37,4 +37,12 @@ class DefaultController extends AbstractController
         return $this->render('front/default/legal-mentions.html.twig');
     }
 
+    /**
+     * @Route("/informations", name="informations")
+     */
+    public function informations(): Response
+    {
+        return $this->render('front/default/informations.html.twig');
+    }
+
 }

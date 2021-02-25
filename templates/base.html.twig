@@ -29,25 +29,25 @@
                 <span class="span-ham"></span>
                 <ul id="menu">
                     <li>
-                        <a href="{{ path('home') }}">Accueil</a>
+                        <a href="{{ path('home') }}">accueil</a>
                     </li>
                     <li>
-                        <a href="{{ path('canyons_index') }}">Canyons</a>
+                        <a href="{{ path('canyons_index') }}">canyons</a>
                     </li>
-                    {# <li>
-                        <a href="#about">Guide</a>
-                    </li> #}
                     <li>
-                        <a href="{{ path('app_login') }}">Connexion</a>
+                        <a href="{{ path('informations') }}">informations</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}">connexion</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <li>
-                        <a href="{{ path('admin_canyon_index') }}">Tableau de bord</a>
+                        <a href="{{ path('admin_canyon_index') }}">tableau de bord</a>
                     </li>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
                     <li>
-                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                        <a href="{{ path('app_logout') }}">déconnexion</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -65,7 +65,6 @@
     </header>
     <main class="container">
         {% block main %}
-       
 
         {% block content %} {% endblock %}
 
@@ -79,8 +78,9 @@
             <div class="row justify-content-center">
                 <p class="uppercase">
                     copyright h2o canyon <br />
-                    <a href="{{ path('cgv') }}">conditions générales de ventes</a> | <a
-                        href="{{ path('legal_mentions') }}">mentions légales</a>
+                    <a href="{{ path('legal_mentions') }}">mentions légales</a>
+                    | <a href="{{ path('cgv') }}">conditions générales de ventes</a>
+                    | <a href="{{ path('informations') }}">informations</a>
                 </p>
 
             </div>
