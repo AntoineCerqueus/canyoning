@@ -18,7 +18,7 @@ window.onload = () => {
                     method: "DELETE",
                     headers: {
                         "X-Requested-With": "XMLHttpRequest", // Evite d'initialiser un objet XMLHttpRequest grâce au fetch
-                        "Content-Type": "application/json" // Type MIME (Envoi de json car nous décodons du json dnas le controller)
+                        "Content-Type": "application/json" // Type MIME (Envoi de json car nous décodons du json dans le controller)
                     },
                     // dataset regarde tout les attributs commençant par data et .token car c'est l'attribut avec token que nous voulons
                     body: JSON.stringify({
