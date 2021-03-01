@@ -45,4 +45,12 @@ class DefaultController extends AbstractController
         return $this->render('front/default/informations.html.twig');
     }
 
+     /**
+     * @Route("/guides", name="guides")
+     */
+    public function guides(): Response
+    {
+        return $this->render('front/default/guides.html.twig');
+    }
+
 }
