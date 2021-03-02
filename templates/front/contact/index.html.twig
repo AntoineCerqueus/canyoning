@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}H2O Canyon | Contact{% endblock %}
+
+{% block content %}
+
+{% for message in app.flashes('message') %}
+<div class="alert alert-succes text-center" role="alert">
+    {{ message }}
+    <div>
+        <a href="{{ path('home') }}" title="Retour à l'accueil">
+            <div class="nav">Retour à l'accueil</div>
+        </a>
+    </div>
+</div>
+{% endfor %}
+
+<div class="row justify-content-center">
+    <div class="col-sm-10 col-md-8 col-lg-6">
+        <h1>Nous contacter</h1>
+        {{ form(contactForm)}}
+    </div>
+</div>
+
+
+
+{% endblock %}
