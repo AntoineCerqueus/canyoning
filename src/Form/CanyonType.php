@@ -68,6 +68,7 @@ class CanyonType extends AbstractType
             //     ]);
     }
 
+    // Précise à symfony sur quelle classe repose la structure de ce formulaire
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

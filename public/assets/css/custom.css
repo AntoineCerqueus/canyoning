@@ -27,7 +27,7 @@ a {
     margin: 30px 0 60px 0;
 }
 
-.bottom{
+.bottom {
     margin-bottom: 60px;
 }
 
@@ -49,12 +49,12 @@ h3 {
     margin: 60px 0;
 }
 
-.picture{
+.picture {
     width: 30%;
     margin-bottom: 60px;
 }
 
-.material{
+.material {
     box-shadow: 0px 2px 5px #000000;
 }
 
@@ -93,7 +93,7 @@ footer {
     box-shadow: -1px 2px 5px #000000;
 }
 
-.resize{
+.resize {
     width: 200px;
     height: 100px;
 }
@@ -129,7 +129,7 @@ footer {
     text-align: center;
 }
 
-.fa-eye{
+.fa-eye {
     padding-right: 5px;
 }
 
@@ -148,17 +148,26 @@ footer {
     text-align: center;
 }
 
+.blur {
+    width: 30%;
+    background-color: rgb(0 0 0 / 10%);
+    border-radius: 40px;
+    padding: 50px;
+    box-shadow: 0px 5px 11Px black;
+    /* backdrop-filter: blur(15px); */
+}
+
 .content {
     display: flex;
     justify-content: space-around;
     margin: auto;
 }
 
-.bottom{
+.bottom {
     margin-bottom: 60px;
 }
 
-iframe{
+iframe {
     display: block;
     width: 40rem;
     height: 25rem;
@@ -169,7 +178,7 @@ iframe{
             INDEX DES CANYONS
 ======================================= */
 
-.cover{
+.cover {
     display: block;
     width: 30rem;
     height: auto;
@@ -177,7 +186,7 @@ iframe{
     box-shadow: 0px 2px 5px #000000;
 }
 
-.top{
+.top {
     margin-top: 60px;
 }
 
@@ -185,7 +194,7 @@ iframe{
                  CALENDAR
 ======================================= */
 
-#calendar{
+#calendar {
     width: 80%;
     margin: auto;
 }
@@ -193,3 +202,4 @@ iframe{
 /* .fc .fc-toolbar-title{
     font-size: 1.5rem;
 } */
+

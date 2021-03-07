@@ -16,9 +16,29 @@
 {% endfor %}
 
 <div class="row justify-content-center">
-    <div class="col-sm-10 col-md-8 col-lg-6">
-        <h1>Nous contacter</h1>
-        {{ form(contactForm)}}
+    <div class="col-lg-6">
+        <h1 class="mb-5">Nous contacter</h1>
+        {# {{ form(contactForm)}} #}
+        {{ form_start(contactForm) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(contactForm) }}
+        </div>
+
+        <div class="row">
+            <div class="col">{{ form_row(contactForm.lastName) }}</div>
+            <div class="col">{{ form_row(contactForm.firstName) }}</div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                {{ form_row(contactForm.email) }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                {{ form_row(contactForm.message) }}
+            </div>
+        </div>
+        {{ form_end(contactForm) }}
     </div>
 </div>
 

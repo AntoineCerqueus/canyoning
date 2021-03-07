@@ -2,7 +2,7 @@
 
 namespace App\Controller\front;
 
-use App\Form\ContactType;
+use App\Form\ReservationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,15 +10,15 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mime\Email;
 
-class ContactController extends AbstractController
+class ReservationController extends AbstractController
 {
     /**
-     * @Route("/front/contact", name="contact")
+     * @Route("/front/reservation", name="reservation")
      */
     public function index(Request $request, MailerInterface $mailer): Response
     {
-        // Création du formulaire de type contact
-        $form = $this->createForm(ContactType::class);
+        // Création du formulaire de type réservation
+        $form = $this->createForm(ReservationType::class);
         // Récupération, traitement du message et de ses informations envoyé en post
         $form->handleRequest($request);
 
@@ -26,16 +26,17 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isvalid()) {
             // Récupération des informations
             $informations = $form->getData();
+            // dd($informations);
             // Instanciation du mail
             $message = (new Email())
                 ->from($informations['email'])
                 ->to('antoine.cerqueus@gmail.com')
                 ->subject('Demande d\'informations')
                 ->text($informations['message'])
-                // Création du message avec la vue twig "informations/html.twig"
+                // Création du message avec la vue twig "reservations/html.twig"
                 ->html(
                     $this->renderView(
-                        'emails/informations.html.twig',
+                        'emails/reservations.html.twig',
                         [
                             'informations' => $informations
                         ]
@@ -43,14 +44,14 @@ class ContactController extends AbstractController
                 );
 
             $mailer->send($message);
-            $this->addFlash('message', 'Votre message a bien été envoyé, nous vous répondrons dans les plus brefs délais.');
+            $this->addFlash('message', 'Votre message a bien été envoyé ! Nous traitons votre demande dans les plus brefs délais et nous vous contacterons pour la validation.');
             // return $this->redirectToRoute('home');
         }
 
 
-        return $this->render('front/contact/index.html.twig', [
+        return $this->render('front/reservation/index.html.twig', [
             // Création de la variable pour twig dans laquelle nous lui donnons la vue du formulaire
-            'contactForm' => $form->createView()
+            'reservationForm' => $form->createView()
         ]);
     }
 }

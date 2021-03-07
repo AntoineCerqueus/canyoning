@@ -1,0 +1,36 @@
+<h1>Demande de réservation</h1>
+
+<table class="row">
+    <tbody>
+        <h2>Informations de Contact</h2>
+        <tr>
+            <th>Envoyé par : </th>
+            <td>{{ informations.firstName  ~ ' ' ~ informations.lastName }}</td>
+        </tr>
+        <tr>
+            <th class="text-left">E-mail : </th>
+            <td>{{ informations.email }}</td>
+        </tr>
+        <tr>
+            <th>Téléphone : </th>
+            <td>{{ informations.phone }}</td>
+        </tr>
+        <h2>Informations sur l'activité</h2>
+        <tr>
+            <th>Canyon : </th>
+            <td>{{ informations.canyon }}</td>
+        </tr>
+        <tr>
+            <th>Quand : </th>
+            <td>{{ informations.when|date('d-m-Y H:i') ~ ' ' ~ informations.morning_or_noon }}</td>
+        </tr>
+        <tr>
+            <th>Accompagnants : </th>
+            <td>{{ informations.extra_personn }} personne(s) </td>
+        </tr>
+        <tr>
+            <th>Message : </th>
+            <td>{{ informations.message }}</td>
+        </tr>
+    </tbody>
+</table>

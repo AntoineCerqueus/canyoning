@@ -50,8 +50,9 @@
     margin-bottom: 5px;
     position: relative;
   
-    background-color: #000000;
+    background-color: #0159AF;
     border-radius: 100px;
+    box-shadow: 0px 2px 2px #000000;
   
     z-index: 1;
   
@@ -76,7 +77,8 @@
   #menuToggle input:checked ~ span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #000000;
+  background-color: #00a0f4;
+    
   }
   
   /*
