@@ -12,25 +12,33 @@
 {{ form_start(registrationForm) }}
 {{ form_row(registrationForm.lastName, {
     'label': 'Nom',
-    'attr': {'placeholder': 'Ex : Martin'}
+    'attr': {'placeholder': 'Ex : Mi'}
         }) }}
 {{ form_row(registrationForm.firstName, {
     'label': 'Prénom',
-    'attr': {'placeholder': 'Ex: Jacques'}
+    'attr': {'placeholder': 'Ex: Jean'}
         }) }}
+{{ form_row(registrationForm.phone, {
+            'label': 'Téléphone',
+            'attr': {'placeholder': 'Tapez ici votre numéro de téléphone'}
+                }) }}
 {{ form_row(registrationForm.email, {
     'label': 'Adresse mail',
-    'attr': {'placeholder': 'Ex: jacques.martin@gmail.com'}
+    'attr': {'placeholder': 'Ex: jean.mi@gmail.com'}
         }) }}
 {{ form_row(registrationForm.plainPassword, {
     'label': 'Mot de passe',
-    'attr': {'placeholder': 'Rentrez ici votre mot de passe...'}
+    'attr': {'placeholder': 'Tapez ici votre mot de passe'}
         }) }}
-<!-- {{ form_row(registrationForm.agreeTerms, {
-            label : 'Acceptez les termes du contrat'
-        }) }} -->
+{# {{ form_row(registrationForm.confirmPassword, {
+            'label': 'Confirmez votre mot de passe',
+            'attr': {'placeholder': 'Retapez ici votre mot de passe'}
+                }) }} #}
+{{ form_row(registrationForm.agreeTerms, {
+            'label' : 'Acceptez les termes du contrat'
+        }) }}
 
-<button type="submit" class="btn">Enregistrer</button>
+<input type="submit" class="nav-button" value="Inscription" />
 <div>
     <a href="{{ path('home') }}" title="Retour à l'accueil">
         <div class="nav-button">Retour à l'accueil</div>

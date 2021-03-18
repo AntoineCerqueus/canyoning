@@ -12,9 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @UniqueEntity(fields={"email"}, message="Cet email n'est pas valide") // mail doit être unique
  */
-class User implements UserInterface
+class User implements UserInterface // Dis à Symfony que la table user n'est pas une simple table, elle corresponds à de vrais utilisateurs
+// Permet l'encodage du mdp basé sur la classe user basé sur les méthodes getSalt, erasecredentials et get Roles
 {
     /**
      * @ORM\Id
@@ -37,7 +38,6 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank
      */
     private $password;
 

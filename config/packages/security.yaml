@@ -1,15 +1,15 @@
 security:
-    encoders:
+    encoders: # algorythme d'encodage pour crypter le mot de passe
         App\Entity\User:
-            algorithm: auto
+            algorithm: auto 
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
-                property: email
+                class: App\Entity\User # doit trouver le user dans la bdd
+                property: email # défini le champ par lequel symfony doit trouver le user pour ensuite vérifier la mdp
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -23,7 +23,7 @@ security:
                     - App\Security\AppCustomAuthenticator
             logout:
                 path: app_logout
-                # redirection vers la home
+                # redirection vers la page d'accueil
                 target: home
 
             # activate different ways to authenticate
