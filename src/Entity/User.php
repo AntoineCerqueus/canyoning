@@ -94,7 +94,7 @@ class User implements UserInterface
     private $isVerified = false;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $guide;
 

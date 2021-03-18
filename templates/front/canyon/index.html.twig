@@ -13,7 +13,7 @@
         <img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
         <div class="content top">{{ canyon.shortDescription }}</div>
         <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-            <div class="nav bottom"><i class="far fa-eye"></i>En savoir plus</div>
+            <div class="nav-button bottom"><i class="far fa-eye"></i>En savoir plus</div>
         </a>
     </div>
 {% endfor %}

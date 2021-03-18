@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,7 +21,7 @@ class UserType extends AbstractType
                 ]
             ])
             // ->add('roles')
-            ->add('password', TextType::class, [
+            ->add('password', PasswordType::class, [
                 'attr' => [
                     'placeholder' => "Votre mot de passe"
                 ]
@@ -35,22 +36,22 @@ class UserType extends AbstractType
                     'placeholder' => "Votre prénom"
                 ]
             ])
-            ->add('size', IntegerType::class, [
-                'attr' => [
-                    'placeholder' => "Votre taille"
-                ]
-            ])
-            ->add('weight', IntegerType::class, [
-                'attr' => [
-                    'placeholder' => "Votre poids"
-                ]
-            ])
-            ->add('phone', TextType::class, [
+            // ->add('size', IntegerType::class, [
+            //     'attr' => [
+            //         'placeholder' => "Votre taille"
+            //     ]
+            // ])
+            // ->add('weight', IntegerType::class, [
+            //     'attr' => [
+            //         'placeholder' => "Votre poids"
+            //     ]
+            // ])
+            ->add('phone', IntegerType::class, [
                 'attr' => [
                     'placeholder' => "Votre téléphone"
                 ]
             ])
-            ->add('status')
+            // ->add('status')
             // ->add('isVerified')
             // ->add('event')
         ;

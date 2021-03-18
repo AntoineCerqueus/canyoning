@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
 {% block title %}User{% endblock %}
 
@@ -7,13 +7,25 @@
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
+            </tr> #}
+            <tr>
+                <th>FirstName</th>
+                <td>{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ user.lastName }}</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ user.phone }}</td>
             </tr>
             <tr>
                 <th>Roles</th>
@@ -23,30 +35,19 @@
                 <th>Password</th>
                 <td>{{ user.password }}</td>
             </tr>
-            <tr>
-                <th>LastName</th>
-                <td>{{ user.lastName }}</td>
-            </tr>
-            <tr>
-                <th>FirstName</th>
-                <td>{{ user.firstName }}</td>
-            </tr>
-            <tr>
+           
+            {# <tr>
                 <th>Size</th>
                 <td>{{ user.size }}</td>
             </tr>
             <tr>
                 <th>Weight</th>
                 <td>{{ user.weight }}</td>
-            </tr>
-            <tr>
-                <th>Phone</th>
-                <td>{{ user.phone }}</td>
-            </tr>
-            <tr>
+            </tr> #}
+            {# <tr>
                 <th>Status</th>
                 <td>{{ user.status }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>IsVerified</th>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>

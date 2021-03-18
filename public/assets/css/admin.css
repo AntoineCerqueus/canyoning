@@ -68,3 +68,30 @@ p{
 .middle{
     margin: auto;
 }
+
+.nav-button {
+    display: block;
+    width: 170px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 60px auto 0 auto;
+    background-color: #007bff;
+    color: #000000;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 250ms ease-in-out 0s;
+    box-shadow: 0px 8px 5px -7px #000000;
+    font-size: 0.9em;
+    box-sizing: content-box;
+}
+
+.nav-button:hover{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a:hover{
+    text-decoration: none;
+}

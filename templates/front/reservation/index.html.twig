@@ -5,11 +5,11 @@
 {% block content %}
 
 {% for message in app.flashes('message') %}
-<div class="alert alert-succes text-center" role="alert">
+<div class="alert alert-succes" role="alert">
     {{ message }}
     <div>
         <a href="{{ path('home') }}" title="Retour à l'accueil">
-            <div class="nav">Retour à l'accueil</div>
+            <div class="nav-button">Retour à l'accueil</div>
         </a>
     </div>
 </div>

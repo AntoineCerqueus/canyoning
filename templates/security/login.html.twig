@@ -47,10 +47,15 @@
 
         <div class="row justify-content-center mb-3">
             <div>
-                <button class="btn btn-light mb-2" type="submit">Connexion</button>
-                <p>
+                <input class="nav-button mb-2" type="submit" value="Connexion"/>
+            
                     <a href="{{ path('app_forgot_password_request') }}"> Mot de passe oublié ?</a>
-                </p>
+            
+            </div>
+            <div>
+                <a href="{{ path('home') }}" title="Retour à l'accueil">
+                    <div class="nav-button">Retour à l'accueil</div>
+                </a>
             </div>
         </div>
     </div>

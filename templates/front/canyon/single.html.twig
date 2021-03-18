@@ -35,62 +35,67 @@
 </section>
 <section>
     <h2>Informations</h2>
-<div class="blur">
-    <p>Durée : {{ canyon.duration }}</p>
-    <p>Niveau : {{ canyon.level }}</p>
-    <p>Age requis : {{ canyon.ageNeeded }}</p>
-    <p>Pré-requis : {{ canyon.knowledge }}</p>
-    <p>Descente en rappel : {{ canyon.abseiling }}</p>
-    <p>Lieu : {{ canyon.location }}</p>
-    <p>Départ : {{ canyon.meetingPoint }}</p>
-</div>
+    <div class="blur">
+        <p>Durée : {{ canyon.duration }}</p>
+        <p>Niveau : {{ canyon.level }}</p>
+        <p>Age requis : {{ canyon.ageNeeded }}</p>
+        <p>Pré-requis : {{ canyon.knowledge }}</p>
+        <p>Descente en rappel : {{ canyon.abseiling }}</p>
+        <p>Lieu : {{ canyon.location }}</p>
+        <p>Départ : {{ canyon.meetingPoint }}</p>
+    </div>
 </section>
 <h2>Prix</h2>
 <section>
     <h2>Disponibilités</h2>
     <div id="calendar">
-        {{ dump(data) }}
+        <!-- {{ dump(data) }} -->
     </div>
-    <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-        <div class="nav bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
+
+    {% if is_granted('ROLE_USER') %}
+    <a href="{{ path('reservation') }}" title="Découvrez les canyons">
+        <div class="nav-button bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
     </a>
-    <div class="center">
-        <p>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></p>
-        <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
-            <div class="nav bottom"><i class="fas fa-sign-in-alt"></i> connexion</div>
-        </a>
+    {% else %}
+    <div class="text-center mt-5">
+        <div>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></div>
+        <div>
+            <a href="{{ path('app_login')}}" t itle="Découvrez les canyons">
+                <div class="nav-button"><i class="fas fa-sign-in-alt"></i> connexion</div>
+            </a>
+        </div>
     </div>
+    {% endif %}
 </section>
 {% endblock %}
 
 {% block javascripts %}
 
 <script>
-   window.onload = () => {
-        let calendarElt = document.getElementById('calendar');
-        let calendar = new FullCalendar.Calendar(calendarElt, {
-            themeSystem: 'bootstrap',
-            // Affiche le calendrier en jour par mois
-            initialView: 'dayGridMonth',
-            locale: 'fr',
-            timeZone: 'Europe/Paris',
-            headerToolbar: {
-                left: 'dayGridMonth,timeGridWeek',
-                center: 'title',
-                right: 'prev,next today'
-            },
-            buttonText: {
-                today: 'Aujourd\'hui',
-                month: 'Mois',
-                week: 'Semaine',
-                day: 'Jour'
-            },
-            events: {{ data|raw }}
-
-        })
-        // Rends la vue 
-        calendar.render();
-    };
+    window.onload = () => {
+            let calendarElt = document.getElementById('calendar');
+            let calendar = new FullCalendar.Calendar(calendarElt, {
+                    themeSystem: 'bootstrap',
+                    // Affiche le calendrier en jour par mois
+                    initialView: 'dayGridMonth',
+                    locale: 'fr',
+                    timeZone: 'Europe/Paris',
+                    headerToolbar: {
+                        left: 'dayGridMonth,timeGridWeek',
+                        center: 'title',
+                        right: 'prev,next today'
+                    },
+                    buttonText: {
+                        today: 'Aujourd\'hui',
+                        month: 'Mois',
+                        week: 'Semaine',
+                        day: 'Jour'
+                    },
+                    events: {{data|raw}} // filtre twig pour traduire les données en html
+                })
+                // Rends la vue 
+                calendar.render();
+            };
 </script>
 
 {% endblock %}

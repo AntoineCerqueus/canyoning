@@ -29,6 +29,11 @@
                 <span class="span-ham"></span>
                 <span class="span-ham"></span>
                 <ul id="menu">
+                    {% if is_granted('ROLE_USER') %}
+                    <li class="pt-4">
+                       Bonjour {{ app.user.firstName }} !
+                    </li>
+                    {% endif %}
                     <li>
                         <a href="{{ path('home') }}">accueil</a>
                     </li>
@@ -41,15 +46,20 @@
                     <li>
                         <a href="{{ path('informations') }}">informations</a>
                     </li>
-                    <li>
-                        <a href="{{ path('app_login') }}">connexion</a>
-                    </li>
+                   
                     <li>
                         <a href="{{ path('contact') }}">contact</a>
                     </li>
                     {% if is_granted('ROLE_USER') %}
                     <li>
                         <a href="{{ path('reservation') }}">réservation</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ path('app_register') }}">inscription</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}">connexion</a>
                     </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
