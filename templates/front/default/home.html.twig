@@ -3,6 +3,12 @@
 {% block title %}H2O Canyon | Accueil{% endblock %}
 
 {% block content %}
+{% if app.user %}
+<div class="col-md-lg-6 text-center ">
+    <p> Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
+    <p>Vous pouvez désormais faire une demande de réservation.</p>
+</div>
+{% endif %}
 
 <div class="row justify-content-center">
     <h1>

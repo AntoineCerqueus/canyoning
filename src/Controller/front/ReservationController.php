@@ -31,7 +31,7 @@ class ReservationController extends AbstractController
             $message = (new Email())
                 ->from($informations['email'])
                 ->to('antoine.cerqueus@gmail.com')
-                ->subject('Demande d\'informations')
+                ->subject('Demande de réservation')
                 ->text($informations['message'])
                 // Création du message avec la vue twig "reservations/html.twig"
                 ->html(

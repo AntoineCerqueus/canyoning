@@ -1,8 +1,8 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Connexion à votre compte{% endblock %}
 
-{% block body %}
+{% block content %}
 
 <form method="post">
     <div class="container">
@@ -51,11 +51,6 @@
             
                     <a href="{{ path('app_forgot_password_request') }}"> Mot de passe oublié ?</a>
             
-            </div>
-            <div>
-                <a href="{{ path('home') }}" title="Retour à l'accueil">
-                    <div class="nav-button">Retour à l'accueil</div>
-                </a>
             </div>
         </div>
     </div>

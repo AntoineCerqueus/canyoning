@@ -57,12 +57,8 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+            $this->addFlash('success', 'Un email vous a été envoyé pour confirmer votre adresse mail à fin de valider votre inscription.');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('registration/register.html.twig', [
@@ -87,8 +83,8 @@ class RegistrationController extends AbstractController
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
-        $this->addFlash('success', 'Votre e-mail a bien été vérifié.');
+        $this->addFlash('success', 'Merci, votre e-mail a bien été vérifié.');
 
-        return $this->redirectToRoute('home');
+        return $this->redirectToRoute('app_login');
     }
 }

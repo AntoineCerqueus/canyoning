@@ -4,14 +4,12 @@ html {
 
 body {
      /* FF3.6+ */
-    background: -moz-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
+    background: -moz-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000) fixed;
     /* Chrome10+,Safari5.1+ */
-    background: -webkit-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
+    background: -webkit-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000) fixed;
    /* Opera11.10+ */
-    background: -o-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
-    /* edge */
-    background: -ms-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
-    background: linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
+    background: -o-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000) fixed;
+    background: linear-gradient(#01A0F4 30%, #0159AF 50%, #000000) fixed;
     background-repeat: no-repeat;
     /* background-attachment: fixed;  */
     color: #ffffff;
@@ -66,43 +64,6 @@ footer {
 }
 
 /* =======================================
-                 CAROUSEL
-======================================= */
-
-.d-block {
-    box-shadow: 2px 10px 20px -7px #000000;
-    border-radius: 10px;
-}
-
-.carousel,
-.d-block {
-    width: 80%;
-    height: auto;
-    margin: auto;
-}
-
-.fa-angle-double-left {
-    padding-right: 80px;
-    font-size: 3em;
-    text-shadow: -1px 2px 5px #000000;
-}
-
-.fa-angle-double-right {
-    padding-left: 80px;
-    font-size: 3em;
-    text-shadow: -1px 2px 5px #000000;
-}
-
-.carousel-indicators li {
-    box-shadow: -1px 2px 5px #000000;
-}
-
-.resize {
-    width: 200px;
-    height: 100px;
-}
-
-/* =======================================
                  BUTTON
 ======================================= */
 
@@ -154,16 +115,6 @@ footer {
     text-align: center;
 }
 
-.blur {
-    width: 30%;
-    background-color: rgb(0 0 0 / 10%);
-    border-radius: 40px;
-    padding: 50px;
-    box-shadow: 0px 5px 11Px black;
-    box-sizing: content-box;
-    /* backdrop-filter: blur(15px); */
-}
-
 .content {
     display: flex;
     justify-content: space-around;
@@ -174,39 +125,5 @@ footer {
     margin-bottom: 60px;
 }
 
-iframe {
-    display: block;
-    width: 40rem;
-    height: 25rem;
-    margin: 60px auto 0 auto;
-}
 
-/* =======================================
-            INDEX DES CANYONS
-======================================= */
-
-.cover {
-    display: block;
-    width: 30rem;
-    height: auto;
-    margin: auto;
-    box-shadow: 0px 2px 5px #000000;
-}
-
-.top {
-    margin-top: 60px;
-}
-
-/* =======================================
-                 CALENDAR
-======================================= */
-
-#calendar {
-    width: 80%;
-    margin: auto;
-}
-
-/* .fc .fc-toolbar-title{
-    font-size: 1.5rem;
-} */
 
