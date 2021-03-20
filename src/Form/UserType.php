@@ -21,11 +21,11 @@ class UserType extends AbstractType
                 ]
             ])
             // ->add('roles')
-            ->add('password', PasswordType::class, [
-                'attr' => [
-                    'placeholder' => "Votre mot de passe"
-                ]
-            ])
+            // ->add('password', PasswordType::class, [
+            //     'attr' => [
+            //         'placeholder' => "Votre mot de passe"
+            //     ]
+            // ])
             ->add('lastName', TextType::class, [
                 'attr' => [
                     'placeholder' => "Votre nom de famille"

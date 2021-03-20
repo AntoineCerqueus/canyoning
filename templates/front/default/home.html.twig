@@ -3,7 +3,22 @@
 {% block title %}H2O Canyon | Accueil{% endblock %}
 
 {% block content %}
-{% if app.user %}
+
+{% if is_granted('ROLE_ADMIN') %}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content background">
+            <div class="modal-body">
+                <h5 class="modal-title text-center" id="exampleModalLongTitle">Bonjour
+                    {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</h5>
+                <a href="{{ path('admin_canyon_index') }}" class="nav-button">tableau de bord</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if is_granted('ROLE_USER') %}
 <div class="col-md-lg-6 text-center ">
     <p> Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
     <p>Vous pouvez désormais faire une demande de réservation.</p>
@@ -97,6 +112,8 @@
     </a>
 </div>
 
+{% endblock %}
 
-
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('assets/js/modal.js')}}"></script>
 {% endblock %}

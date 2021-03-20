@@ -5,14 +5,7 @@
 {% block content %}
 
 {% for message in app.flashes('message') %}
-<div class="alert alert-succes text-center" role="alert">
-    {{ message }}
-    <div>
-        <a href="{{ path('home') }}" title="Retour à l'accueil">
-            <div class="nav">Retour à l'accueil</div>
-        </a>
-    </div>
-</div>
+<div class="alert alert-succes text-center" role="alert">{{ message }}</div>
 {% endfor %}
 
 <div class="row justify-content-center">
@@ -41,7 +34,5 @@
         {{ form_end(contactForm) }}
     </div>
 </div>
-
-
 
 {% endblock %}

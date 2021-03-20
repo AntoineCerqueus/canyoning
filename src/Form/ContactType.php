@@ -42,7 +42,7 @@ class ContactType extends AbstractType
             ])
             ->add('envoyer', SubmitType::class, [
                 'attr' => [
-                    'class' => "nav"
+                    'class' => "nav-button"
                 ]
             ]);
     }
