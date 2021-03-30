@@ -3,11 +3,11 @@ html {
 }
 
 body {
-     /* FF3.6+ */
+    /* FF3.6+ */
     background: -moz-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
     /* Chrome10+,Safari5.1+ */
     background: -webkit-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
-   /* Opera11.10+ */
+    /* Opera11.10+ */
     background: -o-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
     /* edge */
     background: -ms-linear-gradient(#01A0F4 30%, #0159AF 50%, #000000);
@@ -22,7 +22,7 @@ a {
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -210,7 +210,46 @@ iframe {
     font-size: 1.5rem;
 } */
 
-.background{
+.background {
     text-align: center;
     color: #000000;
+}
+
+h2.fc-toolbar-title {
+    text-transform: capitalize;
+}
+
+/* +++++++++++++++++++++++++++++++++ */
+
+label.required:after {
+    content: "*";
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .fc .fc-toolbar.fc-header-toolbar {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* .fc-toolbar-title .fc-toolbar-chunk {
+        display: block;
+    } */
+
+    .fa-angle-double-left {
+        padding-right: 0px;
+        font-size: 2em;
+       
+    }
+    
+    .fa-angle-double-right {
+        padding-left: 0px;
+        font-size: 2em;
+       
+    }
+
+    .carousel, .d-block{
+        width: 100%;
+    }
 }

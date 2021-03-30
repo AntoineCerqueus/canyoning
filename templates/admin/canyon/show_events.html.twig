@@ -27,6 +27,10 @@
         <h5>Fin</h5>
         <p> {{ event.endAt|date('d-m-Y H:i') }}</p>
     </div>
+    <div>
+        <h5>Guide</h5>
+        <p> {{ event.guide.firstName }}</p>
+    </div>
 
     <div class="actions">
         {# le path mappe la fonction grace au nom du path donné dnas la fonction du controller #}

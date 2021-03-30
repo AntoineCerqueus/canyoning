@@ -124,7 +124,7 @@ class ReservationType extends AbstractType
             ])
             ->add('send', SubmitType::class, [
                 'attr' => [
-                    'class' => "nav"
+                    'class' => "nav-button"
                 ],
                 'label' => 'envoyer'
             ]);
@@ -133,7 +133,10 @@ class ReservationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'attr' => [
+                // https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag
+                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation! 
+            ]
         ]);
     }
 }

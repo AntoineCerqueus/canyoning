@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -21,7 +22,7 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('lastName')
             ->add('firstName')
-            ->add('email')
+            ->add('email', EmailType::class)
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -30,20 +31,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            // ->add('plainPassword', PasswordType::class, [
-            //     // instead of being set onto the object directly,
-            //     // this is read and encoded in the controller
-            //     'mapped' => false,
-            //     'constraints' => [
-            //         new Length([
-            //             'min' => 6,
-            //             'minMessage' => 'Votre mot de passe doit contenir {{ limit }} caractères minimum',
-            //             // max length allowed by Symfony for security reasons
-            //             'max' => 4096,
-            //         ]),
-            //     ],
-            // ])
-            ->add('plainPassword', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, [ // génère x inputs par x options
                 'type' => PasswordType::class,
                 'first_options' => [
                     'constraints' => [
@@ -71,7 +59,14 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Ce champ est requis',
-                    ])
+                    ]),
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 10,
+                        'maxMessage' => 'Votre mot de passe doit contenir au maximum {{ limit }} caractères'
+                    ]),
                 ]
             ])
         ;

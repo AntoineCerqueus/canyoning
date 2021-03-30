@@ -26,7 +26,7 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message= "Vous devez nous fournir une adresse mail valide svp")
      */
     private $email;
 

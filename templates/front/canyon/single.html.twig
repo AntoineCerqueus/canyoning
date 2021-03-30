@@ -75,15 +75,16 @@
     window.onload = () => {
             let calendarElt = document.getElementById('calendar');
             let calendar = new FullCalendar.Calendar(calendarElt, {
-                    themeSystem: 'bootstrap',
+                // aspectRatio: 1,
+                    // themeSystem: 'bootstrap',
                     // Affiche le calendrier en jour par mois
                     initialView: 'dayGridMonth',
                     locale: 'fr',
                     timeZone: 'Europe/Paris',
                     headerToolbar: {
-                        left: 'dayGridMonth,timeGridWeek',
+                        left: 'dayGridMonth,timeGridWeek,today',
                         center: 'title',
-                        right: 'prev,next today'
+                        right: 'prev,next'
                     },
                     buttonText: {
                         today: 'Aujourd\'hui',
@@ -93,6 +94,7 @@
                     },
                     events: {{data|raw}} // filtre twig pour traduire les données en html
                 })
+                calendar.setOption('aspectRatio', 1.8);
                 // Rends la vue 
                 calendar.render();
             };
