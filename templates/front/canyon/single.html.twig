@@ -5,7 +5,7 @@
 {% block content %}
 
 <section>
-    <h1>{{ canyon.name }}</h1>
+    <h1 class="mb-3">{{ canyon.name }}</h1>
 
     <div id="carouselExampleIndicators" class="carousel">
         <ol class="carousel-indicators">
@@ -49,19 +49,27 @@
 <section>
     <h2>Disponibilités</h2>
     <div id="calendar">
-        <!-- {{ dump(data) }} -->
+        {# {{ dump(data) }} #}
     </div>
 
     {% if is_granted('ROLE_USER') %}
-    <a href="{{ path('reservation') }}" title="Découvrez les canyons">
+    <a href="{{ path('reservation') }}" title="Réservation">
         <div class="nav-button bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
     </a>
     {% else %}
     <div class="text-center mt-5">
         <div>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></div>
         <div>
-            <a href="{{ path('app_login')}}" t itle="Découvrez les canyons">
+            <a href="{{ path('app_login')}}" title="Connexion">
                 <div class="nav-button"><i class="fas fa-sign-in-alt"></i> connexion</div>
+            </a>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <div>Ou vous inscrire !<i class="far fa-smile"></i></div>
+        <div>
+            <a href="{{ path('app_register')}}" title="Inscription">
+                <div class="nav-button"><i class="fas fa-sign-in-alt"></i> inscription</div>
             </a>
         </div>
     </div>
@@ -72,32 +80,40 @@
 {% block javascripts %}
 
 <script>
+    // La,nce le script au chargement de la fenêtre
     window.onload = () => {
-            let calendarElt = document.getElementById('calendar');
-            let calendar = new FullCalendar.Calendar(calendarElt, {
-                // aspectRatio: 1,
-                    // themeSystem: 'bootstrap',
-                    // Affiche le calendrier en jour par mois
-                    initialView: 'dayGridMonth',
-                    locale: 'fr',
-                    timeZone: 'Europe/Paris',
-                    headerToolbar: {
-                        left: 'dayGridMonth,timeGridWeek,today',
-                        center: 'title',
-                        right: 'prev,next'
-                    },
-                    buttonText: {
-                        today: 'Aujourd\'hui',
-                        month: 'Mois',
-                        week: 'Semaine',
-                        day: 'Jour'
-                    },
-                    events: {{data|raw}} // filtre twig pour traduire les données en html
-                })
-                calendar.setOption('aspectRatio', 1.8);
-                // Rends la vue 
-                calendar.render();
-            };
+        // Récupération et instanciation de la div #calendar
+        let calendarElt = document.getElementById('calendar');
+        // Instanciation d'un objet calendar en lui passant le "calendarElt"
+        // en premier paramètre et des options en second
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+            // Affiche le calendrier en jour par mois
+            initialView: 'dayGridWeek',
+            // Affiche la date en français
+            locale: 'fr',
+            // Défini le fuseau horaire
+            timeZone: 'Europe/Paris',
+            // Positionne les éléments de la barre de navigation
+            headerToolbar: {
+                left: 'dayGridWeek,dayGridDay,today',
+                center: 'title',
+                right: 'prev,next'
+            },
+            // Passe le label des boutons en français
+            buttonText: {
+                today: 'Aujourd\'hui',
+                month: 'Mois',
+                week: 'Semaine',
+                day: 'Jour'
+            },
+            // Variable events récupère les données pour les affichées dans le calendrier
+            events: {{data|raw}} // filtre twig pour traduire les données en html
+        })
+
+        // calendar.setOption('aspectRatio', 1.8);
+        // Rends la vue 
+        calendar.render();
+    };
 </script>
 
 {% endblock %}

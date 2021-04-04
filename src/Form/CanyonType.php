@@ -35,37 +35,21 @@ class CanyonType extends AbstractType
             ])
             ->add('abseiling', TextType::class, ['label' => 'Rappel'])
             ->add('knowledge', TextType::class, ['label' => 'Pré-requis'])
-            // ->add('halfDay', CheckboxType::class, [
-            //     'label' => 'Demi-journée',
-            //     'required' => false,
-            // ])
-            // ->add('fullDay', CheckboxType::class, [
-            //     'label' => 'Journée',
-            //     'required' => false,
-            // ])
             ->add('duration', TextType::class, ['label' => 'Durée'])
             // ->add('file', VichImageType::class)
             ->add('pictures', FileType::class, [
-                // // Pas de label
-                // 'label' => false,
+                // Donne le nom Image et non pictures
+                 'label' => 'Images',
                 // Champ multiple car plusieurs images
                 'multiple' => true,
                 // Non relié à la bdd
                 'mapped' => false
                 ])
             ->add('updatedAt', DateTimeType::class, [
+                'label' => 'Modifié le',
+                // génère un calendrier pour le choix de la date en "jj/mm/aaaa"
                 'date_widget' => 'single_text'
             ]);
-            // ->add(
-            //     'pictures',
-            //     CollectionType::class,
-            //     [
-            //         'entry_type' => PictureCanyonType::class,
-            //         'allow_add' => true,
-            //         'allow_delete' => true,
-            //         'prototype' => true,
-            //         'label' => 'Images'
-            //     ]);
     }
 
     // Précise à symfony sur quelle classe repose la structure de ce formulaire

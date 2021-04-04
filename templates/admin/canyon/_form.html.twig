@@ -1,23 +1,25 @@
 {% block content %}
-{# {% form_theme form 'admin/canyon/_form_theme.html.twig' %} #}
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
 
-{# Vérification de la route /admin/canyon/id/edit, affiche les images #}
+{{ form_start(form) }}
+{{ form_widget(form) }}
 
-            {% if app.request.attributes.get('_route') == 'admin_canyon_edit' %}
-                <h2>Images</h2>
-                {% for picture in canyon.pictures %}
-                    <div>
-                        {# Pointe vers l'image à supprimer #}
-                        <img src="{{ asset('assets/uploads/' ~ picture.path) }}" alt="Image" width="150">
-                        {# Lien du bouton pour supprimer l'image à l'aide de javascript #}
-                        <a href="{{ path('admin_canyon_delete_picture', {'id': picture.id}) }}"
-                        {# data-token="" paramètre donné pour que symfony génére un token pour chaque picture #}
-                        data-delete data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
-                    </div>
-                {% endfor %}
-            {% endif %}
-                <button class="btn btn-success text-body bottom">{{ button_label|default('Créer') }}</button>
-    {{ form_end(form) }}
+{# Vérification de la route /admin/canyon/id/edit car le formulaire est aussi pour la création :
+    Si la route est bien celle de la fonction edit() on affiche les images #}
+    {# ('_route') contient le nom de la route #}
+{% if app.request.attributes.get('_route') == 'admin_canyon_edit' %}
+<h2>Images</h2>
+{% for picture in canyon.pictures %}
+<div>
+    {# Pointe vers l'image à supprimer #}
+    <img src="{{ asset('assets/uploads/' ~ picture.path) }}" alt="Image" width="200" class="mb-3">
+    {# Lien du bouton pour supprimer l'image à l'aide de javascript #}
+    <a href="{{ path('admin_canyon_delete_picture', {'id': picture.id}) }}"
+        {# data-token="" attribut donné pour que symfony génére un token avec la méthode csrf_token pour chaque picture #} 
+        {# data-delete sers à récupérer le lien pour le code javascript #}
+        data-delete data-token="{{ csrf_token('delete' ~ picture.id) }}">Supprimer</a>
+</div>
+{% endfor %}
+{% endif %}
+<button class="btn btn-success text-body bottom">{{ button_label|default('Créer') }}</button>
+{{ form_end(form) }}
 {% endblock %}

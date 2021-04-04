@@ -29,11 +29,13 @@ class CanyonController extends AbstractController
      */
     public function single(Canyon $canyon):Response
     {
+        // Récupération des évènements créés
         $events = $canyon->getEvents();
-        $rdvs = [];
+        // Initialisation d'un tableau vide
+        $sessions = [];
         foreach ($events as $event){
-            // array push
-            $rdvs[] = [
+            // Pousse dans le tableau sessions tous les attributs d'un événement attendu par fullcalendar
+            $sessions[] = [
                 'id' => $event->getId(),
                 'title' => $event->getTitle(),
                 'start' => $event->getStartAt()->format('Y-m-d H:i'), // convertit l'objet datetime en string
@@ -43,12 +45,14 @@ class CanyonController extends AbstractController
                 'borderColor' => $event->getBorderColor(),
             ];
         }
-        // encode les données du tableau en tebleau d'objets json pour pouvoir les intégrer dans le calendrier
-        $data = json_encode($rdvs);
+        // encode les données du tableau en tableau d'objets json $data pour pouvoir les intégrer dans le calendrier
+        $data = json_encode($sessions);
 
-        // Permets d'afficher le canyon dans son intégralité en récupérant son id grâce à le boucle du 'findAll'
+        // Rends la vue
         return $this->render('front/canyon/single.html.twig',[
+            // Passe l'objet canyon à twig
             'canyon' => $canyon,
+            // Passe les données à twig
             'data' => $data
         ]);
     }

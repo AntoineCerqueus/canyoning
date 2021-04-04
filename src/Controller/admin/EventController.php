@@ -16,16 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class EventController extends AbstractController
 {
-    // /**
-    //  * @Route("/", name="index", methods={"GET"})
-    //  */
-    // public function index(EventRepository $eventRepository): Response
-    // {
-    //     return $this->render('admin/event/index.html.twig', [
-    //         'events' => $eventRepository->findAll(),
-    //     ]);
-    // }
-
     /**
      * @Route("/", name="index", methods={"GET"})
      */
@@ -55,7 +45,6 @@ class EventController extends AbstractController
             // Flush lance la requête sql qui permet d'inscrire ces nouvelles modifications dans la bdd
             $entityManager->flush();
 
-            // Ajouter dans generation de path admin event new l'id du canyon en parameter {{ path ('admin_event_new', {'id':canyon.id})}} (show_events)
             // Redirige vers le listing des évènements par canyon avec le canyon ajouté grâce à l'id donné
             return $this->redirectToRoute('admin_canyon_show_events', [
                 'id' => $event->getCanyon()->getId()
@@ -107,13 +96,18 @@ class EventController extends AbstractController
      */
     public function delete(Request $request, Event $event): Response
     {
+        // méthode comparant le token enregistré et celui récupéré lors de la requête
+        // S'ils correspondent, on entre dans la condition
         if ($this->isCsrfTokenValid('delete' . $event->getId(), $request->request->get('_token'))) {
+            // instanciation du manager de doctrine
             $entityManager = $this->getDoctrine()->getManager();
+            // Préparation de la suppression du canyon
             $entityManager->remove($event);
+            // Suppression du canyon dans la base
             $entityManager->flush();
         }
 
-        // Redirige vers le listing des évènements par canyon avec le canyon supprimé grâce à l'id donné
+        // Redirige vers le listing des évènements du canyon avec l'événement supprimé
         return $this->redirectToRoute('admin_canyon_show_events', [
             'id' => $event->getCanyon()->getId()
         ]);

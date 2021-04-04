@@ -82,8 +82,8 @@ class Canyon
      */
     private $knowledge;
 
-    /**      // cascade={"persist"} Au moment de la création d'un canyon, création du nom des images liées à ce canyon
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist", "remove"}) 
+    /** Persiste le nom des images en cascade lors de la création ou modification d'un canyon
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist"}) 
      */
     private $pictures;
 
@@ -99,7 +99,7 @@ class Canyon
 
     /**
      * @ORM\OneToMany(targetEntity=Event::class, mappedBy="canyon")
-     * @ORM\OrderBy({"startAt" = "ASC"}) // Trie la listes des évènements par Canyons
+     * @ORM\OrderBy({"startAt" = "ASC"}) // Trie la listes des évènements en ordre croissant
      */
     private $events;
 

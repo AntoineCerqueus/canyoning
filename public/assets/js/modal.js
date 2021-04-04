@@ -1,4 +1,4 @@
 $(window).on('load', function() {
-    $('#exampleModalCenter').modal('show');
+    $('#modalAdmin').modal('show');
 });
 

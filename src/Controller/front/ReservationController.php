@@ -19,7 +19,7 @@ class ReservationController extends AbstractController
     {
         // Création du formulaire de type réservation
         $form = $this->createForm(ReservationType::class);
-        // Récupération, traitement du message et de ses informations envoyé en post
+        // Récupération, traitement du message et de ses informations envoyé en méthode post
         $form->handleRequest($request);
 
         // Si le formulaire a été soumis (donc en méthode post et bien rempli)
