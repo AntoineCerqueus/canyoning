@@ -208,4 +208,17 @@ class CanyonController extends AbstractController
             'events' => $events
         ]);
     }
+
+    /**
+     * @Route("/{id}/prices", name="show_prices", methods={"GET"})
+     */
+    public function showPrices(Canyon $canyon): Response
+    {
+        // recupère les prix par canyon
+        $prices = $canyon->getPrices();
+        return $this->render('admin/canyon/show_prices.html.twig', [
+            'canyon' => $canyon,
+            'prices' => $prices
+        ]);
+    }
 }

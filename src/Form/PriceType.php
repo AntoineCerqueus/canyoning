@@ -15,7 +15,7 @@ class PriceType extends AbstractType
             ->add('normal')
             ->add('reduced')
             ->add('discount')
-            ->add('canyon')
+            // ->add('canyon')
         ;
     }
 

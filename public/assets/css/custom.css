@@ -17,6 +17,14 @@ body {
     color: #ffffff;
 }
 
+.blue-light{
+    color: #01A0F4;
+}
+
+.blue-dark{
+    color: #0159AF;
+}
+
 a {
     color: #ffffff;
     text-decoration: none;

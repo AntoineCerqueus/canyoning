@@ -3,18 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Event;
-use App\Entity\Canyon;
 use App\Entity\User;
 use App\Repository\UserRepository;
-use DateTime;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class EventType extends AbstractType
 {
@@ -38,7 +34,6 @@ class EventType extends AbstractType
                 'query_builder' => function (UserRepository $userRepository) {
                     return $userRepository->createQueryBuilder('u')
                         ->where('u.guide = true');
-                    // ->orderBy('u.firstName, ASC');
                 },
                 // Donne le nom 'Guide' au label de l'input
                 'label' => 'Guide',

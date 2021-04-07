@@ -95,3 +95,7 @@ p{
 a:hover{
     text-decoration: none;
 }
+
+.sidebar{
+    height: 100vh;
+}

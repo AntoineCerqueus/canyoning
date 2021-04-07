@@ -60,13 +60,13 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Ce champ est requis',
                     ]),
-                    new Length([
-                        'min' => 10,
-                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 10,
-                        'maxMessage' => 'Votre mot de passe doit contenir au maximum {{ limit }} caractères'
-                    ]),
+                    // new Length([
+                    //     'min' => 10,
+                    //     'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                    //     // max length allowed by Symfony for security reasons
+                    //     'max' => 10,
+                    //     'maxMessage' => 'Votre mot de passe doit contenir au maximum {{ limit }} caractères'
+                    // ]),
                 ]
             ])
         ;

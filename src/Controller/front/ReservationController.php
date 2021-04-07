@@ -44,10 +44,10 @@ class ReservationController extends AbstractController
                 );
 
             $mailer->send($message);
-            $this->addFlash('message', 'Votre message a bien été envoyé ! Nous traitons votre demande dans les plus brefs délais et nous vous contacterons pour la validation.');
+            $this->addFlash('message', 'Votre message a bien été envoyé ! Nous traitons votre demande 
+            dans les plus brefs délais et nous vous contacterons pour la validation.');
             // return $this->redirectToRoute('home');
         }
-
 
         return $this->render('front/reservation/index.html.twig', [
             // Création de la variable pour twig dans laquelle nous lui donnons la vue du formulaire

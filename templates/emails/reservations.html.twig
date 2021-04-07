@@ -22,7 +22,8 @@
         </tr>
         <tr>
             <th>Quand : </th>
-            <td>{{ informations.when|date('d-m-Y H:i') ~ ' ' ~ informations.morning_or_noon }}</td>
+            {# filtre twig qui transcrit la date en string #}
+            <td>{{ informations.when|date('d-m-Y H:i') }}</td>
         </tr>
         <tr>
             <th>Accompagnants : </th>

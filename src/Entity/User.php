@@ -15,7 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"email"}, message="Cet email n'est pas valide") // mail doit être unique
  */
 class User implements UserInterface // Dis à Symfony que la table user n'est pas une simple table, elle corresponds à de vrais utilisateurs
-// Permet l'encodage du mdp basé sur la classe user basé sur les méthodes getSalt, erasecredentials et get Roles
+// Permet l'encodage du mdp basé sur la classe user basé sur les méthodes getSalt, erasecredentials et getRoles
 {
     /**
      * @ORM\Id

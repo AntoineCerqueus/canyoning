@@ -1,11 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/layout.html.twig' %}
 
-{% block title %}New Price{% endblock %}
+{% block title %}Nouveau tarif pour {{price.canyon.name}} {% endblock %}
 
-{% block body %}
-    <h1>Create new Price</h1>
+{% block content %}
+<h1>Nouveau tarif </h1>
 
-    {{ include('price/_form.html.twig') }}
+{{ include('admin/price/_form.html.twig') }}
 
-    <a href="{{ path('price_index') }}">back to list</a>
 {% endblock %}

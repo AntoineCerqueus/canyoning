@@ -19,7 +19,6 @@ class ReservationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // https://symfony.com/doc/current/form/without_class.html
         $builder
             ->add('lastName', TextType::class, [
                 'label' => 'Votre nom',
@@ -52,17 +51,17 @@ class ReservationType extends AbstractType
                 ],
             ])
             ->add('phone', IntegerType::class, [
-                'attr' => [
-                    'oninvalid' => "setCustomValidity('Votre numéro de téléphone doit contenir 10 chiffres')"
-                ],
+                // 'attr' => [
+                //     'oninvalid' => "setCustomValidity('Votre numéro de téléphone doit contenir 10 chiffres')"
+                // ],
                 'label' => 'Votre téléphone',
-                'constraints' => [
-                    new NotBlank(),
-                    new Length([
-                        'min' => 10,
-                        'max' => 10,
-                    ]),
-                ],
+                // 'constraints' => [
+                //     new NotBlank(),
+                //     new Length([
+                //         'min' => 10,
+                //         'max' => 10,
+                //     ]),
+                // ],
             ])
             ->add('canyon',  ChoiceType::class, [
                 'label' => 'Choix du canyon',
@@ -87,15 +86,15 @@ class ReservationType extends AbstractType
                 ],
 
             ])
-            ->add('morning_or_noon', ChoiceType::class, [
-                'label' => false,
-                'expanded' => true,
-                'multiple' => false,
-                'choices' => [
-                    'Matin' => 'Matin',
-                    'Après-midi' => 'Après-midi'
-                ]
-            ])
+            // ->add('morning_or_noon', ChoiceType::class, [
+            //     'label' => false,
+            //     'expanded' => true,
+            //     'multiple' => false,
+            //     'choices' => [
+            //         'Matin' => 'Matin',
+            //         'Après-midi' => 'Après-midi'
+            //     ]
+            // ])
             ->add('extra_personn', ChoiceType::class, [
                 'label' => 'Des personnes vous accompagnent ?',
                 'expanded' => true,
@@ -134,7 +133,6 @@ class ReservationType extends AbstractType
     {
         $resolver->setDefaults([
             'attr' => [
-                // https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag
                 'novalidate' => 'novalidate', // comment me to reactivate the html5 validation! 
             ]
         ]);

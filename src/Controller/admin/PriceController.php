@@ -2,6 +2,7 @@
 
 namespace App\Controller\admin;
 
+use App\Entity\Canyon;
 use App\Entity\Price;
 use App\Form\PriceType;
 use App\Repository\PriceRepository;
@@ -26,20 +27,28 @@ class PriceController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/{id}/new", name="new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Canyon $canyon): Response
     {
         $price = new Price();
+        $price->setCanyon($canyon);
         $form = $this->createForm(PriceType::class, $price);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Instancie un manager et on lui demande de "discuter" avec Doctrine
             $entityManager = $this->getDoctrine()->getManager();
+            // Dis à mon manager de faire persister mon nouvel event dans le temps
+            // Prépare ma modification à intégrer dans la bdd
             $entityManager->persist($price);
+            // Flush lance la requête sql qui permet d'inscrire ces nouvelles modifications dans la bdd
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_price_index');
+            // Redirige vers le listing des prix par canyon avec le canyon ajouté grâce à l'id donné
+            return $this->redirectToRoute('admin_canyon_show_prices', [
+                'id' => $price->getCanyon()->getId()
+            ]);
         }
 
         return $this->render('admin/price/new.html.twig', [
@@ -69,26 +78,15 @@ class PriceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_price_index');
+            // Redirige vers le listing des prix par canyon avec le canyon ajouté grâce à l'id donné
+            return $this->redirectToRoute('admin_canyon_show_prices', [
+                'id' => $price->getCanyon()->getId()
+            ]);
         }
 
         return $this->render('admin/price/edit.html.twig', [
             'price' => $price,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Price $price): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$price->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($price);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('admin_price_index');
     }
 }

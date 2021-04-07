@@ -1,0 +1,39 @@
+{% extends 'admin/layout-prices.html.twig' %}
+
+{% block title %}Tarifs de {{ canyon.name }}{% endblock %}
+
+{% block content %}
+{# Même si l'attribut est encapsulé en privé, twig arrive a le récupérer grâce au getter (getName()) du nom du canyon #}
+<h1 class="bottom">Tarifs de {{ canyon.name }} </h1>
+<!-- <div>
+    <a href="{{ path('admin_price_new', {'id':canyon.id})}}">
+        <button class="btn btn-success fixed text-body">Ajouter</button>
+    </a>
+</div> -->
+    {% for price in prices %}
+        <div class="row justify-content-around">
+            <div>
+                <h5>Normal</h5>
+                {# twig interpole facilement les variables de type primitif mais pour les variable de types complexes 
+                on utilise des filtres qui formattent une variable avant de l'afficher #}
+                <!-- Ici le filtre date formate le type "datetime" en string avec le format donné en paramètre -->
+                <p> {{ price.normal}} </p>
+            </div>
+            <div>
+                <h5>Réduit</h5>
+                <p> {{ price.reduced}} </p>
+            </div>
+            <div>
+                <h5>Promotion</h5>
+                <p> {{ price.discount}} </p>
+            </div>
+
+            <div class="actions">
+                {# la méthode path mappe la fonction associée grâce au nom de la route donné dans la fonction du controller #}
+                <a href="{{ path('admin_price_edit', {'id': price.id}) }}">
+                    <button type="button" class="btn btn-warning">Modifier</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
