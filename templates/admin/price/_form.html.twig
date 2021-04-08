@@ -1,10 +1,11 @@
 {% block content %}
+<div class="col-md-6 col-lg-4">
+    {{ form_start(form) }}
 
-{{ form_start(form) }}
-
-{{ form_widget(form) }} 
+    {{ form_widget(form) }}
 
     <button class="btn btn-success text-body bottom">{{ button_label|default('Créer') }}</button>
-    
-{{ form_end(form) }}
+
+    {{ form_end(form) }}
+</div>
 {% endblock %}

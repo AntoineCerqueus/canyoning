@@ -1,4 +1,4 @@
-{% extends 'admin/layout.html.twig' %}
+{% extends 'admin/layout-prices.html.twig' %}
 
 {% block title %}Modification des tarifs de {{ price.canyon.name}}{% endblock %}
 
@@ -6,8 +6,9 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
-<h1>Modification des tarifs de {{ price.canyon.name}}</h1>
 
+<h1 class="mb-5">Modification des tarifs de {{ price.canyon.name}}</h1>
+<div class="row justify-content-center">
 {{ include('admin/price/_form.html.twig', {'button_label': 'Actualiser'}) }}
-
+</div>
 {% endblock %}

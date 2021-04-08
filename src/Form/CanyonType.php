@@ -43,7 +43,8 @@ class CanyonType extends AbstractType
                 // Champ multiple car plusieurs images
                 'multiple' => true,
                 // Non relié à la bdd
-                'mapped' => false
+                'mapped' => false,
+                'required' => false
                 ])
             ->add('updatedAt', DateTimeType::class, [
                 'label' => 'Modifié le',

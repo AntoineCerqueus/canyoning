@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Price;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,10 +14,12 @@ class PriceType extends AbstractType
     {
         $builder
             ->add('normal')
-            ->add('reduced')
-            ->add('discount')
-            // ->add('canyon')
-        ;
+            ->add('reduced', TextType::class, [
+                'label' => 'Réduit'
+            ])
+            ->add('discount', TextType::class, [
+                'label' => 'Promotion'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

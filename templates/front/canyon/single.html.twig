@@ -35,17 +35,72 @@
 </section>
 <section>
     <h2>Informations</h2>
-    <div class="blur">
-        <p>Durée : {{ canyon.duration }}</p>
-        <p>Niveau : {{ canyon.level }}</p>
-        <p>Age requis : {{ canyon.ageNeeded }}</p>
-        <p>Pré-requis : {{ canyon.knowledge }}</p>
-        <p>Descente en rappel : {{ canyon.abseiling }}</p>
-        <p>Lieu : {{ canyon.location }}</p>
-        <p>Départ : {{ canyon.meetingPoint }}</p>
+    <div class="d-flex justify-content-around flex-wrap drop-container-global">
+        <div class="row drop-container duration">
+            <div class="d-flex flex-column duration drop">
+                <p class="drop-title drop-title-duration">Durée</p>
+                <p class="drop-text">{{ canyon.duration }}</p>
+            </div>
+        </div>
+        <div class="row drop-container level">
+            <div class="flex-column drop-down drop">
+                <p class="drop-title drop-title-level">Niveau</p>
+                <p class="d-flex align-self-center drop-text">{{ canyon.level }}</p>
+            </div>
+        </div>
+        <div class="row drop-container age">
+            <div class="flex-column  drop">
+                <p class="drop-title drop-title-age">À partir de</p>
+                <p class="d-flex align-self-center drop-text">{{ canyon.ageNeeded }} ans</p>
+            </div>
+        </div>
+        <div class="row drop-container knowledge">
+            <div class="flex-column align-item-center drop-down drop ">
+                <p class="drop-title drop-title-knowledge">Pré-requis</p>
+                <p class="d-flex align-self-center drop-text drop-text-width">{{ canyon.knowledge }}</p>
+            </div>
+        </div>
+        <div class="row drop-container abseiling">
+            <div class="flex-column align-item-center drop">
+                <p class="drop-title drop-title-abseiling">Rappel ?</p>
+                <p class="d-flex align-self-center drop-text drop-text-width">{{ canyon.abseiling }}</p>
+            </div>
+        </div>
+        <div class="row drop-container location">
+            <div class="flex-column align-item-center drop-down drop">
+                <p class="drop-title drop-title-location">Lieu</p>
+                <p class="d-flex align-self-center drop-text">{{ canyon.location }}</p>
+            </div>
+        </div>
+        <div class="row drop-container meeting-point">
+            <div class="flex-column align-item-center drop">
+                <p class="drop-title drop-title-meeting-point">Départ</p>
+                <p class="d-flex align-self-center drop-text">{{ canyon.meetingPoint }}</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="price">
+    <h2>Prix / personne</h2>
+    <div class="row justify-content-around drop-price-container">
+        {% for price in canyon.prices %}
+        <div class="row drop-container duration">
+            <div class="d-flex flex-column duration drop">
+                <p class="drop-title drop-title-duration">Normal</p>
+                <p class="drop-text">{{ price.normal }} euros</p>
+            </div>
+        </div>
+        <div class="row drop-container duration">
+            <div class="d-flex flex-column duration drop">
+                <p class="drop-title drop-title-duration">Réduit</p>
+                <p class="drop-text">{{ price.reduced }} euros</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </section>
-<h2>Prix</h2>
 <section>
     <h2>Disponibilités</h2>
     <div id="calendar">
@@ -107,7 +162,7 @@
                 day: 'Jour'
             },
             // Variable events récupère les données pour les affichées dans le calendrier
-            events: {{data|raw}} // filtre twig pour traduire les données en html
+            events: {{ data | raw }} // filtre twig pour traduire les données en html
         })
 
         // calendar.setOption('aspectRatio', 1.8);

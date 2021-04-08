@@ -49,6 +49,7 @@ p{
 
 .fixed{
     position: fixed;
+    top: 120px;
 }
 
 .blue{
