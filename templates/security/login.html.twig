@@ -17,10 +17,10 @@
             </div>
             {% endif %} #}
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-3">
             <h1>Connexion</h1>
         </div>
-        <div class="row justify-content-center mt-3 mb-3">
+        <div class="row justify-content-center mb-3">
             <div class="col-sm-10 col-md-8 col-lg-6">
                 <label for="inputEmail">Votre e-mail</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
@@ -34,23 +34,10 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             </div>
         </div>
-        {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
         <div class="row justify-content-center mb-3">
             <div>
-                <input class="nav-button mb-2" type="submit" value="Connexion"/>
-            
+                <input class="nav-button mb-2" type="submit" value="Connexion"/> <br/>
                     <a href="{{ path('app_forgot_password_request') }}"> Mot de passe oublié ?</a>
-            
             </div>
         </div>
     </div>

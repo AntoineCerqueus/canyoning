@@ -50,7 +50,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     text-shadow: 1px 2px 2px #000000;
-    margin: auto;
+    margin: 0 auto 30px auto;
 }
 
 h2,
@@ -117,7 +117,7 @@ footer {
 .nav-button {
     display: block;
     width: 170px;
-    margin: 60px auto 0 auto;
+    margin: 30px auto 0 auto;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -204,55 +204,50 @@ footer {
 
 .drop-title {
     font-size: 0.9em;
+    width: 100px;
+    /* transform: rotate(-45deg); */
 }
 
 .drop-title-duration {
     position: relative;
     top: -40px;
     left: 22px;
-    width: 90px;
 }
 
 .drop-title-age {
     position: relative;
     top: -40px;
     left: 7px;
-    width: 100px;
 }
 
 .drop-title-level {
     position: relative;
     top: -54px;
     left: 26px;
-    width: 90px;
 }
 
 .drop-title-knowledge {
     position: relative;
-    top: -40px;
+    top: -12px;
     left: 12px;
-    width: 90px;
 }
 
 .drop-title-location {
     position: relative;
     top: -14px;
     left: 20px;
-    width: 90px;
 }
 
 .drop-title-meeting-point {
     position: relative;
     top: -14px;
     left: 25px;
-    width: 90px;
 }
 
 .drop-title-abseiling {
     position: relative;
     top: -30px;
     left: 16px;
-    width: 90px;
 }
 
 .drop-text {

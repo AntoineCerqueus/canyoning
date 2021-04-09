@@ -20,12 +20,6 @@ class UserType extends AbstractType
                     'placeholder' => "Votre e-mail"
                 ]
             ])
-            // ->add('roles')
-            // ->add('password', PasswordType::class, [
-            //     'attr' => [
-            //         'placeholder' => "Votre mot de passe"
-            //     ]
-            // ])
             ->add('lastName', TextType::class, [
                 'attr' => [
                     'placeholder' => "Votre nom de famille"
@@ -36,25 +30,11 @@ class UserType extends AbstractType
                     'placeholder' => "Votre prénom"
                 ]
             ])
-            // ->add('size', IntegerType::class, [
-            //     'attr' => [
-            //         'placeholder' => "Votre taille"
-            //     ]
-            // ])
-            // ->add('weight', IntegerType::class, [
-            //     'attr' => [
-            //         'placeholder' => "Votre poids"
-            //     ]
-            // ])
             ->add('phone', IntegerType::class, [
                 'attr' => [
                     'placeholder' => "Votre téléphone"
                 ]
-            ])
-            // ->add('status')
-            // ->add('isVerified')
-            // ->add('event')
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

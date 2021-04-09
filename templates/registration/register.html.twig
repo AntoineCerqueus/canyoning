@@ -3,42 +3,46 @@
 {% block title %}Création de compte{% endblock %}
 
 {% block content %}
-{% for flashError in app.flashes('verify_email_error') %}
-<div class="alert alert-danger" role="alert">{{ flashError }}</div>
-{% endfor %}
+<div class="row justify-content-center">
+    <div class="col-sm-10 col-md-8 col-lg-6">
+        {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
 
-<h1>inscription</h1>
+        <h1>inscription</h1>
 
-{{ form_start(registrationForm) }}
-{{ form_row(registrationForm.lastName, {
+        {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.lastName, {
     'label': 'Nom',
     'attr': {'placeholder': 'Ex : Mi'}
         }) }}
-{{ form_row(registrationForm.firstName, {
+        {{ form_row(registrationForm.firstName, {
     'label': 'Prénom',
     'attr': {'placeholder': 'Ex: Jean'}
         }) }}
-{{ form_row(registrationForm.phone, {
+        {{ form_row(registrationForm.phone, {
             'label': 'Téléphone',
-            'attr': {'placeholder': 'Tapez ici votre numéro de téléphone'}
+            'attr': {'placeholder': '00 00 00 00 00'}
                 }) }}
-{{ form_row(registrationForm.email, {
+        {{ form_row(registrationForm.email, {
     'label': 'Adresse mail',
     'attr': {'placeholder': 'Ex: jean.mi@gmail.com'}
         }) }}
-{{ form_row(registrationForm.plainPassword, {
+        {{ form_row(registrationForm.plainPassword, {
     'label': 'Mot de passe',
     'attr': {'placeholder': 'Tapez ici votre mot de passe'}
         }) }}
-{# {{ form_row(registrationForm.confirmPassword, {
+        {# {{ form_row(registrationForm.confirmPassword, {
             'label': 'Confirmez votre mot de passe',
             'attr': {'placeholder': 'Retapez ici votre mot de passe'}
                 }) }} #}
-{{ form_row(registrationForm.agreeTerms, {
+        {{ form_row(registrationForm.agreeTerms, {
             'label' : 'Acceptez les termes du contrat'
         }) }}
 
-<input type="submit" class="nav-button" value="Inscription" />
+        <input type="submit" class="nav-button" value="Inscription" />
 
-{{ form_end(registrationForm) }}
+        {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}

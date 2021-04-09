@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/media-queries.css')}}">
     {% endblock %}
-
 </head>
 
 <body>
@@ -36,42 +35,46 @@
                     </li>
                     {% endif %} #}
                     <li>
-                        <a href="{{ path('home') }}">accueil</a>
+                        <i class="fas fa-home fa-fw"></i> <a href="{{ path('home') }}">ACCUEIL</a>
+                    </li>
+                    <hr>
+                    <li>
+                         <i class="fas fa-water fa-fw"></i> <a href="{{ path('canyons_index') }}">CANYONS</a>
                     </li>
                     <li>
-                        <a href="{{ path('canyons_index') }}">canyons</a>
+                        <i class="fas fa-users fa-fw"></i> <a href="{{ path('guides') }}">GUIDES</a>
+                    </li>
+                    <hr>
+                    <li>
+                        <i class="fas fa-info-circle fa-fw"></i> </i> <a href="{{ path('informations') }}">INFOS</a>
                     </li>
                     <li>
-                        <a href="{{ path('guides') }}">guides</a>
+                        <i class="fas fa-phone fa-fw"></i> </i> <a href="{{ path('contact') }}">CONTACT</a>
                     </li>
-                    <li>
-                        <a href="{{ path('informations') }}">informations</a>
-                    </li>
-
-                    <li>
-                        <a href="{{ path('contact') }}">contact</a>
-                    </li>
+                    <hr>
                     {% if is_granted('ROLE_USER') %}
                     <li>
-                        <a href="{{ path('reservation') }}">réservation</a>
+                        <i class="fas fa-share-square fa-fw"></i> <a href="{{ path('reservation') }}">RÉSERVATION</a> 
                     </li>
+                    <hr>
                     <li>
-                        <a href="{{ path('user_edit', {'id' : app.user.id} ) }}">votre compte</a>
+                        <i class="fas fa-user fa-fw"></i> <a href="{{ path('user_edit', {'id' : app.user.id} ) }}">COMPTE (gestion)</a> 
                     </li>
+                    <hr>
                     <li>
-                        <a href="{{ path('app_logout') }}">déconnexion</a>
+                        <i class="fas fa-sign-out-alt fa-fw"></i> <a href="{{ path('app_logout') }}">DÉCONNEXION</a>
                     </li>
                     {% else %}
                     <li>
-                        <a href="{{ path('app_register') }}">inscription</a>
+                        <i class="fas fa-sign-in-alt fa-fw"></i> <a href="{{ path('app_login') }}">CONNEXION</a>
                     </li>
                     <li>
-                        <a href="{{ path('app_login') }}">connexion</a>
+                        <i class="fas fa-user-plus fa-fw"></i> <a href="{{ path('app_register') }}">INSCRIPTION</a>
                     </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                     <li>
-                        <a href="{{ path('admin_canyon_index') }}">tableau de bord</a>
+                        <i class="fas fa-columns fa-fw"></i> <a href="{{ path('admin_canyon_index') }}">TABLEAU DE BORD</a>
                     </li>
                     {% endif %}
                 </ul>

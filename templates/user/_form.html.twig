@@ -1,4 +1,17 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_row(form.lastName, {
+    'label': 'Nom',
+        }) }}
+{{ form_row(form.firstName, {
+    'label': 'Prénom',
+        }) }}
+{{ form_row(form.email, {
+    'label': 'Email',
+        }) }}
+{{ form_row(form.phone, {
+    'label': 'Téléphone',
+        }) }}
+        <div class="row justify-content-end">
+<input type="submit" class="nav-button" value="Modifier" />
+</div>
 {{ form_end(form) }}
