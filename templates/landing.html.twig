@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/menu.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css')}}">
     {% endblock %}
-
 </head>
 
 <body>
+    {% block header %}
+
     <header>
         {% block menu %}
         <nav role="navigation" id="navigation">
@@ -39,7 +40,7 @@
                     </li>
                     <hr>
                     <li>
-                         <i class="fas fa-water fa-fw"></i> <a href="{{ path('canyons_index') }}">CANYONS</a>
+                        <i class="fas fa-water fa-fw"></i> <a href="{{ path('canyons_index') }}">CANYONS</a>
                     </li>
                     <li>
                         <i class="fas fa-users fa-fw"></i> <a href="{{ path('guides') }}">GUIDES</a>
@@ -54,11 +55,12 @@
                     <hr>
                     {% if is_granted('ROLE_USER') %}
                     <li>
-                        <i class="fas fa-share-square fa-fw"></i> <a href="{{ path('reservation') }}">RÉSERVATION</a> 
+                        <i class="fas fa-share-square fa-fw"></i> <a href="{{ path('reservation') }}">RÉSERVATION</a>
                     </li>
                     <hr>
                     <li>
-                        <i class="fas fa-user fa-fw"></i> <a href="{{ path('user_edit', {'id' : app.user.id} ) }}">COMPTE (gestion)</a> 
+                        <i class="fas fa-user fa-fw"></i> <a
+                            href="{{ path('user_edit', {'id' : app.user.id} ) }}">COMPTE (gestion)</a>
                     </li>
                     <hr>
                     <li>
@@ -70,24 +72,31 @@
                     </li>
                     <li>
                         <i class="fas fa-user-plus fa-fw"></i> <a href="{{ path('app_register') }}">INSCRIPTION</a>
-                    </li> 
+                    </li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                     <li>
-                        <i class="fas fa-columns fa-fw"></i> <a href="{{ path('admin_canyon_index') }}">TABLEAU DE BORD</a>
+                        <i class="fas fa-columns fa-fw"></i> <a href="{{ path('admin_canyon_index') }}">TABLEAU DE
+                            BORD</a>
                     </li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
         {% endblock %}
-        <div class="container text-center">
-            <div>
-                <a href="{{ path('home') }}">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid space">
-                </a>
+
+        <div id="intro" class="view">
+            {# <div class="mask rgba-black-strong"> #}
+            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+                <div id="logo">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid">
+                </div>
+                {# </div> #}
             </div>
+            {# </div> #}
         </div>
+        {% endblock %}
+        <!--/.Mask-->
     </header>
     <main class="container">
         {# TO DO Boucler sur toutes les alertes #}
@@ -132,7 +141,7 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js"
         integrity="sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw=" crossorigin="anonymous"></script>
-        {% block javascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}
 </body>
 
 </html>

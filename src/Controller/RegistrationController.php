@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+// use App\Repository\CanyonRepository;
 use App\Security\EmailVerifier;
 use App\Security\AppCustomAuthenticator;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -60,6 +61,12 @@ class RegistrationController extends AbstractController
             $this->addFlash('success', 'Un email vous a été envoyé pour confirmer votre adresse mail à fin de valider votre inscription.');
             return $this->redirectToRoute('home');
         }
+
+        // if (['ROLE_USER'] === true) {
+        //     return $this->render('admin/canyon/index.html.twig', [
+        //         'canyons' => $canyonRepository->findAll(),
+        //     ]);
+        // }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),

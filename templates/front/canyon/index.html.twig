@@ -3,10 +3,40 @@
 {% block title %}H2O Canyon | Liste des canyons{% endblock %}
 
 {% block content %}
-<h1>les canyons</h1>
+
+<section class="container-md text-center">
+    <div class="row d-flex justify-content-around">
+        <div>
+            <h1 class="display-4 font-weight-bold white-text py-5 my-5">Les Canyons</h1>
+        </div>
+        <div class="row justify-content-around"> 
+            {% for canyon in canyons %}
+            <div class="col-lg-6 col-md-12 mb-4">
+                
+                <h2 class="my-5 font-weight-bold">{{ canyon.name }}</h2>
+                <div >
+                    <img src="{{ vich_uploader_asset(canyon, 'file') }}" class="cover" alt="{{ canyon.name }}" />
+                </div>
+                <div class="content mt-5">
+                    <p>
+                        {{ canyon.shortDescription }}
+                    </p>
+                </div>
+                <div>
+                    <a href="{{ path('canyons_single', {'id' : canyon.id} )}}" title="Découvrez les canyons">
+                        <div class="nav-button bottom"><i class="far fa-eye"></i>En savoir plus</div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{# <h1>les canyons</h1>
 <div class="row justify-content-center">
-        {% for canyon in canyons %}
-        
+    {% for canyon in canyons %}
+
     <div class="column">
 
         <h2>{{ canyon.name }}</h2>
@@ -16,7 +46,7 @@
             <div class="nav-button bottom"><i class="far fa-eye"></i>En savoir plus</div>
         </a>
     </div>
-{% endfor %}
+    {% endfor %}
 
-</div>
+</div> #}
 {% endblock %}

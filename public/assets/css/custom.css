@@ -17,6 +17,15 @@ body {
     color: #ffffff;
 }
 
+#intro {
+    background: url("../images/jura.jpg")no-repeat  center fixed;
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .blue-light {
     color: #01A0F4;
 }
@@ -28,36 +37,20 @@ body {
 a {
     color: #ffffff;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover {
     text-decoration: none;
 }
 
-.space {
-    margin: 30px 0 60px 0;
-}
-
-.bottom {
-    margin-bottom: 60px;
-}
-
 .uppercase {
     text-transform: uppercase;
 }
 
-h1 {
-    text-align: center;
-    text-transform: uppercase;
+h1,h2,h3 {
+  
     text-shadow: 1px 2px 2px #000000;
-    margin: 0 auto 30px auto;
-}
-
-h2,
-h3 {
-    text-align: center;
-    text-shadow: 1px 2px 2px #000000;
-    margin: 60px 0;
 }
 
 .picture {
@@ -127,7 +120,7 @@ footer {
     border-radius: 20px;
     cursor: pointer;
     transition: all 250ms ease-in-out 0s;
-    box-shadow: 0px 8px 5px -7px #000000;
+    box-shadow: 0px 2px 4px #000000;
     font-size: 0.9em;
     box-sizing: content-box;
 }
@@ -297,10 +290,10 @@ iframe {
 
 .cover {
     display: block;
-    width: 30rem;
+    width: 26rem;
     height: auto;
     margin: auto;
-    box-shadow: 0px 2px 5px #000000;
+    box-shadow: 0px 3px 12px #000000;
 }
 
 .top {
