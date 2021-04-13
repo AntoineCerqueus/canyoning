@@ -5,7 +5,7 @@
 {% block content %}
 
 <section>
-    <h1 class="mb-3">{{ canyon.name }}</h1>
+    <h1 class="text-center mb-5">{{ canyon.name }}</h1>
 
     <div id="carouselExampleIndicators" class="carousel">
         <ol class="carousel-indicators">
@@ -135,7 +135,7 @@
 {% block javascripts %}
 
 <script>
-    // La,nce le script au chargement de la fenêtre
+    // Lance le script au chargement de la fenêtre
     window.onload = () => {
         // Récupération et instanciation de la div #calendar
         let calendarElt = document.getElementById('calendar');
@@ -143,14 +143,14 @@
         // en premier paramètre et des options en second
         let calendar = new FullCalendar.Calendar(calendarElt, {
             // Affiche le calendrier en jour par mois
-            initialView: 'dayGridWeek',
+            initialView: 'dayGridMonth',
             // Affiche la date en français
             locale: 'fr',
             // Défini le fuseau horaire
             timeZone: 'Europe/Paris',
             // Positionne les éléments de la barre de navigation
             headerToolbar: {
-                left: 'dayGridWeek,dayGridDay,today',
+                left: 'dayGridMonth,timeGridWeek,today',
                 center: 'title',
                 right: 'prev,next'
             },

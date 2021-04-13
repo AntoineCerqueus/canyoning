@@ -88,19 +88,6 @@ class CanyonController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    // INJECTION DE DEPENDANCE (merci le service container)
-    // Ici grâce à l'id passé en paramètre de ma route, plus besoin de faire appel au repo. Symfony comprends avec l'id 
-    // et la variable Canyon de classe Canyon passée en paramètre de la fonction que nous voulons récupérer le canyon en question
-    // Plus besoin d'instancier des classes nous même => fonction plus propre => Merci Symfony!
-    /**
-     * @Route("/{id}", name="show", methods={"GET"})
-     */
-    public function show(Canyon $canyon): Response
-    {
-        return $this->render('admin/canyon/show.html.twig', [
-            'canyon' => $canyon,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="edit", methods={"GET","POST"})

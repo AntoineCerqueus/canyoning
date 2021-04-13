@@ -23,7 +23,9 @@ class ReservationType extends AbstractType
             ->add('lastName', TextType::class, [
                 'label' => 'Votre nom',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'Veuillez rentrer votre nom de famille'
+                    ]),
                     new Length([
                         'min' => 2,
                         'max' => 40,
@@ -33,7 +35,9 @@ class ReservationType extends AbstractType
             ->add('firstName', TextType::class, [
                 'label' => 'Votre prénom',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'Veuillez rentrer votre prénom'
+                    ]),
                     new Length([
                         'min' => 2,
                         'max' => 40,
@@ -43,7 +47,9 @@ class ReservationType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'Votre adresse mail',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'Veuillez rentrer votre email'
+                    ]),
                     new Length([
                         'min' => 7,
                         'max' => 50,
@@ -82,19 +88,12 @@ class ReservationType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'Quand ?',
                 'constraints' => [
-                    new NotBlank(),
+                    new NotBlank([
+                        'message' => 'Veuillez choisir une date'
+                    ]),
                 ],
 
             ])
-            // ->add('morning_or_noon', ChoiceType::class, [
-            //     'label' => false,
-            //     'expanded' => true,
-            //     'multiple' => false,
-            //     'choices' => [
-            //         'Matin' => 'Matin',
-            //         'Après-midi' => 'Après-midi'
-            //     ]
-            // ])
             ->add('extra_personn', ChoiceType::class, [
                 'label' => 'Des personnes vous accompagnent ?',
                 'expanded' => true,

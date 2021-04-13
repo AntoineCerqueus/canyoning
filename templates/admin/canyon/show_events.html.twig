@@ -14,8 +14,6 @@
         <div class="row justify-content-around">
             <div>
                 <h5>Début</h5>
-                {# twig interpole facilement les variables de type primitif mais pour les variable de types complexes 
-                on utilise des filtres qui formattent une variable avant de l'afficher #}
                 <!-- Ici le filtre date formate le type "datetime" en string avec le format donné en paramètre -->
                 <p> {{ event.startAt|date('d-m-Y H:i') }}</p>
             </div>

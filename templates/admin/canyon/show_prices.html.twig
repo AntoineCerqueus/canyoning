@@ -5,11 +5,6 @@
 {% block content %}
 {# Même si l'attribut est encapsulé en privé, twig arrive a le récupérer grâce au getter (getName()) du nom du canyon #}
 <h1 class="bottom">Tarifs de {{ canyon.name }} </h1>
-<!-- <div>
-    <a href="{{ path('admin_price_new', {'id':canyon.id})}}">
-        <button class="btn btn-success fixed text-body">Ajouter</button>
-    </a>
-</div> -->
     {% for price in prices %}
         <div class="row justify-content-around">
             <div>

@@ -22,21 +22,23 @@
 {% endif %}
 {% if is_granted('ROLE_USER') %}
 <div class="col-md-lg-6 text-center ">
-    <p> Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
+    <p>Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
     <p>Vous pouvez désormais faire une demande de réservation.</p>
 </div>
 {% endif %}
 
-<section class="container text-center">
-    <div class="row d-flex justify-content-center">
+<section class="text-center">
+    <div class="row d-flex justify-content-around">
         <div>
-            <h1 class="display-4 font-weight-bold white-text py-5 my-5">Venez découvrir le canyoning dans le Jura avec H2O Canyon !</h1>
+            <h1 class="display-4 font-weight-bold white-text pt-5 my-5">Venez découvrir le canyoning dans le Jura avec
+                H2O Canyon !</h1>
         </div>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 mb-4">
+        <div class="row justify-content-around">
+            <div class="col-lg-6 mb-4">
                 <h2 class="my-5 font-weight-bold">Jetez-vous à l'eau ...</h2>
                 <div>
-                    <img src="assets/images/malvaux/malvaux_02.jpg" class="cover" alt="plongeon">
+                    <img src="{{ asset('assets/images/malvaux/malvaux_02.jpg') }}" class="cover img-fluid"
+                        alt="plongeon">
                 </div>
                 <div class="content mt-5">
                     <p>
@@ -50,10 +52,10 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 mb-4">
+            <div class="col-lg-6 mb-4">
                 <h2 class="my-5 font-weight-bold">... en toute sécurité !</h2>
                 <div>
-                    <img src="assets/images/coiserette/coiserette_06_resize.jpg" class="cover" alt="guide">
+                    <img src="assets/images/coiserette/coiserette_06_resize.jpg" class="cover img-fluid" alt="guide">
                 </div>
                 <div class="content mt-5">
                     <p>
@@ -68,6 +70,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <section>

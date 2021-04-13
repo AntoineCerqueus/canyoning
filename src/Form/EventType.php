@@ -39,13 +39,7 @@ class EventType extends AbstractType
                 'label' => 'Guide',
                 // Ajoute un champ sélecteur pour choisir le guide associé au canyon affiché par prénom
                 'choice_label' => 'firstName'
-            ])
-            // ->add('canyon', EntityType::class, [ // Travaille sur un objet de l'entité Canyon
-            //     'class' => Canyon::class, // Spécifie que l'entité est celle de Canyon
-            //     'choice_label' => 'name' // Affiche les attributs nom dans un sélecteur
-            // ])
-
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

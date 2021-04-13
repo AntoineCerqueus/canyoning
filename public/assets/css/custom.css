@@ -18,7 +18,7 @@ body {
 }
 
 #intro {
-    background: url("../images/jura.jpg")no-repeat  center fixed;
+    background: url("../images/jura.jpg")no-repeat center fixed;
     height: 100vh;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -48,8 +48,19 @@ a:hover {
     text-transform: uppercase;
 }
 
-h1,h2,h3 {
-  
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    margin: 60px 0;
     text-shadow: 1px 2px 2px #000000;
 }
 
@@ -291,7 +302,6 @@ iframe {
 .cover {
     display: block;
     width: 26rem;
-    height: auto;
     margin: auto;
     box-shadow: 0px 3px 12px #000000;
 }
@@ -320,6 +330,7 @@ iframe {
 
 h2.fc-toolbar-title {
     text-transform: capitalize;
+    /* margin: 30px 0; */
 }
 
 /* +++++++++++++++++++++++++++++++++ */
