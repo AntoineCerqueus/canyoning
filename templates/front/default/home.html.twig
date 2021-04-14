@@ -27,20 +27,20 @@
 </div>
 {% endif %}
 
-<section class="text-center">
+<section class="text-center mb-3">
     <div class="row d-flex justify-content-around">
         <div>
             <h1 class="display-4 font-weight-bold white-text pt-5 my-5">Venez découvrir le canyoning dans le Jura avec
                 H2O Canyon !</h1>
         </div>
         <div class="row justify-content-around">
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-6">
                 <h2 class="my-5 font-weight-bold">Jetez-vous à l'eau ...</h2>
                 <div>
                     <img src="{{ asset('assets/images/malvaux/malvaux_02.jpg') }}" class="cover img-fluid"
                         alt="plongeon">
                 </div>
-                <div class="content mt-5">
+                <div class="mt-5">
                     <p>
                         À 1h15 de Besançon et de Lausanne et à 1h30 de Dijon. <br />
                         Également à proximité des Rousses, de Clairvaux-les-lacs, de Saint Claude et de Métabief.
@@ -52,12 +52,12 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-6">
                 <h2 class="my-5 font-weight-bold">... en toute sécurité !</h2>
                 <div>
                     <img src="assets/images/coiserette/coiserette_06_resize.jpg" class="cover img-fluid" alt="guide">
                 </div>
-                <div class="content mt-5">
+                <div class="mt-5">
                     <p>
                         Laissez vous guider par des professionels diplômés d’état <br />
                         pour découvrir le canyoning dans le Jura. Vous ne le regretterez pas !
@@ -82,6 +82,27 @@
         </a>
     </div>
 </section>
+
+<section>
+    <div>
+        <h2 class="my-5 font-weight-bold text-center">Rejoignez-nous !</h2>
+    </div>
+    <div class="d-flex row justify-content-around">
+        <a id="tripadvisor"
+            href="https://www.tripadvisor.fr/Attraction_Review-g187143-d10133896-Reviews-H2O_Canyon-Besancon_Doubs_Bourgogne_Franche_Comte.html"
+            target="_blank"><i class="fab fa-tripadvisor contact-logos col-sm-4 mb-3"></i></a>
+        <a id="facebook" href="https://www.facebook.com/h2ocanyon" target="_blank"><i
+                class="fab fa-facebook-f contact-logos col-sm-4 mb-3"></i></a>
+        <a id="youtube" href="https://www.youtube.com/channel/UCGc9uEd2z22duS3AozciaaQ" target="_blank"><i
+                class="fab fa-youtube contact-logos col-sm-4 mb-3"></i></a>
+        <a id="pinterest" href="https://www.pinterest.fr/h2ocanyon/" target="_blank"><i
+                class="fab fa-pinterest-p contact-logos col-sm-4 mb-3"></i></a>
+        <a id="instagram" href="https://www.instagram.com/h2o_canyon" target="_blank"><i
+                class="fab fa-instagram contact-logos"></i></a>
+    </div>
+</section>
+
+
 {% endblock %}
 
 {% block javascripts %}
