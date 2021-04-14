@@ -31,10 +31,10 @@
             <span class="sr-only">Suivante</span>
         </a>
     </div>
-    <p class="mt-5 text-design">{{ canyon.description }}</p>
+    <p class="my-5">{{ canyon.description }}</p>
 </section>
 <section>
-    <h2>Informations</h2>
+    <h2 class="my-5">Informations</h2>
     <div class="d-flex justify-content-around flex-wrap drop-container-global">
         <div class="row drop-container duration">
             <div class="d-flex flex-column duration drop">
@@ -83,7 +83,7 @@
 
 </section>
 <section class="price">
-    <h2>Prix / personne</h2>
+    <h2 class="my-5">Prix / personne</h2>
     <div class="row justify-content-around drop-price-container">
         {% for price in canyon.prices %}
         <div class="row drop-container duration">
@@ -102,7 +102,7 @@
     </div>
 </section>
 <section>
-    <h2>Disponibilités</h2>
+    <h2 class="my-5">Disponibilités</h2>
     <div id="calendar">
         {# {{ dump(data) }} #}
     </div>
@@ -150,7 +150,7 @@
             timeZone: 'Europe/Paris',
             // Positionne les éléments de la barre de navigation
             headerToolbar: {
-                left: 'dayGridMonth,timeGridWeek,today',
+                left: 'dayGridMonth,timeGridWeek, listMonth, today',
                 center: 'title',
                 right: 'prev,next'
             },

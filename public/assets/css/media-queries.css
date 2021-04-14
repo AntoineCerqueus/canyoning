@@ -184,3 +184,53 @@
     }
 
 }
+
+@media (max-width: 479px) {
+
+    #youtube {
+        color: #FE0003;
+    }
+
+    #youtube:hover {
+        opacity: 0.8;
+    }
+    
+    #facebook {
+        color: #4c6ff5;
+    }
+
+    #facebook:hover {
+        opacity: 0.8;
+    }
+    
+    #tripadvisor {
+        color: #34e0a1;
+    }
+
+    #tripadvisor:hover {
+        opacity: 0.8;
+    }
+    
+    
+    #pinterest {
+        color: #e60023;
+    }
+
+    #pinterest:hover {
+        opacity: 0.8;
+    }
+    
+    #instagram {
+        color: transparent;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        margin-right: 12px;
+    }
+
+    #instagram:hover {
+        opacity: 0.8;
+    }
+    
+}
