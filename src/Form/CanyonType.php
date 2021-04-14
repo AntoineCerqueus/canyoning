@@ -36,7 +36,7 @@ class CanyonType extends AbstractType
             ->add('abseiling', TextType::class, ['label' => 'Rappel'])
             ->add('knowledge', TextType::class, ['label' => 'Pré-requis'])
             ->add('duration', TextType::class, ['label' => 'Durée'])
-            // ->add('file', VichImageType::class)
+            ->add('file', VichImageType::class)
             ->add('pictures', FileType::class, [
                 // Donne le nom Image et non pictures
                  'label' => 'Images',

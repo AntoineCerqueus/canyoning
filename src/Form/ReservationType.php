@@ -132,7 +132,7 @@ class ReservationType extends AbstractType
     {
         $resolver->setDefaults([
             'attr' => [
-                'novalidate' => 'novalidate', // comment me to reactivate the html5 validation! 
+                'novalidate' => 'novalidate', 
             ]
         ]);
     }
