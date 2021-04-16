@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\Length;
@@ -56,18 +56,20 @@ class ReservationType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('phone', IntegerType::class, [
-                // 'attr' => [
-                //     'oninvalid' => "setCustomValidity('Votre numéro de téléphone doit contenir 10 chiffres')"
-                // ],
-                'label' => 'Votre téléphone',
-                // 'constraints' => [
-                //     new NotBlank(),
-                //     new Length([
-                //         'min' => 10,
-                //         'max' => 10,
-                //     ]),
-                // ],
+            ->add('phone', TelType::class, [
+                'label' => 'Votre numéro de téléphone',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez rentrer votre numéro de téléphone'
+                    ]),
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                        'max' => 10,
+                        'maxMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                    ]),
+                ],
+                
             ])
             ->add('canyon',  ChoiceType::class, [
                 'label' => 'Choix du canyon',

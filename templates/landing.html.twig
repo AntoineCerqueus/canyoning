@@ -100,8 +100,10 @@
     <main class="container">
         {# TO DO Boucler sur toutes les alertes #}
         {% for message in app.flashes('success') %}
-        <div class="alert alert-succes text-center" role="alert">
-            {{ message }}
+        <div class="message-success" role="alert">
+            <p>
+                {{ message }}
+            </p>
         </div>
         {% endfor %}
         {% block main %}
@@ -120,7 +122,7 @@
                 <p class="uppercase">
                     copyright h2o canyon <br />
                     <a href="{{ path('legal_mentions') }}">mentions légales</a>
-                    | <a href="{{ path('cgv') }}">conditions générales de ventes</a>
+                    | <a href="{{ path('cgv') }}">conditions générales de vente</a>
                     | <a href="{{ path('informations') }}">informations</a>
                 </p>
 

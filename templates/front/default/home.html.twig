@@ -21,9 +21,12 @@
 
 {% endif %}
 {% if is_granted('ROLE_USER') %}
-<div class="col-md-lg-6 text-center ">
+<div class="message-success ">
     <p>Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
     <p>Vous pouvez désormais faire une demande de réservation.</p>
+    <a href="{{ path('reservation') }}" title="Réservation">
+        <div class="nav-button mb-2"><i class="fas fa-calendar-day"></i> Réservez</div>
+    </a>
 </div>
 {% endif %}
 
