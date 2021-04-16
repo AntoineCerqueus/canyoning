@@ -235,7 +235,7 @@ footer {
 
 .drop-title-age {
     position: relative;
-    top: -40px;
+    top: -55px;
     left: 7px;
 }
 
@@ -247,25 +247,25 @@ footer {
 
 .drop-title-knowledge {
     position: relative;
-    top: -12px;
+    top: -40px;
     left: 12px;
 }
 
 .drop-title-location {
     position: relative;
-    top: -14px;
+    top: -23px;
     left: 20px;
 }
 
 .drop-title-meeting-point {
     position: relative;
-    top: -14px;
+    top: -26px;
     left: 25px;
 }
 
 .drop-title-abseiling {
     position: relative;
-    top: -30px;
+    top: -55px;
     left: 16px;
 }
 
@@ -453,33 +453,25 @@ p {
     text-shadow: -1px 1px 3px #000000;
 }
 
-.alert-message-success,
-.message-success {
-    display: block;
-    width: 80%;
-    margin: 60px auto 0 auto;
-    text-align: center;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 4px #000000;
-    font-size: 0.9em;
-    box-sizing: content-box;
-}
 
 /* =======================================
                MESSAGE
 ======================================= */
 
+.alert-message-success,
 .message-success {
+    display: block;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    padding: 20px;
     font-size: 1.1em;
-    color: #ffffff;
-    background-color: rgb(0 0 0 / 10%);
+    color: #000000;
+    background-color: #34e0a1;
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px #000000;
+    box-sizing: content-box;
 }
 
-.alert-message-success {
-    background-color: #34e0a1;
-    color: #000000;
-}
 
 .form-error-icon {
     display: none;

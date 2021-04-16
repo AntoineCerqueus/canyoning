@@ -83,7 +83,7 @@ class Canyon
     private $knowledge;
 
     /** Persiste le nom des images en cascade lors de la création ou modification d'un canyon
-     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist"}) 
+     * @ORM\OneToMany(targetEntity=Picture::class, mappedBy="canyon", cascade={"persist", "remove"}) 
      */
     private $pictures;
 

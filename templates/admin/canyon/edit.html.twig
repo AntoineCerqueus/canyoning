@@ -3,9 +3,9 @@
 {% block title %}Modification de {{ canyon.name }}{% endblock %}
 
 {% block content %}
-    <h1> Modification de {{ canyon.name }}</h1>
-<div class="row">
-    <div class="middle col-md-8">
+    <h1 class="mb-5"> Modification de {{ canyon.name }}</h1>
+<div class="row justify-content-center">
+    <div class="col-md-8">
     {{ include('admin/canyon/_form.html.twig', {'button_label': 'Actualiser'}) }}
 </div>
 </div>
