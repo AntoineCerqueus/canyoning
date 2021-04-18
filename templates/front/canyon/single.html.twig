@@ -94,15 +94,18 @@
         </div>
         <div class="row drop-container duration">
             <div class="d-flex flex-column duration drop">
-                <p class="drop-title drop-title-duration">Réduit</p>
+                <p class="drop-title drop-title-duration">Réduit <strong>*</strong></p>
                 <p class="drop-text">{{ price.reduced }} euros</p>
             </div>
         </div>
         {% endfor %}
     </div>
+    <div>
+    <p class="text center"><strong>*</strong> = Étudiants / Chômeurs / - de 13 ans / Groupe 6 personnes et + </p>
+</div>
 </section>
-<section>
-    <h2 class="my-5">Disponibilités</h2>
+<section class="dispo">
+    <h2 class="py-5 mt-5">Disponibilités</h2>
     <div id="calendar">
         {# {{ dump(data) }} #}
     </div>
@@ -120,8 +123,8 @@
             </a>
         </div>
     </div>
-    <div class="text-center mt-5">
-        <div>Ou vous inscrire !<i class="far fa-smile"></i></div>
+    <div class="text-center mt-3">
+        <div>Ou vous inscrire ! <i class="far fa-smile"></i></div>
         <div>
             <a href="{{ path('app_register')}}" title="Inscription">
                 <div class="nav-button"><i class="fas fa-sign-in-alt"></i> inscription</div>

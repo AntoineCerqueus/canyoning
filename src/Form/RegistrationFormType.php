@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -55,19 +55,13 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
             ])
-            ->add('phone', IntegerType::class, [
+            ->add('phone', TelType::class, [
+                'label' => 'Votre numéro de téléphone',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Ce champ est requis',
+                        'message' => 'Veuillez rentrer votre numéro de téléphone'
                     ]),
-                    // new Length([
-                    //     'min' => 10,
-                    //     'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
-                    //     // max length allowed by Symfony for security reasons
-                    //     'max' => 10,
-                    //     'maxMessage' => 'Votre mot de passe doit contenir au maximum {{ limit }} caractères'
-                    // ]),
-                ]
+                ],
             ])
         ;
     }
@@ -76,6 +70,9 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'attr' => [
+                'novalidate' => 'novalidate', 
+            ]
         ]);
     }
 }

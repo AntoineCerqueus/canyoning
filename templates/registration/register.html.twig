@@ -12,14 +12,20 @@
         <h1>Inscription</h1>
 
         {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.lastName, {
-    'label': 'Nom',
-    'attr': {'placeholder': 'Ex : Mi'}
-        }) }}
-        {{ form_row(registrationForm.firstName, {
+        <div class="row">
+            <div class="col">
+                {{ form_row(registrationForm.firstName, {
     'label': 'Prénom',
     'attr': {'placeholder': 'Ex: Jean'}
         }) }}
+            </div>
+            <div class="col">
+                {{ form_row(registrationForm.lastName, {
+    'label': 'Nom',
+    'attr': {'placeholder': 'Ex : Mi'}
+        }) }}
+            </div>
+        </div>
         {{ form_row(registrationForm.phone, {
             'label': 'Téléphone',
             'attr': {'placeholder': '00 00 00 00 00'}

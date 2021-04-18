@@ -26,7 +26,13 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank(message= "Vous devez nous fournir une adresse mail valide svp")
+     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 60,
+     *      minMessage = "Votre e-mail doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre e-mail ne peut pas contenir plus de {{ limit }} caractères"
+     * )
      */
     private $email;
 
@@ -38,18 +44,37 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\Length(
+     *      min = 6,
+     *      max = 4094,
+     *      minMessage = "Votre mot de passe doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre mot de passe ne peut pas contenir plus de {{ limit }} caractères"
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 30,
+     *      minMessage = "Votre nom de famille doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom de famille ne peut pas contenir plus de {{ limit }} caractères"
+     * )
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 30,
+     *      minMessage = "Votre prénom doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre prénom ne peut pas contenir plus de {{ limit }} caractères"
+     * )
      */
     private $firstName;
 
@@ -65,6 +90,13 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 10,
+     *      minMessage = "Votre numéro de téléphone doit contenir au moins {{ limit }} caractères",
+     *      maxMessage = "Votre numéro de téléphone ne peut pas contenir plus de {{ limit }} caractères"
+     * )
      */
     private $phone;
 

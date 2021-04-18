@@ -1,17 +1,23 @@
 {{ form_start(form) }}
-{{ form_row(form.lastName, {
-    'label': 'Nom',
-        }) }}
-{{ form_row(form.firstName, {
+<div class="row">
+    <div class="col">
+        {{ form_row(form.firstName, {
     'label': 'Prénom',
         }) }}
+    </div>
+    <div class="col">
+        {{ form_row(form.lastName, {
+    'label': 'Nom',
+        }) }}
+    </div>
+</div>
 {{ form_row(form.email, {
     'label': 'Email',
         }) }}
 {{ form_row(form.phone, {
     'label': 'Téléphone',
         }) }}
-        <div class="row justify-content-end">
-<input type="submit" class="nav-button" value="Modifier" />
+<div class="row justify-content-end">
+    <input type="submit" class="nav-button" value="Modifier" />
 </div>
 {{ form_end(form) }}

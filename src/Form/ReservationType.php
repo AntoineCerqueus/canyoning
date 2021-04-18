@@ -69,7 +69,6 @@ class ReservationType extends AbstractType
                         'maxMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
                     ]),
                 ],
-                
             ])
             ->add('canyon',  ChoiceType::class, [
                 'label' => 'Choix du canyon',
