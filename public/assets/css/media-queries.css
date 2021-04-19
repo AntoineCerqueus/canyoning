@@ -1,18 +1,8 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
     /* ===================================
                     CAROUSEL
     =================================== */
-
-    .fc .fc-toolbar.fc-header-toolbar {
-        display: block;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* .fc-toolbar-title .fc-toolbar-chunk {
-        display: block;
-    } */
 
     .fa-angle-double-left {
         padding-right: 0px;
@@ -34,6 +24,20 @@
 
     .carousel {
         width: 100%;
+    }
+
+    /* ===================================
+                    CALENDAR
+    =================================== */
+
+    .fc .fc-toolbar.fc-header-toolbar {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h2.fc-toolbar-title {
+        margin: 10px 0 !important;
     }
 
     /* ===================================
@@ -238,6 +242,7 @@
         top: 480px;
         left: -130px;
     }
+
 }
 
 
@@ -267,7 +272,6 @@
         opacity: 0.8;
     }
 
-
     #pinterest {
         color: #e60023;
     }
@@ -287,6 +291,22 @@
 
     #instagram:hover {
         opacity: 0.8;
+    }
+
+}
+
+@media screen and (max-width: 720px) {
+
+    /* ===================================
+                    CALENDAR
+    =================================== */
+
+    a.fc-col-header-cell-cushion {
+        font-size: 0.7em;
+    }
+
+    .fc-timegrid-slot-label-cushion {
+        font-size: 0.7em;
     }
 
 }
