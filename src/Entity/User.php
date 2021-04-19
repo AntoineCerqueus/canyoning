@@ -26,7 +26,7 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\NotBlank(message= "Ce champ doit être rempli")
      * @Assert\Length(
      *      min = 8,
      *      max = 60,
@@ -44,19 +44,12 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
-     * @Assert\Length(
-     *      min = 6,
-     *      max = 4094,
-     *      minMessage = "Votre mot de passe doit contenir au moins {{ limit }} caractères",
-     *      maxMessage = "Votre mot de passe ne peut pas contenir plus de {{ limit }} caractères"
-     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\NotBlank(message= "Ce champ doit être rempli")
      * @Assert\Length(
      *      min = 2,
      *      max = 30,
@@ -68,7 +61,7 @@ class User implements UserInterface // Dis à Symfony que la table user n'est pa
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message= "Ce champ doit être rempli svp")
+     * @Assert\NotBlank(message= "Ce champ doit être rempli")
      * @Assert\Length(
      *      min = 2,
      *      max = 30,

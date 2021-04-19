@@ -28,6 +28,8 @@ class CanyonController extends AbstractController
                          // Injection de dépendance
     public function index(CanyonRepository $canyonRepository): Response
     {
+        throw $this->createAccessDeniedException('Accès non autorisé');
+        
         return $this->render('admin/canyon/index.html.twig', [
             'canyons' => $canyonRepository->findAll(),
         ]);

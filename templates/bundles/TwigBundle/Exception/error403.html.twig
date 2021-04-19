@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}H2O Canyon | Accès interdit{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-10 col-md-8">
+        <h1 class="my-5">Accès non autorisé</h1>
+        <div class="text-center">
+            <p>Nous sommes désolés, vous n'avez pas le droit d'accéder à ce contenu.</p>
+            <p>Code de l'erreur : {{ status_code }}</p>
+            <p>Message de l'erreur : {{ exception.message }}</p>
+        </div>
+        <h2 class="my-5">Retour à l'accueil</h2>
+        <a href="{{ path('home') }}" title="Accueil">
+            <div class="nav-button mb-4"><i class="fas fa-home fa-fw"></i> Accueil</div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
