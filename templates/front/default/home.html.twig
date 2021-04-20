@@ -18,19 +18,9 @@
         </div>
     </div>
 </div>
-
-{% endif %}
-{% if is_granted('ROLE_USER') %}
-<div class="message-success ">
-    <p>Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
-    <p>Vous pouvez désormais faire une demande de réservation.</p>
-    <a href="{{ path('reservation') }}" title="Réservation">
-        <div class="nav-button mb-2"><i class="fas fa-calendar-day"></i> Réservez</div>
-    </a>
-</div>
 {% endif %}
 
-<section class="text-center mb-3">
+<section class="text-center mb-3" id="presentation">
     <div class="row d-flex justify-content-around">
         <div>
             <h1 class="display-4 font-weight-bold pt-5 my-5">Venez découvrir le canyoning dans le Jura avec

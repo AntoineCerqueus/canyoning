@@ -32,11 +32,6 @@
                 <span class="span-ham"></span>
                 <span class="span-ham"></span>
                 <ul id="menu">
-                    {# {% if is_granted('ROLE_USER') %}
-                    <li class="pt-4">
-                        Bonjour {{ app.user.firstName }} !
-                    </li>
-                    {% endif %} #}
                     <li>
                         <i class="fas fa-home fa-fw"></i> <a href="{{ path('home') }}">ACCUEIL</a>
                     </li>
@@ -89,8 +84,35 @@
 
         <div id="intro">
             <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-                <div id="logo">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid apparition">
+                {% for message in app.flashes('success') %}
+                <div class="message-success" role="alert">
+                    <p>
+                        {{ message }}
+                    </p>
+                </div>
+                {% endfor %}
+                <div class="row justify-content-center">
+                    <div id="logo">
+                      
+                        {% if is_granted('ROLE_USER') %}
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid mb-5">
+                        <div class="message-success ">
+                            <p>Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
+                            <p>Vous pouvez désormais faire une demande de réservation.</p>
+                            <a href="{{ path('reservation') }}" title="Réservation">
+                                <div class="nav-button mb-2"><i class="fas fa-calendar-day"></i> Réservez</div>
+                            </a>
+                        </div>
+                        {% else %}
+                        <div class="apparition">
+                            <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon"
+                                class="img-fluid mb-5">
+                            <a href="#presentation" title="Découvrir l'activité de H20 Canyon">
+                                <div class="nav-button mt-5"><i class="far fa-eye"></i>découvrez</div>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,15 +121,7 @@
     </header>
     <main class="container">
         {# TO DO Boucler sur toutes les alertes #}
-        {% for message in app.flashes('success') %}
-        <div class="message-success" role="alert">
-            <p>
-                {{ message }}
-            </p>
-        </div>
-        {% endfor %}
         {% block main %}
-
 
         {% block content %} {% endblock %}
 
