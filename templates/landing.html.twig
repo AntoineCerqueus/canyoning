@@ -84,23 +84,20 @@
 
         <div id="intro">
             <div class="container-fluid d-flex align-items-center justify-content-center h-100">
-                {% for message in app.flashes('success') %}
-                <div class="message-success" role="alert">
-                    <p>
-                        {{ message }}
-                    </p>
-                </div>
-                {% endfor %}
                 <div class="row justify-content-center">
                     <div id="logo">
-                      
+                        {% for message in app.flashes('success') %}
+                        
+                               <p class="message-success mb-5" role="alert">{{ message }}</p> 
+                        
+                        {% endfor %}
                         {% if is_granted('ROLE_USER') %}
-                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid mb-5">
-                        <div class="message-success ">
+                        <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid my-5">
+                        <div class="message-success mb-5">
                             <p>Bonjour {{ app.user.firstName ~ ' ' ~ app.user.lastName }} !</p>
                             <p>Vous pouvez désormais faire une demande de réservation.</p>
                             <a href="{{ path('reservation') }}" title="Réservation">
-                                <div class="nav-button mb-2"><i class="fas fa-calendar-day"></i> Réservez</div>
+                                <div class="nav-button"><i class="fas fa-calendar-day"></i> Réservez</div>
                             </a>
                         </div>
                         {% else %}

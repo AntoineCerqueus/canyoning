@@ -57,7 +57,7 @@ class RegistrationController extends AbstractController
             );
             // do anything else you need here, like send an email
 
-            $this->addFlash('success', 'Un email vous a été envoyé pour confirmer votre adresse mail à fin de valider votre inscription.');
+            $this->addFlash('success', 'Un email vous a été envoyé pour confirmer votre adresse.');
             return $this->redirectToRoute('home');
         }
         

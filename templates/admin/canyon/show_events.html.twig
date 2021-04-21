@@ -4,36 +4,41 @@
 
 {% block content %}
 {# Même si l'attribut est encapsulé en privé, twig arrive a le récupérer grâce au getter (getName()) du nom du canyon #}
-<h1 class="bottom">Liste des événements de {{ canyon.name }} </h1>
+<h1 class="text-center my-5 bar">Liste des événements de {{ canyon.name }} </h1>
 <div>
     <a href="{{ path('admin_event_new', {'id':canyon.id})}}">
-        <button class="btn btn-success fixed text-body">Ajouter</button>
+        <button class="btn btn-success fixed-add text-body">Ajouter</button>
     </a>
 </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Guide</th>
+            <th>Dispo</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
     {% for event in events %}
-        <div class="row justify-content-around">
-            <div>
-                <h5>Début</h5>
-                <!-- Ici le filtre date formate le type "datetime" en string avec le format donné en paramètre -->
-                <p> {{ event.startAt|date('d-m-Y H:i') }}</p>
-            </div>
-            <div>
-                <h5>Fin</h5>
-                <p> {{ event.endAt|date('d-m-Y H:i') }}</p>
-            </div>
-            <div>
-                <h5>Guide</h5>
-                {# Récupère le prénom du guide associé à l'événement #}
-                <p> {{ event.guide.firstName }}</p>
-            </div>
-
-            <div class="actions">
-                {# la méthode path mappe la fonction associée grâce au nom de la route donné dans la fonction du controller #}
-                <a href="{{ path('admin_event_edit', {'id': event.id}) }}">
-                    <button type="button" class="btn btn-warning">Modifier</button>
-                </a>
-                <div>{{ include('admin/event/_delete_form.html.twig') }}</div>
-            </div>
-        </div>
+    <tr>
+        <td>{{ event.startAt|date('d-m-Y H:i') }}</td>
+        <td>{{ event.endAt|date('d-m-Y H:i') }}</td>
+        <td>{{ event.guide.firstName }}</td>
+        <td>{{ event.title }}</td>
+        <td class="row d-flex justify-content-around">
+            {# la méthode path mappe la fonction associée grâce au nom de la route donné dans la fonction du controller #}
+            <a href="{{ path('admin_event_edit', {'id': event.id}) }}">
+                <button type="button" class="btn btn-warning">Modifier</button>
+            </a>
+            <div>{{ include('admin/event/_delete_form.html.twig') }}</div>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">Aucune entrée trouvée</td>
+    </tr>
     {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

@@ -99,7 +99,7 @@ class Canyon
 
     /**
      * @ORM\OneToMany(targetEntity=Event::class, mappedBy="canyon")
-     * @ORM\OrderBy({"startAt" = "ASC"}) // Trie la listes des évènements en ordre croissant
+     * @ORM\OrderBy({"startAt" = "DESC"}) // Trie la listes des évènements en ordre croissant
      */
     private $events;
 

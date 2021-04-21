@@ -47,24 +47,14 @@ p{
     margin: 4vh 0;
 }
 
-.fixed{
+.fixed-add{
     position: fixed;
-    top: 120px;
+    top: 100px;
 }
 
 .blue{
     color: #007bff;
 }
-
-/* .content{
-    display: flex;
-    justify-content: space-around;
-} */
-
-/* .d-md-block{
-  
-    height: 100%;
-} */
 
 .middle{
     margin: auto;
@@ -96,3 +86,14 @@ p{
 a:hover{
     text-decoration: none;
 }
+
+/* .bar{
+    width: 100%;
+    padding: 50px;
+    background-color: #ffffff;
+    color: #01A0F4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+} */

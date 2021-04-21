@@ -57,19 +57,19 @@
 </table>
 
 
-<h3 class="center bottom">Actions</h3>
-<div class="actions bottom">
+<h3 class="text-center mb-3">Actions</h3>
+<div class="row d-flex justify-content-around mb-2">
     {# le path mappe la fonction grâce au "name" rentré #}
     <a href="{{ path('admin_canyon_edit', {'id': canyon.id}) }}">
-        <button type="button" class="btn btn-warning">Modifier</button>
+        <button type="button" class="btn btn-warning mt-4">Modifier</button>
     </a>
     <a href="{{ path('admin_canyon_show_events', {'id': canyon.id}) }}">
-        <button type="button" class="btn btn-success text-body">Gestion des évènements</button>
+        <button type="button" class="btn btn-success text-body mt-4">Gestion des évènements</button>
     </a>
     <a href="{{ path('admin_canyon_show_prices', {'id': canyon.id}) }}">
-        <button type="button" class="btn btn-success text-body">Gestion des Prix</button>
+        <button type="button" class="btn btn-success text-body mt-4">Gestion des Prix</button>
     </a>
-    <div>{{ include('admin/canyon/_delete_form.html.twig') }}</div>
+    <div class="mt-4">{{ include('admin/canyon/_delete_form.html.twig') }}</div>
 </div>
 
 {% else %}

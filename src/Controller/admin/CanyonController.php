@@ -25,11 +25,12 @@ class CanyonController extends AbstractController
     /**
      * @Route("/", name="index", methods={"GET"})
      */
-                         // Injection de dépendance
+    // Injection de dépendance
     public function index(CanyonRepository $canyonRepository): Response
     {
-        throw $this->createAccessDeniedException('Accès non autorisé');
-        
+        if (!'ROLE_ADMIN') {
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
         return $this->render('admin/canyon/index.html.twig', [
             'canyons' => $canyonRepository->findAll(),
         ]);
@@ -59,11 +60,11 @@ class CanyonController extends AbstractController
                 // md5() génére une chaine de caractère aléatoire
                 // uniqid() aussi mais basé sur le temps (timestamp)
                 // guessExtension() => Trouve l'extension du fichier
-                $fileName = md5(uniqid()) . '.' . $picture->guessExtension(); 
+                $fileName = md5(uniqid()) . '.' . $picture->guessExtension();
                 // Copie du fichier du dossier temporaire du serveur dans le dossier uploads
                 $picture->move(
                     // accède au paramètre rentré dans le fichier services.yaml (répertoire de destination)
-                    $this->getParameter('images_directory'), 
+                    $this->getParameter('images_directory'),
                     $fileName
                 );
 
@@ -79,7 +80,7 @@ class CanyonController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             // Prépare, persiste le nouvel objet avec les images en cascade
             $entityManager->persist($canyon);
-             // Stockage du nom de l'image dans la bdd
+            // Stockage du nom de l'image dans la bdd
             $entityManager->flush();
             // Retour à l'index
             return $this->redirectToRoute('admin_canyon_index');
@@ -96,11 +97,15 @@ class CanyonController extends AbstractController
      */
     public function edit(Request $request, Canyon $canyon): Response
     {
+        if (!'ROLE_ADMIN') {
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+
         $form = $this->createForm(CanyonType::class, $canyon);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           
+
             // Récupération des images transmises
             $pictures = $form->get('pictures')->getData();
             // Boucle sur un tableau $images car nous récupérons plusieurs images
@@ -174,7 +179,7 @@ class CanyonController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             // Appel de fonction remove du manager avec le nom de l'image à supprimer
             $entityManager->remove($picture);
-            // Suppression de l'image en base
+            // Suppression du nom de l'image en base
             $entityManager->flush();
 
             // Réponse en cas de succès en Json
@@ -190,6 +195,10 @@ class CanyonController extends AbstractController
      */
     public function showEvents(Canyon $canyon): Response
     {
+        if (!'ROLE_ADMIN') {
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+
         // recupère les évènements par canyon
         $events = $canyon->getEvents();
         return $this->render('admin/canyon/show_events.html.twig', [
@@ -203,6 +212,10 @@ class CanyonController extends AbstractController
      */
     public function showPrices(Canyon $canyon): Response
     {
+        if (!'ROLE_ADMIN') {
+            throw $this->createAccessDeniedException('Accès non autorisé');
+        }
+        
         // recupère les prix par canyon
         $prices = $canyon->getPrices();
         return $this->render('admin/canyon/show_prices.html.twig', [

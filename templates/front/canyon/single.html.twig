@@ -112,22 +112,22 @@
 
     {% if is_granted('ROLE_USER') %}
     <a href="{{ path('reservation') }}" title="Réservation">
-        <div class="nav-button bottom"><i class="fas fa-calendar-day"></i> Réservez</div>
+        <div class="nav-button bottom"><i class="fas fa-calendar-day"></i> réservez</div>
     </a>
     {% else %}
     <div class="text-center mt-5">
-        <div>Pour réserver, vous devez vous connecter ! <i class="far fa-smile"></i></div>
+        <div>Pour réserver, vous devez vous connecter !</div>
         <div>
             <a href="{{ path('app_login') }}" title="Connexion">
                 <div class="nav-button"><i class="fas fa-sign-in-alt"></i> connexion</div>
             </a>
         </div>
     </div>
-    <div class="text-center mt-3">
+    <div class="text-center mt-5">
         <div>Ou vous inscrire ! <i class="far fa-smile"></i></div>
         <div>
             <a href="{{ path('app_register') }}" title="Inscription">
-                <div class="nav-button"><i class="fas fa-sign-in-alt"></i> inscription</div>
+                <div class="nav-button"><i class="fas fa-user-plus fa-fw"></i> inscription</div>
             </a>
         </div>
     </div>
@@ -155,9 +155,9 @@
             firstDay: 1,
             // Positionne les éléments de la barre de navigation
             headerToolbar: {
-                left: 'dayGridMonth,timeGridWeek,dayGrid,today',
+                left: 'dayGridMonth,timeGridWeek,dayGrid',
                 center: 'title',
-                right: 'prev,next'
+                right: 'today,prev,next'
             },
             // Passe le label des boutons en français
             buttonText: {

@@ -11,20 +11,31 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('backgroundColor', ColorType::class)
-            ->add('borderColor', ColorType::class)
-            ->add('textColor', ColorType::class)
+            ->add('title', TextType::class, [
+                'label' => 'Disponibilité'
+            ])
+            ->add('backgroundColor', ColorType::class, [
+                'label' => 'Couleur de fond'
+            ])
+            ->add('borderColor', ColorType::class, [
+                'label' => 'Couleur de bordure'
+            ])
+            ->add('textColor', ColorType::class, [
+                'label' => 'Couleur du texte'
+            ])
             ->add('startAt', DateTimeType::class, [
+                'label' => 'Début',
                 'date_widget' => 'single_text'
             ])
             ->add('endAt', DateTimeType::class, [
+                'label' => 'Fin',
                 'date_widget' => 'single_text'
             ])
             // Précise de travailler avec l'attibut guide de la classe User

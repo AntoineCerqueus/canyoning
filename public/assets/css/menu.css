@@ -5,7 +5,7 @@
   position: fixed;
   top: 50px;
   right: 50px;
-  z-index: 1;
+  z-index: 2;
   -webkit-user-select: none;
   user-select: none;
   size: 100px;
@@ -37,7 +37,7 @@
 
   opacity: 0;
   /* hide this */
-  z-index: 2;
+  z-index: 3;
   /* and place it over the hamburger */
 
   -webkit-touch-callout: none;
@@ -57,7 +57,7 @@
   border-radius: 100px;
   box-shadow: 0px 2px 2px #000000;
 
-  z-index: 1;
+  z-index: 2;
 
   transform-origin: 4px 0px;
 
@@ -145,29 +145,29 @@ hr {
   position: relative;
   right: 12px;
   border-bottom: 1px solid #000000;
-	box-shadow: 0 20px 20px -20px #000000;
+  box-shadow: 0 20px 20px -20px #000000;
 }
 
-.fa-home,
-.fa-water,
-.fa-users,
-.fa-info-circle,
-.fa-phone,
-.fa-share-square,
-.fa-user,
-.fa-sign-out-alt,
-.fa-sign-in-alt,
-.fa-user-plus,
-.fa-columns {
+li .fa-home,
+li .fa-water,
+li .fa-users,
+li .fa-info-circle,
+li .fa-phone,
+li .fa-share-square,
+li .fa-user,
+li .fa-sign-out-alt,
+li .fa-sign-in-alt,
+li .fa-user-plus,
+li .fa-columns {
   text-shadow: 1px 2px 2px #000000;
 }
 
-.fa-water,
-.fa-info-circle,
-.fa-sign-in-alt{
+li .fa-water,
+li .fa-info-circle,
+li .fa-sign-in-alt {
   margin-bottom: 8px;
 }
 
-.fa-columns{
+li .fa-columns {
   margin-top: 20px;
 }
