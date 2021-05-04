@@ -313,3 +313,9 @@
     }
 
 }
+
+@media screen and (min-width: 767px){
+    #menuToggle{
+        transform: scale(1.2);
+    }
+}

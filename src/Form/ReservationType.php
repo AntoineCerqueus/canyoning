@@ -64,9 +64,9 @@ class ReservationType extends AbstractType
                     ]),
                     new Length([
                         'min' => 10,
-                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                        'minMessage' => 'Votre mot de passe doit contenir 10 numéros',
                         'max' => 10,
-                        'maxMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} caractères',
+                        'maxMessage' => 'Votre mot de passe doit contenir 10 numéros',
                     ]),
                 ],
             ])

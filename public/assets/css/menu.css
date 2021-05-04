@@ -21,9 +21,9 @@
   transition: color 0.3s ease;
 }
 
-#menuToggle a:hover {
+/* #menuToggle a:hover {
   opacity: 1;
-}
+} */
 
 #menuToggle input {
   display: block;
@@ -53,7 +53,7 @@
   margin-bottom: 5px;
   position: relative;
 
-  background-color: #0159AF;
+  background-color: #ffffff;
   border-radius: 100px;
   box-shadow: 0px 2px 2px #000000;
 
@@ -80,7 +80,7 @@
 #menuToggle input:checked~span {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background-color: #00a0f4;
+  background-color: #ffffff;
 
 }
 

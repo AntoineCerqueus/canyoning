@@ -17,15 +17,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class CanyonController extends AbstractController
 {
-    // INJECTION DE DEPENDANCE (merci le service container)
-    // Cette fonction dépends de la fonction findAll de canyonRepository.
-    // Donc au lieu d'instancier nous même un repo avec $canyonRepository = $this->getDoctrine()->getRepository(Canyon::class);
-    // on le lui injecte en paramètre en précisant qu'il fonctionnera avec une instance de la classe CanyonRepository
-    // (Ne pas oublier le use pour que php comprenne ce que nous voulons utiliser)
     /**
      * @Route("/", name="index", methods={"GET"})
      */
-    // Injection de dépendance
+                          // Injection de dépendance
     public function index(CanyonRepository $canyonRepository): Response
     {
         if (!'ROLE_ADMIN') {
