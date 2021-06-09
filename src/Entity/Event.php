@@ -65,6 +65,11 @@ class Event
      */
     private $textColor;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $availableSlots;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -206,6 +211,18 @@ class Event
     public function setTextColor(string $textColor): self
     {
         $this->textColor = $textColor;
+
+        return $this;
+    }
+
+    public function getAvailableSlots(): ?int
+    {
+        return $this->availableSlots;
+    }
+
+    public function setAvailableSlots(?int $availableSlots): self
+    {
+        $this->availableSlots = $availableSlots;
 
         return $this;
     }

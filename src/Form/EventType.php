@@ -11,16 +11,21 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, [
-                'label' => 'Disponibilité'
-            ])
+        ->add('title', ChoiceType::class, [
+            'label' => 'Disponibilité',
+            'choices' => [
+                'Disponible' => 'Disponible',
+                'Complet' => 'Complet'
+            ]
+        ])
             ->add('backgroundColor', ColorType::class, [
                 'label' => 'Couleur de fond'
             ])
@@ -50,6 +55,9 @@ class EventType extends AbstractType
                 'label' => 'Guide',
                 // Ajoute un champ sélecteur pour choisir le guide associé au canyon affiché par prénom
                 'choice_label' => 'firstName'
+            ])
+            ->add('availableSlots', IntegerType::class, [
+                'label' => 'Places restantes'
             ]);
     }
 
