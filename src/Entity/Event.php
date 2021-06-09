@@ -66,7 +66,7 @@ class Event
     private $textColor;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=2, nullable=false)
      */
     private $availableSlots;
 

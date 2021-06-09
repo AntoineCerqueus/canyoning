@@ -101,13 +101,17 @@
         {% endfor %}
     </div>
     <div>
-        <p class="text center"><strong>*</strong> = Étudiants / Chômeurs / - de 13 ans / Groupe 6 personnes et + </p>
+        <p class="text center"><strong>*</strong> = Étudiants / Chômeurs / - de 13 ans / Groupe de 6 personnes et + </p>
     </div>
 </section>
 <section class="dispo">
-    <h2 class="py-5 mt-5">Disponibilités</h2>
+    <h2 class="pt-5 mt-5">Disponibilités</h2>
+    <p class="text-center mb-5">
+        (Cliquez sur l'événement pour voir les places disponibles)
+    </p>
+
     <div id="calendar">
-        {# {{ dump(data) }} #}
+        <!-- {{ dump(data) }}  -->
     </div>
 
     {% if is_granted('ROLE_USER') %}
@@ -168,7 +172,7 @@
             },
             eventDisplay: 'block',
             eventClick: function (info) {
-                alert('Événement ' + info.event.title);
+                alert('Places disponibles : ' + info.event.extendedProps.availableSlots);
                 // change the border color just for fun
                 info.el.style.borderColor = 'red';
             },

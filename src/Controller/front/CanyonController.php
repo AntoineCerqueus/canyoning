@@ -38,6 +38,7 @@ class CanyonController extends AbstractController
             $sessions[] = [
                 'id' => $event->getId(),
                 'title' => $event->getTitle(),
+                'availableSlots' => $event->getAvailableSlots(),
                 'start' => $event->getStartAt()->format('Y-m-d H:i'), // convertit l'objet datetime en string
                 'end' => $event->getEndAt()->format('Y-m-d H:i'),
                 'textColor' => $event->getTextColor(),
