@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EventType extends AbstractType
@@ -20,10 +19,10 @@ class EventType extends AbstractType
     {
         $builder
         ->add('title', ChoiceType::class, [
-            'label' => 'Disponibilité',
+            'label' => 'Quand',
             'choices' => [
-                'Disponible' => 'Disponible',
-                'Complet' => 'Complet'
+                'Matin' => 'Matin',
+                'Après-midi' => 'Après-midi'
             ]
         ])
             ->add('backgroundColor', ColorType::class, [

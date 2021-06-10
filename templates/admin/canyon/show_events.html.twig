@@ -15,8 +15,8 @@
         <tr>
             <th>Début</th>
             <th>Fin</th>
+            <th>Quand</th>
             <th>Guide</th>
-            <th>Dispo</th>
             <th>Places restantes</th>
             <th class="text-center">Actions</th>
         </tr>
@@ -25,8 +25,8 @@
     <tr>
         <td>{{ event.startAt|date('d-m-Y H:i') }}</td>
         <td>{{ event.endAt|date('d-m-Y H:i') }}</td>
-        <td>{{ event.guide.firstName }}</td>
         <td>{{ event.title }}</td>
+        <td>{{ event.guide.firstName }}</td>
         <td>{{ event.availableSlots }}</td>
         <td class="row d-flex justify-content-around">
             {# la méthode path mappe la fonction associée grâce au nom de la route donné dans la fonction du controller #}
