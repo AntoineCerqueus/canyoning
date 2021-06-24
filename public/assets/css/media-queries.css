@@ -264,12 +264,21 @@
          opacity: 0.8;
      }
 
+     /* .wrapper-insta{
+         display: inline-block;
+     } */
+
      #instagram {
+        
          color: transparent;
          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
          background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+         background: -moz-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
          background-clip: text;
          -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         /* box-decoration-break: clone;
+         -webkit-box-decoration-break: clone; */
          margin-right: 12px;
      }
 
