@@ -4,7 +4,7 @@
   display: block;
   position: fixed;
   top: 50px;
-  right: 50px;
+  right: 25px;
   z-index: 2;
   -webkit-user-select: none;
   user-select: none;
@@ -20,10 +20,6 @@
   color: #ffffff;
   transition: color 0.3s ease;
 }
-
-/* #menuToggle a:hover {
-  opacity: 1;
-} */
 
 #menuToggle input {
   display: block;
