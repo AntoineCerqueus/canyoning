@@ -20,59 +20,58 @@
 </div>
 {% endif %}
 
-<section class="text-center mb-3">
-    <div class="row d-flex justify-content-around">
-        <div>
-            <h1 id="presentation"class="display-4 font-weight-bold pt-5 my-5">Venez découvrir le canyoning dans le Jura avec
-              <strong><span class="light-blue">H</span><span class="smaller">2</span><span class="dark-blue">O Canyon</span></strong></h1>
-        </div>
-        <div class="row justify-content-around">
-            <div class="col-lg-6">
-                <h2 class="my-5 font-weight-bold">Jetez-vous à l'eau ...</h2>
-                <div class="pl-2 pr-2">
-                    <img src="{{ asset('assets/images/malvaux/malvaux_02.jpg') }}" class="cover img-fluid"
-                        alt="plongeon">
-                </div>
-                <div class="mt-5">
-                    <p>
-                        À 1h15 de Besançon et de Lausanne et à 1h30 de Dijon. <br />
-                        Également à proximité des Rousses, de Clairvaux-les-lacs, de Saint Claude et de Métabief.
-                    </p>
-                </div>
-                <div>
-                    <a href="{{ path('canyons_index') }}" title="Découvrez les canyons">
-                        <div class="nav-button"><i class="far fa-eye"></i>les canyons</div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <h2 class="my-5 font-weight-bold">... en toute sécurité</h2>
-                <div class="pl-2 pr-2">
-                    <img src="assets/images/coiserette/coiserette_06_resize.jpg" class="cover img-fluid" alt="guide">
-                </div>
-                <div class="mt-5">
-                    <p>
-                        Laissez vous guider par des professionels diplômés d’état <br />
-                        pour découvrir le canyoning dans le Jura. Vous ne le regretterez pas !
-                    </p>
-                </div>
-                <div>
-                    <a href="{{ path('guides') }}" title="Découvrez l'équipe">
-                        <div class="nav-button"><i class="far fa-eye"></i>l'équipe</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section>
-    <h2 class="mt-5 font-weight-bold text-center">Présentation</h2>
+    <div class="row d-flex justify-content-around">
+        <h1 id="presentation" class="display-4 font-weight-bold my-5">Découvrez le canyoning dans le Jura
+            avec <br/>
+            <strong><span class="light-blue">H</span><span class="smaller">2</span><span class="dark-blue">O
+                    Canyon</span></strong></h1>
+    </div>
+    <h2 class="font-weight-bold text-center">Présentation</h2>
     <div class="videoWrapper">
         <iframe width="560" height="349" src="https://www.youtube.com/embed/WV7l0Azpz50" frameborder="0"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </a>
+    </div>
+</section>
+
+<section class="text-center mb-3">
+    <div class="row justify-content-around">
+        <div class="col-lg-6">
+            <h2 class="my-5 font-weight-bold">Jetez-vous à l'eau ...</h2>
+            <div class="pl-3 pr-3">
+                <img src="{{ asset('assets/images/malvaux/malvaux_02.jpg') }}" class="cover img-fluid" alt="plongeon">
+            </div>
+            <div class="mt-5">
+                <p>
+                    À 1h15 de Besançon et de Lausanne et à 1h30 de Dijon. <br />
+                    Également à proximité des Rousses, de Clairvaux-les-lacs, de Saint Claude et de Métabief.
+                </p>
+            </div>
+            <div>
+                <a href="{{ path('canyons_index') }}" title="Découvrez les canyons">
+                    <div class="nav-button"><i class="far fa-eye"></i>les canyons</div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <h2 class="my-5 font-weight-bold">... en toute sécurité</h2>
+            <div class="pl-3 pr-3">
+                <img src="assets/images/coiserette/coiserette_06_resize.jpg" class="cover img-fluid" alt="guide">
+            </div>
+            <div class="mt-5">
+                <p>
+                    Laissez vous guider par des professionels diplômés d’état <br />
+                    pour découvrir le canyoning dans le Jura. Vous ne le regretterez pas !
+                </p>
+            </div>
+            <div>
+                <a href="{{ path('guides') }}" title="Découvrez l'équipe">
+                    <div class="nav-button"><i class="far fa-eye"></i>l'équipe</div>
+                </a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -90,10 +89,9 @@
                 class="fab fa-youtube contact-logos col-sm-4 mb-3"></i></a>
         <a id="pinterest" href="https://www.pinterest.fr/h2ocanyon/" target="_blank"><i
                 class="fab fa-pinterest-p contact-logos col-sm-4 mb-3"></i></a>
-       <a id="instagram" href="https://www.instagram.com/h2o_canyon" target="_blank"><i
+        <a id="instagram" href="https://www.instagram.com/h2o_canyon" target="_blank"><i
                 class="fab fa-instagram contact-logos"></i></a>
 </section>
-
 
 {% endblock %}
 
