@@ -26,6 +26,18 @@ body {
     background-size: cover;
 }
 
+.light-blue{
+    color: #01A0F4;
+}
+
+.smaller{
+    font-size: 0.7em;
+}
+
+.dark-blue{
+    color: #0159AF;
+}
+
 a {
     color: #ffffff;
     text-decoration: none;
