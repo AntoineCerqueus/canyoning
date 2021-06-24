@@ -1,5 +1,6 @@
 html {
     font-size: 1.2rem;
+    
 }
 
 body {
@@ -18,12 +19,14 @@ body {
 }
 
 #intro {
-    background: url("../images/jura.jpg")no-repeat center fixed;
+    background: url("../images/jura.jpg") no-repeat center center fixed;
     height: 100vh;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100%;
+    overflow: hidden;
 }
 
 .light-blue{

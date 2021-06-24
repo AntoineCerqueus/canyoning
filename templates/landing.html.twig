@@ -84,13 +84,11 @@
         {% endblock %}
 
         <div id="intro">
-            <div class="container-fluid d-flex align-items-center justify-content-center h-100">
+            <div class="d-flex align-items-center justify-content-center h-100">
                 <div class="row justify-content-center">
                     <div id="logo">
                         {% for message in app.flashes('success') %}
-                        
                                <p class="message-success mb-5" role="alert">{{ message }}</p> 
-                        
                         {% endfor %}
                         {% if is_granted('ROLE_USER') %}
                         <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid my-5">
@@ -104,7 +102,7 @@
                         {% else %}
                         <div class="apparition">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon"
-                                class="img-fluid mb-5 pl-2 pr-2">
+                                class="img-fluid mb-5 pl-4 pr-4">
                             <a href="#presentation" title="Découvrir l'activité de H20 Canyon">
                                 <div class="nav-button mt-5"><i class="far fa-eye"></i>découvrez</div>
                             </a>
