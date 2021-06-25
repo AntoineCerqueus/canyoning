@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name= "robots" content= "noindex, nofollow"/>
+    <meta name="robots" content="noindex, nofollow" />
     <title>{% block title %}H2O Canyon{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -35,7 +35,7 @@
                     </li>
                     <hr class="hr-light">
                     <li>
-                         <i class="fas fa-water fa-fw"></i> <a href="{{ path('canyons_index') }}">CANYONS</a>
+                        <i class="fas fa-water fa-fw"></i> <a href="{{ path('canyons_index') }}">CANYONS</a>
                     </li>
                     <li>
                         <i class="fas fa-users fa-fw"></i> <a href="{{ path('guides') }}">GUIDES</a>
@@ -50,11 +50,12 @@
                     <hr>
                     {% if is_granted('ROLE_USER') %}
                     <li>
-                        <i class="fas fa-share-square fa-fw"></i> <a href="{{ path('reservation') }}">RÉSERVATION</a> 
+                        <i class="fas fa-share-square fa-fw"></i> <a href="{{ path('reservation') }}">RÉSERVATION</a>
                     </li>
                     <hr>
                     <li>
-                        <i class="fas fa-user fa-fw"></i> <a href="{{ path('user_edit', {'id' : app.user.id} ) }}">COMPTE (gestion)</a> 
+                        <i class="fas fa-user fa-fw"></i> <a
+                            href="{{ path('user_edit', {'id' : app.user.id} ) }}">COMPTE (gestion)</a>
                     </li>
                     <hr>
                     <li>
@@ -70,7 +71,8 @@
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
                     <li>
-                        <i class="fas fa-columns fa-fw"></i> <a href="{{ path('admin_canyon_index') }}">TABLEAU DE BORD</a>
+                        <i class="fas fa-columns fa-fw"></i> <a href="{{ path('admin_canyon_index') }}">TABLEAU DE
+                            BORD</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -79,17 +81,15 @@
         </nav>
         {% endblock %}
         <div class="container text-center">
-            <div>
-                <a href="{{ path('home') }}">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid my-3">
-                </a>
-            </div>
+            <a href="{{ path('home') }}">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid my-3 px-4">
+            </a>
         </div>
     </header>
     <main class="container">
         {# TO DO Boucler sur toutes les alertes #}
         {% for message in app.flashes('success') %}
-        <div class="alert alert-succes text-center" role="alert">
+        <div class="alert alert-succes text-center mx-4" role="alert">
             {{ message }}
         </div>
         {% endfor %}
@@ -127,7 +127,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
-        {% block javascripts %}{% endblock %}
+    {% block javascripts %}{% endblock %}
 </body>
 
 </html>

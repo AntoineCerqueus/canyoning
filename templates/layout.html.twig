@@ -81,7 +81,7 @@
         <div class="container text-center">
             <div>
                 <a href="{{ path('home') }}">
-                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid space">
+                    <img src="{{ asset('assets/images/logo.png') }}" alt="logo H2O Canyon" class="img-fluid space px-4">
                 </a>
             </div>
         </div>
@@ -89,7 +89,7 @@
     <main class="container">
         {# TO DO BOucler sur toutes les alertes #}
         {% for message in app.flashes('success') %}
-        <div class="alert alert-succes text-center" role="alert">
+        <div class="alert alert-succes text-center mx-4" role="alert">
             {{ message }}
         </div>
         {% endfor %}
